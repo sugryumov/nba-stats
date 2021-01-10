@@ -1,0 +1,44 @@
+import React from 'react';
+import Chip from '@material-ui/core/Chip';
+import Cancel from '@material-ui/icons/Cancel';
+import { colors } from 'helpers/theme';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  root: {
+    marginRight: '10px',
+  },
+  wrapper: {
+    margin: '20px 0',
+  },
+});
+
+const ChangedPlayerChip = ({ changedPlayers, setChangedPlayers }) => {
+  const classes = useStyles();
+
+  const renderChips = changedPlayers.map((option, index) => {
+    const { id, first_name, last_name } = option;
+    const color = colors[index % colors.length];
+
+    const onDeleteHandler = () => {
+      setChangedPlayers(changedPlayers.filter(player => player !== option));
+    };
+
+    return (
+      <Chip
+        key={id}
+        variant="outlined"
+        className={classes.root}
+        style={{ color, borderColor: color }}
+        label={`${first_name} ${last_name} `}
+        deleteIcon={<Cancel style={{ color }} />}
+        onDelete={onDeleteHandler}
+        onClick={onDeleteHandler}
+      />
+    );
+  });
+
+  return <div className={classes.wrapper}>{renderChips}</div>;
+};
+
+export default ChangedPlayerChip;

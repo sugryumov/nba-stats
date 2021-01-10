@@ -4,6 +4,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import { colors } from 'helpers/theme';
 import './index.css';
 
 const SeasonAveragesItem = ({ playerFullInfo }) => {
@@ -89,11 +90,15 @@ const SeasonAveragesItem = ({ playerFullInfo }) => {
 
   return (
     <>
-      {playerFullInfo?.map(info => {
+      {playerFullInfo?.map((info, idx) => {
         const { id, last_name, first_name, position, team } = info;
 
         return (
-          <div key={id} className="season-averages-item">
+          <div
+            key={id}
+            className="season-averages-item"
+            style={{ color: colors[idx] }}
+          >
             <p className="season-averages__full-name">
               {`${first_name} ${last_name} `}
             </p>

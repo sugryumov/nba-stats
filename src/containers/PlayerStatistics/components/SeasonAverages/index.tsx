@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getSeasonAveragesData } from 'common/selectors/Statistics/seasonAverages';
-import { getChangedPlayers } from 'common/selectors/Statistics/searchPlayers';
 import SeasonAveragesItem from './SeasonAveragesItem';
 import './index.css';
 
-const SeasonAverages = () => {
+const SeasonAverages = ({ changedPlayers }) => {
   const [playerFullInfo, setPlayerFullInfo] = useState<any>(null);
 
   const seasonAveragesData = useSelector(getSeasonAveragesData);
-  const changedPlayers = useSelector(getChangedPlayers);
 
   useEffect(() => {
     const concatPlayerInfo = changedPlayers?.reduce((acc, currentPlayer) => {
