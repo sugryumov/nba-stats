@@ -15,7 +15,6 @@ class Network extends Instance {
     return this.send('get', `/players`, { params });
   }
 
-  // Statystics
   async seasonAverages(params): TAxios {
     return this.send('get', `/season_averages`, { params });
   }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { TPlayer } from 'interfaces';
@@ -7,8 +7,11 @@ import {
   getSearchPlayersData,
   getSearchPlayersLoading,
 } from 'common/selectors/Statistics/searchPlayers';
+import { changedPlayerAction } from 'containers/PlayerStatistics/store/SearchPlayer/actions';
 
-const SearchPlayer = ({ setChangedPlayer, onFinishSearch }) => {
+const SearchPlayer = ({ onFinishSearch }) => {
+  const dispatch = useDispatch();
+
   const [openOptionsList, setOpenOptionsList] = useState<boolean>(false);
   const [searchInputValue, setSearchInputValue] = useState<string>('');
   const [options, setOptions] = useState<TPlayer[]>([]);
@@ -41,6 +44,10 @@ const SearchPlayer = ({ setChangedPlayer, onFinishSearch }) => {
   const getOptionSelected = (option, value) =>
     option.first_name === value.first_name;
 
+  const onChangeHandler = (_, value) => {
+    dispatch(changedPlayerAction(value));
+  };
+
   const renderInput = params => {
     return (
       <TextField
@@ -64,6 +71,7 @@ const SearchPlayer = ({ setChangedPlayer, onFinishSearch }) => {
   return (
     <Autocomplete
       multiple
+      forcePopupIcon={false}
       open={openOptionsList && searchInputValue.length !== 0}
       onOpen={onOpenHandler}
       onClose={onCloseHandler}
@@ -72,7 +80,7 @@ const SearchPlayer = ({ setChangedPlayer, onFinishSearch }) => {
       getOptionLabel={getOptionLabel}
       getOptionSelected={getOptionSelected}
       loading={playerLoading}
-      onChange={(_, value) => setChangedPlayer(value)}
+      onChange={onChangeHandler}
       renderInput={renderInput}
     />
   );

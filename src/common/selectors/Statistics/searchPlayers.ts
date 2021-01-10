@@ -8,3 +8,6 @@ export const getSearchPlayersLoading = (state: IState) =>
 
 export const getSearchPlayersError = (state: IState) =>
   state.statistics.searchPlayer.error;
+
+export const getChangedPlayers = (state: IState) =>
+  state.statistics.searchPlayer.changedPlayer;

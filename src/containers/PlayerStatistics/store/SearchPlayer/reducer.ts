@@ -1,5 +1,5 @@
 import { createReducer, getType } from 'typesafe-actions';
-import { searchPlayerAction } from './actions';
+import { changedPlayerAction, searchPlayerAction } from './actions';
 import { ISearchPlayer } from './entities';
 
 const initialState: ISearchPlayer = {
@@ -15,6 +15,7 @@ const initialState: ISearchPlayer = {
   },
   error: null,
   loading: false,
+  changedPlayer: null,
 };
 
 export const searchPlayerReducer = createReducer(initialState, {
@@ -34,6 +35,7 @@ export const searchPlayerReducer = createReducer(initialState, {
     loading: true,
   }),
   [getType(searchPlayerAction.success)]: (state, { payload }) => ({
+    ...state,
     response: payload,
     error: null,
     loading: false,
@@ -42,5 +44,10 @@ export const searchPlayerReducer = createReducer(initialState, {
     ...state,
     error: payload,
     loading: false,
+  }),
+
+  [getType(changedPlayerAction)]: (state, { payload }) => ({
+    ...state,
+    changedPlayer: payload,
   }),
 });
