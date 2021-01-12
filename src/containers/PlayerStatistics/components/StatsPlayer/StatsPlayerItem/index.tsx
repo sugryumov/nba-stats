@@ -5,9 +5,27 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import { colors } from 'helpers/theme';
-import './index.css';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  container: {
+    marginTop: '30px',
+  },
+  name: {
+    fontSize: '18px',
+    marginBottom: '5px',
+  },
+  info: {
+    fontSize: '14px',
+  },
+  table: {
+    overflowX: 'auto',
+  },
+});
 
 const StatsPlayerItem = ({ playerFullInfo }) => {
+  const classes = useStyles();
+
   const renderTableHead = () => {
     return (
       <TableHead>
@@ -96,17 +114,15 @@ const StatsPlayerItem = ({ playerFullInfo }) => {
         return (
           <div
             key={id}
-            className="stats-player-item"
+            className={classes.container}
             style={{ color: colors[idx % colors.length] }}
           >
-            <p className="stats-player-item__full-name">
-              {`${first_name} ${last_name} `}
-            </p>
-            <p className="stats-player-item__info">{`Position: ${
+            <p className={classes.name}>{`${first_name} ${last_name} `}</p>
+            <p className={classes.info}>{`Position: ${
               position ? position : '-'
             } | Team: ${team.abbreviation}`}</p>
 
-            <div className="stats-player-item__table">
+            <div className={classes.table}>
               <Table>
                 {renderTableHead()}
                 {renderTableBody(info)}

@@ -7,7 +7,6 @@ import { seasonAveragesAction } from './store/SeasonAverages/actions';
 import SearchPlayer from './components/SearchPlayer';
 import StatsPlayer from './components/StatsPlayer';
 import ChangedPlayerChip from './components/ChangedPlayerChip';
-import './index.css';
 
 const PlayerStatisticContainer = () => {
   const dispatch = useDispatch();
@@ -27,7 +26,7 @@ const PlayerStatisticContainer = () => {
   }, [dispatch, changedPlayers]);
 
   return (
-    <div className="player-statistic-container">
+    <>
       <SearchPlayer
         onFinishSearch={onFinishSearch}
         changedPlayers={changedPlayers}
@@ -42,7 +41,7 @@ const PlayerStatisticContainer = () => {
       {changedPlayers?.length ? (
         <StatsPlayer changedPlayers={changedPlayers} />
       ) : null}
-    </div>
+    </>
   );
 };
 

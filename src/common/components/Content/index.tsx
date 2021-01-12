@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, RouteProps, Switch } from 'react-router-dom';
 import { pages } from './constants';
 
-const Routing = () => {
+const Content = () => {
   return (
     <Switch>
       {pages.map((props: RouteProps, idx) => (
@@ -12,4 +12,4 @@ const Routing = () => {
   );
 };
 
-export default Routing;
+export default Content;

@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  padding-bottom: 50px;
 }
 
 h1,
@@ -24,9 +23,4 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.container {
-  max-width: 1320px;
-  margin: 0 auto;
 }

@@ -1,12 +1,50 @@
 import React from 'react';
-import Navigation from 'common/components/Navigation';
-import './index.css';
+import { makeStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import Brightness3Icon from '@material-ui/icons/Brightness3';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
+import { ITheme } from 'interfaces/theme';
+import Navigation from './components/Navigation';
 
-const Header = () => {
+const useStyles = makeStyles((theme: ITheme) => ({
+  header: {
+    backgroundColor: theme.palette.backgroundHeader,
+    marginBottom: '50px',
+    borderBottom: `1px solid ${theme.palette.color}`,
+  },
+  container: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    maxWidth: theme.maxWidth,
+    margin: theme.margin,
+  },
+  icon: {
+    color: theme.palette.color,
+  },
+}));
+
+const Header = ({ theme, setTheme }) => {
+  const classes = useStyles();
+
+  const icon = theme ? (
+    <Brightness3Icon className={classes.icon} />
+  ) : (
+    <Brightness7Icon className={classes.icon} />
+  );
+
+  const onClickThemeHandler = () => {
+    setTheme(!theme);
+  };
+
   return (
-    <header className="header-app">
-      <div className="container">
+    <header className={classes.header}>
+      <div className={classes.container}>
         <Navigation />
+
+        <IconButton edge="end" onClick={onClickThemeHandler}>
+          {icon}
+        </IconButton>
       </div>
     </header>
   );
