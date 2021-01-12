@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { ITheme } from 'interfaces/theme';
-import { getSeasonAveragesData } from 'common/selectors/Statistics/seasonAverages';
+import {
+  getSeasonAveragesData,
+  getSeasonAveragesLoading,
+} from 'common/selectors/Statistics/seasonAverages';
+import Spinner from 'common/components/Spinner';
 import StatsPlayerItem from './StatsPlayerItem';
 
 const useStyles = makeStyles((theme: ITheme) => ({
@@ -10,7 +14,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
   title: {
     paddingTop: '50px',
     textAlign: 'center',
-    color: theme.palette.primaryColor,
+    color: theme.palette.textColor,
   },
 }));
 
@@ -20,6 +24,7 @@ const StatsPlayer = ({ changedPlayers }) => {
   const [playerFullInfo, setPlayerFullInfo] = useState<any>(null);
 
   const seasonAveragesData = useSelector(getSeasonAveragesData);
+  const seasonAveragesLoading = useSelector(getSeasonAveragesLoading);
 
   useEffect(() => {
     const concatPlayerInfo = changedPlayers?.reduce((acc, currentPlayer) => {
@@ -40,7 +45,11 @@ const StatsPlayer = ({ changedPlayers }) => {
     <div className={classes.container}>
       <h1 className={classes.title}>'20 - '21 SEASON AVERAGES</h1>
 
-      <StatsPlayerItem playerFullInfo={playerFullInfo} />
+      {seasonAveragesLoading ? (
+        <Spinner />
+      ) : (
+        <StatsPlayerItem playerFullInfo={playerFullInfo} />
+      )}
     </div>
   );
 };
