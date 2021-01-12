@@ -13,18 +13,19 @@ export const colors = [
 const general: IGeneralStyle = {
   maxWidth: '1320px',
   margin: '0 auto',
-  link: 'rgba(255, 255, 255, 0.5)',
-  activeLink: '#ffffff',
 };
 
 export const light: ITheme = {
   ...general,
   palette: {
     type: 'light',
-    primaryColor: '#051c2d',
+    primaryColor: '#1a1a1a',
+    secondaryColor: '#1976d2',
     backgroundHeader: '#1976d2',
-    backgroundBody: '#ffffff',
-    color: '#ffffff',
+    backgroundBody: '#f7f7f7',
+    textColor: '#1a1a1a',
+    linkColor: 'rgba(255, 255, 255, 0.5)',
+    activeLinkColor: '#ffffff',
   },
 };
 
@@ -32,9 +33,12 @@ export const dark: ITheme = {
   ...general,
   palette: {
     type: 'dark',
-    primaryColor: '#ffffff',
-    backgroundHeader: '#051c2d',
-    backgroundBody: '#051c2d',
-    color: '#ffffff',
+    primaryColor: '#f7f7f7',
+    secondaryColor: '#1976d2',
+    backgroundHeader: '#212121',
+    backgroundBody: '#1a1a1a',
+    textColor: '#f7f7f7',
+    linkColor: 'rgba(255, 255, 255, 0.5)',
+    activeLinkColor: '#ffffff',
   },
 };

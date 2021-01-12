@@ -2,17 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CircularProgress, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import { ITheme } from 'interfaces/theme';
 import { TPlayer } from 'interfaces';
 import {
   getSearchPlayersData,
   getSearchPlayersLoading,
 } from 'common/selectors/Statistics/searchPlayers';
 
+const useStyles = makeStyles((theme: ITheme) => ({
+  search: {
+    '& .MuiInputLabel-root.Mui-focused': {
+      color: theme.palette.primaryColor,
+    },
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: theme.palette.primaryColor,
+    },
+  },
+}));
+
 const SearchPlayer = ({
   onFinishSearch,
   changedPlayers,
   setChangedPlayers,
 }) => {
+  const classes = useStyles();
+
   const [openOptionsList, setOpenOptionsList] = useState<boolean>(false);
   const [searchInputValue, setSearchInputValue] = useState<string>('');
   const [options, setOptions] = useState<TPlayer[]>([]);
@@ -72,6 +87,7 @@ const SearchPlayer = ({
   return (
     <Autocomplete
       multiple
+      className={classes.search}
       value={changedPlayers}
       closeIcon={false}
       forcePopupIcon={false}

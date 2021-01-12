@@ -1,16 +1,17 @@
 export interface IGeneralStyle {
   maxWidth: string;
   margin: string;
-  link: string;
-  activeLink: string;
 }
 
 export interface ITheme extends IGeneralStyle {
   palette: {
-    type: string;
+    type: 'light' | 'dark';
     primaryColor: string;
+    secondaryColor: string;
     backgroundHeader: string;
     backgroundBody: string;
-    color: string;
+    textColor: string;
+    linkColor: string;
+    activeLinkColor: string;
   };
 }

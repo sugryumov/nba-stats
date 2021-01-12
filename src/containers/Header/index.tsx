@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme: ITheme) => ({
   header: {
     backgroundColor: theme.palette.backgroundHeader,
     marginBottom: '50px',
-    borderBottom: `1px solid ${theme.palette.color}`,
   },
   container: {
     display: 'flex',
@@ -20,7 +19,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
     margin: theme.margin,
   },
   icon: {
-    color: theme.palette.color,
+    color: theme.palette.activeLinkColor,
   },
 }));
 
@@ -34,7 +33,7 @@ const Header = ({ theme, setTheme }) => {
   );
 
   const onClickThemeHandler = () => {
-    setTheme(!theme);
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   return (

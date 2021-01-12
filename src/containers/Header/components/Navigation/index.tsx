@@ -18,10 +18,10 @@ const useStyles = makeStyles((theme: ITheme) => ({
     },
   },
   link: {
-    color: theme.link,
+    color: theme.palette.linkColor,
   },
   activeLink: {
-    color: theme.activeLink,
+    color: theme.palette.activeLinkColor,
   },
 }));
 
