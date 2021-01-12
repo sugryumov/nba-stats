@@ -5,8 +5,8 @@ import { colors } from 'helpers/theme';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  root: {
-    marginRight: '10px',
+  chip: {
+    margin: '0 10px 10px 0',
   },
   wrapper: {
     margin: '20px 0',
@@ -28,7 +28,7 @@ const ChangedPlayerChip = ({ changedPlayers, setChangedPlayers }) => {
       <Chip
         key={id}
         variant="outlined"
-        className={classes.root}
+        className={classes.chip}
         style={{ color, borderColor: color }}
         label={`${first_name} ${last_name} `}
         deleteIcon={<Cancel style={{ color }} />}

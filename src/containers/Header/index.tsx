@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
     alignItems: 'center',
     maxWidth: theme.maxWidth,
     margin: theme.margin,
+    padding: '0 16px',
   },
   icon: {
     color: theme.palette.activeLinkColor,
