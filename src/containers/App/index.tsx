@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { dark, light } from 'helpers/theme';
@@ -6,14 +6,24 @@ import Header from 'containers/Header';
 import Content from 'common/components/Content';
 import './index.css';
 
-function App() {
-  const [theme, setTheme] = useState<boolean>(false);
+const getLocalStorageThemeKey = (): string => {
+  return localStorage.getItem('theme') !== null
+    ? localStorage.getItem('theme')!
+    : 'dark';
+};
 
-  const appliedTheme: any = createMuiTheme(theme ? (light as any) : dark);
+function App() {
+  const [theme, setTheme] = useState<string>(getLocalStorageThemeKey());
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const appliedTheme: any = createMuiTheme(theme === 'light' ? light : dark);
 
   const styleBody = {
     backgroundColor: appliedTheme.palette.backgroundBody,
-    paddingBottom: '100px',
+    minHeight: '100vh',
   };
 
   const styleContainer = {
