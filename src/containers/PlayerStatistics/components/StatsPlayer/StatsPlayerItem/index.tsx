@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import { colors } from 'helpers/theme';
 import './index.css';
 
-const SeasonAveragesItem = ({ playerFullInfo }) => {
+const StatsPlayerItem = ({ playerFullInfo }) => {
   const renderTableHead = () => {
     return (
       <TableHead>
@@ -96,17 +96,17 @@ const SeasonAveragesItem = ({ playerFullInfo }) => {
         return (
           <div
             key={id}
-            className="season-averages-item"
-            style={{ color: colors[idx] }}
+            className="stats-player-item"
+            style={{ color: colors[idx % colors.length] }}
           >
-            <p className="season-averages__full-name">
+            <p className="stats-player-item__full-name">
               {`${first_name} ${last_name} `}
             </p>
-            <p className="season-averages__info">{`Position: ${
+            <p className="stats-player-item__info">{`Position: ${
               position ? position : '-'
             } | Team: ${team.abbreviation}`}</p>
 
-            <div className="season-averages-item__table">
+            <div className="stats-player-item__table">
               <Table>
                 {renderTableHead()}
                 {renderTableBody(info)}
@@ -119,4 +119,4 @@ const SeasonAveragesItem = ({ playerFullInfo }) => {
   );
 };
 
-export default React.memo(SeasonAveragesItem);
+export default React.memo(StatsPlayerItem);

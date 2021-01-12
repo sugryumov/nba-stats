@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getSeasonAveragesData } from 'common/selectors/Statistics/seasonAverages';
-import SeasonAveragesItem from './SeasonAveragesItem';
+import StatsPlayerItem from './StatsPlayerItem';
 import './index.css';
 
-const SeasonAverages = ({ changedPlayers }) => {
+const StatsPlayer = ({ changedPlayers }) => {
   const [playerFullInfo, setPlayerFullInfo] = useState<any>(null);
 
   const seasonAveragesData = useSelector(getSeasonAveragesData);
@@ -25,12 +25,12 @@ const SeasonAverages = ({ changedPlayers }) => {
   }, [seasonAveragesData, changedPlayers]);
 
   return (
-    <div className="season-averages">
-      <h1 className="season-averages__title">'20 - '21 SEASON AVERAGES</h1>
+    <div className="stats-player">
+      <h1 className="stats-player__title">'20 - '21 SEASON AVERAGES</h1>
 
-      <SeasonAveragesItem playerFullInfo={playerFullInfo} />
+      <StatsPlayerItem playerFullInfo={playerFullInfo} />
     </div>
   );
 };
 
-export default SeasonAverages;
+export default StatsPlayer;

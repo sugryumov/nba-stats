@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { TPlayer } from 'interfaces';
+import { firstRequest } from 'helpers/firstRequest';
 import { searchPlayerAction } from './store/SearchPlayer/actions';
 import { seasonAveragesAction } from './store/SeasonAverages/actions';
 import SearchPlayer from './components/SearchPlayer';
-import SeasonAverages from './components/SeasonAverages';
+import StatsPlayer from './components/StatsPlayer';
 import ChangedPlayerChip from './components/ChangedPlayerChip';
 import './index.css';
 
 const PlayerStatisticContainer = () => {
   const dispatch = useDispatch();
 
-  const [changedPlayers, setChangedPlayers] = useState<TPlayer[]>([]);
+  const [changedPlayers, setChangedPlayers] = useState<TPlayer[]>(firstRequest);
 
   const onFinishSearch = (value: string) => {
     dispatch(searchPlayerAction.request({ search: value }));
@@ -39,7 +40,7 @@ const PlayerStatisticContainer = () => {
       />
 
       {changedPlayers?.length ? (
-        <SeasonAverages changedPlayers={changedPlayers} />
+        <StatsPlayer changedPlayers={changedPlayers} />
       ) : null}
     </div>
   );

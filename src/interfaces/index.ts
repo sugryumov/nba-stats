@@ -28,9 +28,9 @@ export type TPlayer = {
   id: number;
   first_name: string;
   last_name: string;
-  height_feet: null | string;
-  height_inches: null | string;
+  height_feet: null | number;
+  height_inches: null | number;
   position: string;
-  weight_pounds: null | string;
+  weight_pounds: null | number;
   team: TTeam;
 };

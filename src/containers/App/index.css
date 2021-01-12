@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding-bottom: 50px;
 }
 
 h1,
@@ -26,6 +27,6 @@ ul {
 }
 
 .container {
-  max-width: 1300px;
+  max-width: 1320px;
   margin: 0 auto;
 }
