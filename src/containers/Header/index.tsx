@@ -27,11 +27,12 @@ const useStyles = makeStyles((theme: ITheme) => ({
 const Header = ({ theme, setTheme }) => {
   const classes = useStyles();
 
-  const icon = theme ? (
-    <Brightness3Icon className={classes.icon} />
-  ) : (
-    <Brightness7Icon className={classes.icon} />
-  );
+  const icon =
+    theme === 'dark' ? (
+      <Brightness3Icon className={classes.icon} />
+    ) : (
+      <Brightness7Icon className={classes.icon} />
+    );
 
   const onClickThemeHandler = () => {
     setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));

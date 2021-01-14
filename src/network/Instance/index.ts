@@ -12,7 +12,7 @@ class Instance {
       baseURL,
       timeout,
       headers: {
-        Authorization: '',
+        // Authorization: '',
       },
     });
 

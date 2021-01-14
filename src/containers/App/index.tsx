@@ -9,7 +9,7 @@ import './index.css';
 const getLocalStorageThemeKey = (): string => {
   return localStorage.getItem('theme') !== null
     ? localStorage.getItem('theme')!
-    : 'dark';
+    : 'light';
 };
 
 function App() {

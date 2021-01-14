@@ -18,6 +18,7 @@ const general: IGeneralStyle = {
 export const light: ITheme = {
   ...general,
   palette: {
+    primary: { main: '#2979ff' },
     type: 'light',
     primaryColor: '#1a1a1a',
     secondaryColor: '#1976d2',
@@ -32,6 +33,7 @@ export const light: ITheme = {
 export const dark: ITheme = {
   ...general,
   palette: {
+    primary: { main: '#2979ff' },
     type: 'dark',
     primaryColor: '#f7f7f7',
     secondaryColor: '#1976d2',

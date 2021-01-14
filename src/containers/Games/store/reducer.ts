@@ -1,29 +1,27 @@
 import { createReducer, getType } from 'typesafe-actions';
-import { fetchGamesListAction } from './actions';
+import { fetchGamesListAction, showScoreGameAction } from './actions';
 import { IFetchGamesList } from './entities';
 
 const initialState: IFetchGamesList = {
   response: {
-    data: [],
-    meta: {
-      current_page: 1,
-      next_page: null,
-      per_page: null,
-      total_count: null,
-      total_pages: null,
-    },
+    games: [],
   },
   error: null,
   loading: false,
+  showScore: false,
 };
 
 export const fetchGamesListReducer = createReducer(initialState, {
   [getType(fetchGamesListAction.request)]: state => ({
     ...state,
+    response: {
+      games: [],
+    },
     error: null,
     loading: true,
   }),
   [getType(fetchGamesListAction.success)]: (state, { payload }) => ({
+    ...state,
     response: payload,
     error: null,
     loading: false,
@@ -32,5 +30,10 @@ export const fetchGamesListReducer = createReducer(initialState, {
     ...state,
     error: payload,
     loading: false,
+  }),
+
+  [getType(showScoreGameAction)]: (state, { payload }) => ({
+    ...state,
+    showScore: payload,
   }),
 });

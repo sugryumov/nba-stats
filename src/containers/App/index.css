@@ -27,3 +27,8 @@ ul {
   padding: 0;
   list-style: none;
 }
+
+.block-center {
+  padding: 50px 0;
+  text-align: center;
+}

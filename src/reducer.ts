@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { fetchGamesListReducer } from 'containers/GameList/store/reducer';
+import { fetchGamesListReducer } from 'containers/Games/store/reducer';
 import { statisticsReducer } from 'containers/PlayerStatistics/store/reducers';
 
 const reducers = {

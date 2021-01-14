@@ -1,4 +1,4 @@
-import { IFetchGamesList } from 'containers/GameList/store/entities';
+import { IFetchGamesList } from 'containers/Games/store/entities';
 import { IStatistics } from 'containers/PlayerStatistics/store/entities';
 
 export interface IState {

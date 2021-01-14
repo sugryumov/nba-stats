@@ -5,12 +5,7 @@ class Network extends Instance {
     super(baseURL, timeout);
   }
 
-  // Games
-  async fetchGamesResult(params): TAxios {
-    return this.send('get', `/games`, { params });
-  }
-
-  // Statystics
+  // Statistics
   async searchPlayers(params): TAxios {
     return this.send('get', `/players`, { params });
   }
@@ -20,8 +15,6 @@ class Network extends Instance {
   }
 }
 
-// const { REACT_APP_BACKEND_URL } = process.env;
-// const baseUrl = REACT_APP_BACKEND_URL || window.location.origin;
 const baseUrl = 'https://www.balldontlie.io/api/v1';
 const network = new Network(baseUrl);
 

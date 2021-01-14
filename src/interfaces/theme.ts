@@ -5,6 +5,7 @@ export interface IGeneralStyle {
 
 export interface ITheme extends IGeneralStyle {
   palette: {
+    primary: { main: string };
     type: 'light' | 'dark';
     primaryColor: string;
     secondaryColor: string;
