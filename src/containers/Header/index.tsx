@@ -9,7 +9,11 @@ import Navigation from './components/Navigation';
 const useStyles = makeStyles((theme: ITheme) => ({
   header: {
     backgroundColor: theme.palette.backgroundHeader,
-    marginBottom: '50px',
+    marginBottom: 50,
+
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 20,
+    },
   },
   container: {
     display: 'flex',
@@ -28,7 +32,7 @@ const Header = ({ theme, setTheme }) => {
   const classes = useStyles();
 
   const icon =
-    theme === 'dark' ? (
+    theme === 'light' ? (
       <Brightness3Icon className={classes.icon} />
     ) : (
       <Brightness7Icon className={classes.icon} />

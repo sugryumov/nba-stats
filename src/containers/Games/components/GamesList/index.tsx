@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme: ITheme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '30px 20px',
+
+    [theme.breakpoints.down('xs')]: {
+      padding: '20px 10px',
+    },
   },
   team: {
     display: 'flex',
@@ -35,21 +39,46 @@ const useStyles = makeStyles((theme: ITheme) => ({
   score: {
     fontSize: 24,
     fontWeight: 600,
+
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 20,
+    },
   },
   name: {
     marginBottom: 10,
     fontSize: 14,
+
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 12,
+    },
   },
   winLoss: {
     fontSize: 14,
+
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 12,
+    },
   },
   status: {
     flex: '1.5',
     textAlign: 'center',
+
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 12,
+    },
   },
   time: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 600,
+
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 16,
+    },
+  },
+  location: {
+    display: 'inline-block',
+    marginBottom: 3,
+    fontSize: 12,
   },
 }));
 

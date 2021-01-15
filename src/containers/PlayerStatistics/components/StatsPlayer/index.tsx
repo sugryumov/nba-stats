@@ -12,9 +12,14 @@ import StatsPlayerItem from './StatsPlayerItem';
 const useStyles = makeStyles((theme: ITheme) => ({
   container: {},
   title: {
-    paddingTop: '50px',
+    padding: '50px 0 30px',
     textAlign: 'center',
-    color: theme.palette.textColor,
+    color: theme.palette.primaryColor,
+
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: 20,
+      fontSize: 24,
+    },
   },
 }));
 

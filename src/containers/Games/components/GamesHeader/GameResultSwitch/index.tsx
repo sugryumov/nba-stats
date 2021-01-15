@@ -4,7 +4,7 @@ import Switch from '@material-ui/core/Switch';
 import { getShowScoreGames } from 'common/selectors/Games/gamesList';
 import { showScoreGameAction } from 'containers/Games/store/actions';
 
-const GameResultSwitch = () => {
+const GameResultSwitch = ({ styles }) => {
   const dispatch = useDispatch();
 
   const showScore = useSelector(getShowScoreGames);
@@ -14,9 +14,10 @@ const GameResultSwitch = () => {
   };
 
   return (
-    <div>
+    <div className={styles.switchWrap}>
       SHOW SCORES{' '}
       <Switch
+        className={styles.switch}
         checked={showScore}
         onChange={handleChangeSwitch}
         color="primary"

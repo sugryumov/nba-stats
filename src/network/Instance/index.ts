@@ -50,7 +50,7 @@ class Instance {
         throw new NetworkError({ message, status });
       } else {
         throw new NetworkError({
-          message: 'Соединение с сервером отсутствует',
+          message: 'No connection to server',
           status: 502,
         });
       }

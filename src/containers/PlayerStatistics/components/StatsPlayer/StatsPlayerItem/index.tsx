@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   container: {
-    marginTop: '30px',
+    paddingBottom: '40px',
   },
   name: {
     fontSize: '18px',

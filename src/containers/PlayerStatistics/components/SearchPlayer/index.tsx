@@ -18,6 +18,13 @@ const useStyles = makeStyles((theme: ITheme) => ({
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: theme.palette.primaryColor,
     },
+
+    '& label': {
+      [theme.breakpoints.down('xs')]: {
+        fontSize: 14,
+        lineHeight: 1.4,
+      },
+    },
   },
 }));
 

@@ -19,13 +19,14 @@ export const light: ITheme = {
   ...general,
   palette: {
     primary: { main: '#2979ff' },
+    text: {
+      primary: '#1a1a1a',
+    },
     type: 'light',
     primaryColor: '#1a1a1a',
-    secondaryColor: '#1976d2',
     backgroundHeader: '#1976d2',
     backgroundBody: '#f7f7f7',
-    textColor: '#1a1a1a',
-    linkColor: 'rgba(255, 255, 255, 0.5)',
+    linkColor: '#fff9',
     activeLinkColor: '#ffffff',
   },
 };
@@ -34,13 +35,17 @@ export const dark: ITheme = {
   ...general,
   palette: {
     primary: { main: '#2979ff' },
+    text: {
+      primary: '#f7f7f7',
+    },
+    background: {
+      paper: '#212121',
+    },
     type: 'dark',
     primaryColor: '#f7f7f7',
-    secondaryColor: '#1976d2',
     backgroundHeader: '#212121',
     backgroundBody: '#1a1a1a',
-    textColor: '#f7f7f7',
-    linkColor: 'rgba(255, 255, 255, 0.5)',
+    linkColor: '#fff9',
     activeLinkColor: '#ffffff',
   },
 };

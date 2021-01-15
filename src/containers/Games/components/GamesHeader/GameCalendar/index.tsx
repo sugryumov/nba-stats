@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import DateFnsUtils from '@date-io/dayjs';
-import {
-  KeyboardDatePicker,
-  MuiPickersUtilsProvider,
-} from '@material-ui/pickers';
+import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import EventIcon from '@material-ui/icons/Event';
 import { parseDateFromYMD } from 'helpers/parse';
 import { fetchGamesListAction } from 'containers/Games/store/actions';
 
-const GameCalendar = () => {
+const GameCalendar = ({ styles }) => {
   const dispatch = useDispatch();
 
   const [selectedDate, setSelectedDate] = useState<string>(parseDateFromYMD());
@@ -22,13 +20,17 @@ const GameCalendar = () => {
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <KeyboardDatePicker
-        autoOk
-        disableToolbar
-        variant="inline"
-        value={selectedDate}
-        onChange={handlerChangeDate}
-      />
+      <div className={styles.calendarWrap}>
+        <DatePicker
+          autoOk
+          disableToolbar
+          variant="inline"
+          value={selectedDate}
+          onChange={handlerChangeDate}
+          className={styles.calendar}
+        />
+        <EventIcon className={styles.icon} />
+      </div>
     </MuiPickersUtilsProvider>
   );
 };
