@@ -30,7 +30,7 @@ class DataNba extends Instance {
 
 // https://stats.nba.com/js/data/playermovement/NBA_Player_Movement.json
 
-const baseUrl = 'http://data.nba.net/prod/v1';
+const baseUrl = 'https://data.nba.net/prod/v1';
 const network = new DataNba(baseUrl);
 
 export default network;
