@@ -6,7 +6,11 @@ const Content = () => {
   return (
     <Switch>
       {pages.map((props: RouteProps, idx) => (
-        <Route {...props} key={`route_${idx}`} />
+        <Route
+          {...props}
+          key={`route_${idx}`}
+          basename={window.location.pathname || ''}
+        />
       ))}
     </Switch>
   );
