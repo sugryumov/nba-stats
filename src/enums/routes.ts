@@ -1,4 +1,4 @@
 export enum Paths {
-  games = '/games',
+  games = '/',
   playerStatistic = '/player-statistic',
 }

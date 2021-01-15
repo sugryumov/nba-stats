@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import Grid from '@material-ui/core/Grid/Grid';
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
+import { TeamName } from 'enums/teamName';
 import { ITheme } from 'interfaces/theme';
+import { nbaTeam } from 'common/components/SVGIcon/interface';
 import LoadingLayout from 'common/components/LoadingLayout';
 import { statusGame } from 'containers/Games/constants';
 import { TGameItem } from 'containers/Games/store/entities';
@@ -12,6 +14,7 @@ import {
   getGamesListError,
   getGamesListLoading,
 } from 'common/selectors/Games/gamesList';
+import SVGIcon from 'common/components/SVGIcon';
 
 const useStyles = makeStyles((theme: ITheme) => ({
   container: {
@@ -23,29 +26,29 @@ const useStyles = makeStyles((theme: ITheme) => ({
   team: {
     display: 'flex',
     justifyContent: 'space-between',
+    flex: '2',
     alignItems: 'center',
-    width: '30%',
   },
   info: {
     textAlign: 'center',
   },
   score: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: 600,
   },
   name: {
     marginBottom: 10,
-    fontWeight: 600,
+    fontSize: 14,
   },
   winLoss: {
     fontSize: 14,
   },
   status: {
-    width: '40%',
+    flex: '1.5',
     textAlign: 'center',
   },
   time: {
-    fontSize: 26,
+    fontSize: 20,
     fontWeight: 600,
   },
 }));
@@ -66,14 +69,21 @@ const GamesList = () => {
               <div className={classes.container}>
                 <div className={classes.team}>
                   <div className={classes.info}>
-                    <p className={classes.name}>{hTeam.triCode}</p>
+                    <SVGIcon
+                      name={nbaTeam[vTeam.triCode]}
+                      width={54}
+                      height={54}
+                    />
+
+                    <p className={classes.name}>{TeamName[vTeam.triCode]}</p>
+
                     <p className={classes.winLoss}>
-                      {hTeam.win} - {hTeam.loss}
+                      {vTeam.win} - {vTeam.loss}
                     </p>
                   </div>
 
                   <p className={classes.score}>
-                    {statusNum === statusGame.finished ? hTeam.score : ''}
+                    {statusNum === statusGame.finished ? vTeam.score : ''}
                   </p>
                 </div>
 
@@ -87,13 +97,20 @@ const GamesList = () => {
 
                 <div className={classes.team}>
                   <p className={classes.score}>
-                    {statusNum === statusGame.finished ? vTeam.score : ''}
+                    {statusNum === statusGame.finished ? hTeam.score : ''}
                   </p>
 
                   <div className={classes.info}>
-                    <p className={classes.name}>{vTeam.triCode}</p>
+                    <SVGIcon
+                      name={nbaTeam[hTeam.triCode]}
+                      width={54}
+                      height={54}
+                    />
+
+                    <p className={classes.name}>{TeamName[hTeam.triCode]}</p>
+
                     <p className={classes.winLoss}>
-                      {vTeam.win} - {vTeam.loss}
+                      {hTeam.win} - {hTeam.loss}
                     </p>
                   </div>
                 </div>

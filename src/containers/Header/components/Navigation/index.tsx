@@ -34,6 +34,7 @@ function Navigation() {
         {menuItems.map((item, idx) => (
           <li key={`${item.name}_${idx}`} className={classes.item}>
             <NavLink
+              exact
               to={item.path}
               className={classes.link}
               activeClassName={classes.activeLink}
