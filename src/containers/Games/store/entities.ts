@@ -13,6 +13,7 @@ export type TGameItem = {
   gameId: string;
   startDateEastern: string;
   startTimeEastern: string;
+  startTimeUTC: string;
   endTimeUTC?: string;
   statusNum: number;
   hTeam: TTeam;

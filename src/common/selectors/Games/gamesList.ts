@@ -12,6 +12,7 @@ export const getGamesListData = createSelector(
         gameId,
         startDateEastern,
         startTimeEastern,
+        startTimeUTC,
         hTeam,
         vTeam,
         endTimeUTC,
@@ -21,6 +22,7 @@ export const getGamesListData = createSelector(
           gameId,
           startDateEastern,
           startTimeEastern,
+          startTimeUTC,
           hTeam: {
             ...hTeam,
             score: showScore ? hTeam.score : '-',
@@ -52,7 +54,6 @@ export const getGamesListError = createSelector(
   getGamesList,
   ({ error }) => error,
 );
-
 
 export const getShowScoreGames = createSelector(
   getGamesList,

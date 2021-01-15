@@ -68,17 +68,12 @@ const useStyles = makeStyles((theme: ITheme) => ({
     },
   },
   time: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 600,
 
     [theme.breakpoints.down('xs')]: {
-      fontSize: 16,
+      fontSize: 14,
     },
-  },
-  location: {
-    display: 'inline-block',
-    marginBottom: 3,
-    fontSize: 12,
   },
 }));
 
