@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "NODE_PATH=./src react-scripts start",
-    "build": "NODE_PATH=./src react-scripts build",
+    "build": "NODE_PATH=./src GENERATE_SOURCEMAP=false react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
