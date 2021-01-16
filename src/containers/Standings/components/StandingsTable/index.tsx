@@ -77,7 +77,6 @@ const useStyles = makeStyles((theme: ITheme) => ({
   rank: {
     width: 20,
     marginRight: 10,
-    textAlign: 'right',
   },
   teamName: {
     margin: '0 0 0 7px',
