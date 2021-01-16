@@ -17,3 +17,10 @@ export const showScoreGameAction = createAction(
   SHOW_SCORE_GAME,
   (show: boolean) => show,
 )();
+
+const CHANGED_GAME_DATE = '@games/CHANGED_GAME_DATE';
+
+export const changedGameDateAction = createAction(
+  CHANGED_GAME_DATE,
+  (date: string) => date,
+)();

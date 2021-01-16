@@ -3,6 +3,7 @@ export interface IFetchGamesList {
   error: null | Error;
   loading: boolean;
   showScore: boolean;
+  changedDate: string;
 }
 
 export type TGameListResponse = {

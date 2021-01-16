@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import DateFnsUtils from '@date-io/dayjs';
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import EventIcon from '@material-ui/icons/Event';
 import { parseDateFromYMD } from 'helpers/parse';
-import { fetchGamesListAction } from 'containers/Games/store/actions';
+import { getChangedDate } from 'common/selectors/Games/gamesList';
+import { changedGameDateAction } from 'containers/Games/store/actions';
 
 const GameCalendar = ({ styles }) => {
   const dispatch = useDispatch();
 
-  const [selectedDate, setSelectedDate] = useState<string>(parseDateFromYMD());
+  const changedDate = useSelector(getChangedDate);
 
   const handlerChangeDate = date => {
     const formatDate = parseDateFromYMD(date);
-    setSelectedDate(formatDate);
 
-    dispatch(fetchGamesListAction.request(formatDate));
+    dispatch(changedGameDateAction(formatDate));
   };
 
   return (
@@ -25,7 +25,7 @@ const GameCalendar = ({ styles }) => {
           autoOk
           disableToolbar
           variant="inline"
-          value={selectedDate}
+          value={changedDate}
           onChange={handlerChangeDate}
           className={styles.calendar}
         />

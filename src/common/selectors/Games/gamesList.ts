@@ -59,3 +59,8 @@ export const getShowScoreGames = createSelector(
   getGamesList,
   ({ showScore }) => showScore,
 );
+
+export const getChangedDate = createSelector(
+  getGamesList,
+  ({ changedDate }) => changedDate,
+);
