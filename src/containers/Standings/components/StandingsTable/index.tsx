@@ -22,11 +22,42 @@ const useStyles = makeStyles((theme: ITheme) => ({
   table: {
     overflowX: 'auto',
   },
+  tableRow: {
+    '& .MuiTableCell-root': {
+      'padding': 5,
+
+      '&:first-child': {
+        paddingLeft: 15,
+      },
+
+      '&:last-child': {
+        paddingRight: 15,
+      },
+    },
+
+    '&:nth-child(8)': {
+      '& .MuiTableCell-root': {
+        borderBottom: `2px solid ${theme.palette.primaryColor}`,
+      },
+    },
+  },
   toolbar: {
     padding: '0 16px',
   },
   teamHead: {
-    backgroundColor: theme.palette.secondaryColor,
+    'backgroundColor': theme.palette.secondaryColor,
+
+    '& .MuiTableCell-head': {
+      'padding': 10,
+
+      '&:first-child': {
+        paddingLeft: 15,
+      },
+
+      '&:last-child': {
+        paddingRight: 15,
+      },
+    },
   },
   teamHeadCell: {
     minWidth: 220,
@@ -44,7 +75,9 @@ const useStyles = makeStyles((theme: ITheme) => ({
     alignItems: 'center',
   },
   rank: {
+    width: 20,
     marginRight: 10,
+    textAlign: 'right',
   },
   teamName: {
     margin: '0 0 0 7px',
@@ -95,7 +128,7 @@ const StandingsTable = ({ data, conferenceName }) => {
                 lastTenWin,
                 lastTenLoss,
               }: TTeamStandings) => (
-                <TableRow key={teamId} hover>
+                <TableRow key={teamId} hover className={classes.tableRow}>
                   <TableCell>
                     <div className={classes.teamBody}>
                       <b className={classes.rank}>{confRank}.</b>
