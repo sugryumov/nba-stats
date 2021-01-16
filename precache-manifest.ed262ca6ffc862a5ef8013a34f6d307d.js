@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "86f3b3115ad93e610037952aedf0199f",
+    "revision": "d4bb578b44cd558a111e92299bbc9914",
     "url": "/nba-stats/index.html"
   },
   {
-    "revision": "8c5d6fcbb0342cdd26dc",
+    "revision": "9992bd0ead137088e3be",
     "url": "/nba-stats/static/css/main.df729e2d.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nba-stats/static/js/2.319e7a6c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8c5d6fcbb0342cdd26dc",
-    "url": "/nba-stats/static/js/main.9a8f8d2f.chunk.js"
+    "revision": "9992bd0ead137088e3be",
+    "url": "/nba-stats/static/js/main.fea30ae1.chunk.js"
   },
   {
     "revision": "deffed76a64051a5cb39",
