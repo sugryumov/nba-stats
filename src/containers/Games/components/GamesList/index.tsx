@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import dayjs from 'dayjs';
 import Grid from '@material-ui/core/Grid/Grid';
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
@@ -60,19 +61,32 @@ const useStyles = makeStyles((theme: ITheme) => ({
     },
   },
   status: {
-    flex: '1.5',
+    flex: '1.6',
     textAlign: 'center',
 
     [theme.breakpoints.down('xs')]: {
       fontSize: 12,
     },
   },
-  time: {
-    fontSize: 20,
+  statusPpd: {
+    fontSize: 26,
+    fontWeight: 600,
+  },
+  timeWrap: {},
+  easternTime: {
+    marginBottom: 5,
+    fontSize: 18,
     fontWeight: 600,
 
     [theme.breakpoints.down('xs')]: {
-      fontSize: 14,
+      fontSize: 13,
+    },
+  },
+  mskTime: {
+    fontSize: 14,
+
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 10,
     },
   },
 }));
@@ -86,7 +100,19 @@ const GamesList = () => {
 
   const renderContent = () => {
     return gamesList.map(
-      ({ gameId, startTimeEastern, hTeam, vTeam, statusNum }: TGameItem) => {
+      ({
+        gameId,
+        startTimeEastern,
+        startTimeUTC,
+        hTeam,
+        vTeam,
+        statusNum,
+        extendedStatusNum,
+      }: TGameItem) => {
+        const mskTime = dayjs(startTimeUTC)
+          .tz('Europe/Moscow')
+          .format('DD.MM HH:mm');
+
         return (
           <Grid key={gameId} item lg={4} sm={6} xs={12}>
             <Card>
@@ -112,10 +138,15 @@ const GamesList = () => {
                 </div>
 
                 <div className={classes.status}>
-                  {statusNum === statusGame.finished ? (
-                    'Final'
+                  {extendedStatusNum === 2 ? (
+                    <p className={classes.statusPpd}>PPD</p>
+                  ) : statusNum === statusGame.finished ? (
+                    'FINAL'
                   ) : (
-                    <p className={classes.time}>{startTimeEastern}</p>
+                    <div className={classes.timeWrap}>
+                      <p className={classes.easternTime}>{startTimeEastern}</p>
+                      <p className={classes.mskTime}>{`${mskTime} MSK`}</p>
+                    </div>
                   )}
                 </div>
 

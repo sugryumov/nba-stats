@@ -7,39 +7,43 @@ export const getGamesList = (state: IState) => state.gamesList;
 export const getGamesListData = createSelector(
   getGamesList,
   ({ response, showScore }): Array<TGameItem> => {
-    const gamesList = response.games.map(
-      ({
-        gameId,
-        startDateEastern,
-        startTimeEastern,
-        startTimeUTC,
-        hTeam,
-        vTeam,
-        endTimeUTC,
-        statusNum,
-      }) => {
-        return {
+    const gamesList = response.games
+      .map(
+        ({
           gameId,
           startDateEastern,
           startTimeEastern,
           startTimeUTC,
-          hTeam: {
-            ...hTeam,
-            score: showScore ? hTeam.score : '-',
-            win: showScore ? hTeam.win : '',
-            loss: showScore ? hTeam.loss : '',
-          },
-          vTeam: {
-            ...vTeam,
-            score: showScore ? vTeam.score : '-',
-            win: showScore ? vTeam.win : '',
-            loss: showScore ? vTeam.loss : '',
-          },
+          hTeam,
+          vTeam,
           endTimeUTC,
           statusNum,
-        };
-      },
-    );
+          extendedStatusNum,
+        }) => {
+          return {
+            gameId,
+            startDateEastern,
+            startTimeEastern,
+            startTimeUTC,
+            hTeam: {
+              ...hTeam,
+              score: showScore ? hTeam.score : '-',
+              win: showScore ? hTeam.win : '',
+              loss: showScore ? hTeam.loss : '',
+            },
+            vTeam: {
+              ...vTeam,
+              score: showScore ? vTeam.score : '-',
+              win: showScore ? vTeam.win : '',
+              loss: showScore ? vTeam.loss : '',
+            },
+            endTimeUTC,
+            statusNum,
+            extendedStatusNum,
+          };
+        },
+      )
+      .sort((a, b) => b.extendedStatusNum - a.extendedStatusNum);
 
     return gamesList;
   },

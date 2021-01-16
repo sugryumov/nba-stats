@@ -19,6 +19,7 @@ export type TGameItem = {
   statusNum: number;
   hTeam: TTeam;
   vTeam: TTeam;
+  extendedStatusNum: number;
 };
 
 type TTeam = {
