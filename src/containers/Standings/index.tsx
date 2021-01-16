@@ -20,22 +20,19 @@ const StandingsContainer = () => {
     dispatch(confStandingsAction.request());
   }, [dispatch]);
 
+  const renderTable = () => {
+    return Object.entries(confStandingsData)?.map(([conference, data]) => (
+      <StandingsTable key={conference} data={data} conference={conference} />
+    ));
+  };
+
   return (
     <LoadingLayout
       data={confStandingsData.east}
       loading={confStandingsLoading}
       error={confStandingsError}
     >
-      <div style={{ paddingBottom: 40 }}>
-        <StandingsTable
-          data={confStandingsData.east}
-          conferenceName={'Eastern Conference'}
-        />
-        <StandingsTable
-          data={confStandingsData.west}
-          conferenceName={'Western Conference'}
-        />
-      </div>
+      <div style={{ paddingBottom: 40 }}>{renderTable()}</div>
     </LoadingLayout>
   );
 };

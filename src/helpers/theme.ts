@@ -22,6 +22,9 @@ export const light: ITheme = {
     text: {
       primary: '#1a1a1a',
     },
+    background: {
+      paper: '#ffffff',
+    },
     type: 'light',
     primaryColor: '#1a1a1a',
     secondaryColor: '#e4e4e4',

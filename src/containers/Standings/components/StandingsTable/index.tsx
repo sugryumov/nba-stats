@@ -8,7 +8,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
+import { ConferenceName } from 'enums/conferenceName';
 import { ITheme } from 'interfaces/theme';
 import SVGIcon from 'common/components/SVGIcon';
 import { TTeamStandings } from 'containers/Standings/store/Conference/entities';
@@ -37,7 +39,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
 
     '&:nth-child(8)': {
       '& .MuiTableCell-root': {
-        borderBottom: `2px solid ${theme.palette.primaryColor}`,
+        borderBottom: `2px solid ${theme.palette.text.primary}`,
       },
     },
   },
@@ -49,6 +51,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
 
     '& .MuiTableCell-head': {
       'padding': 10,
+      'fontWeight': 400,
 
       '&:first-child': {
         paddingLeft: 15,
@@ -59,8 +62,20 @@ const useStyles = makeStyles((theme: ITheme) => ({
       },
     },
   },
-  teamHeadCell: {
+  teamFixedCell: {
     minWidth: 220,
+
+    [theme.breakpoints.down('xs')]: {
+      position: 'sticky',
+      left: 0,
+      zIndex: 1,
+      minWidth: 94,
+      backgroundColor: theme.palette.background?.paper,
+      boxShadow: '3px 0 3px -2px rgba(0,0,0,.1)',
+    },
+  },
+  teamHeadCell: {
+    backgroundColor: theme.palette.secondaryColor,
   },
   teamLastTenCell: {
     textAlign: 'center',
@@ -76,27 +91,33 @@ const useStyles = makeStyles((theme: ITheme) => ({
   },
   rank: {
     width: 20,
-    marginRight: 10,
+    marginRight: 5,
   },
   teamName: {
-    margin: '0 0 0 7px',
+    margin: '0 0 0 5px',
   },
 }));
 
-const StandingsTable = ({ data, conferenceName }) => {
+const StandingsTable = ({ data, conference }) => {
   const classes = useStyles();
 
   return (
     <TableContainer component={Paper} className={classes.container}>
       <Toolbar className={classes.toolbar}>
-        <Typography variant="h6">{conferenceName}</Typography>
+        <Typography variant="h6">{ConferenceName[conference]}</Typography>
       </Toolbar>
 
       <div className={classes.table}>
         <Table aria-label="caption table">
           <TableHead className={classes.teamHead}>
             <TableRow>
-              <TableCell className={classes.teamHeadCell}>TEAM</TableCell>
+              <TableCell
+                className={[classes.teamFixedCell, classes.teamHeadCell].join(
+                  ' ',
+                )}
+              >
+                TEAM
+              </TableCell>
               <TableCell align="center">W</TableCell>
               <TableCell align="center">L</TableCell>
               <TableCell align="center">WIN%</TableCell>
@@ -128,7 +149,7 @@ const StandingsTable = ({ data, conferenceName }) => {
                 lastTenLoss,
               }: TTeamStandings) => (
                 <TableRow key={teamId} hover className={classes.tableRow}>
-                  <TableCell>
+                  <TableCell className={classes.teamFixedCell}>
                     <div className={classes.teamBody}>
                       <b className={classes.rank}>{confRank}.</b>
                       <SVGIcon
@@ -137,7 +158,10 @@ const StandingsTable = ({ data, conferenceName }) => {
                         height={30}
                       />
                       <p className={classes.teamName}>
-                        {`${teamSitesOnly.teamName} ${teamSitesOnly.teamNickname}`}
+                        <Hidden xsDown>
+                          {`${teamSitesOnly.teamName} ${teamSitesOnly.teamNickname}`}
+                        </Hidden>
+                        <Hidden smUp>{teamSitesOnly.teamTricode}</Hidden>
                       </p>
                     </div>
                   </TableCell>
