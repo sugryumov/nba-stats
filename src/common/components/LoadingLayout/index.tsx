@@ -30,7 +30,7 @@ const LoadingLayout = ({ loading, error, data, children }) => {
             {error ? error.message : 'server is not available'}
           </p>
         </div>
-      ) : data && data.length >= 1 ? (
+      ) : data ? (
         children
       ) : (
         <div className="block-center">

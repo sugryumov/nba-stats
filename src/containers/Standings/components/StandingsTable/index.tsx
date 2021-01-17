@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -10,10 +11,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
-import { ConferenceName } from 'enums/conferenceName';
+import { ConfDivName } from 'enums/confDivName';
 import { ITheme } from 'interfaces/theme';
 import SVGIcon from 'common/components/SVGIcon';
-import { TTeamStandings } from 'containers/Standings/store/Conference/entities';
+import { getStandingsGroupBy } from 'common/selectors/Standings/getStandings';
+import { TTeamStandings } from 'containers/Standings/store/entities';
 
 const useStyles = makeStyles((theme: ITheme) => ({
   container: {
@@ -98,13 +100,15 @@ const useStyles = makeStyles((theme: ITheme) => ({
   },
 }));
 
-const StandingsTable = ({ data, conference }) => {
+const StandingsTable = ({ data, name }) => {
   const classes = useStyles();
+
+  const standingsGroupBy = useSelector(getStandingsGroupBy);
 
   return (
     <TableContainer component={Paper} className={classes.container}>
       <Toolbar className={classes.toolbar}>
-        <Typography variant="h6">{ConferenceName[conference]}</Typography>
+        <Typography variant="h6">{ConfDivName[name]}</Typography>
       </Toolbar>
 
       <div className={classes.table}>
@@ -147,11 +151,17 @@ const StandingsTable = ({ data, conference }) => {
                 awayLoss,
                 lastTenWin,
                 lastTenLoss,
+                divRank,
               }: TTeamStandings) => (
                 <TableRow key={teamId} hover className={classes.tableRow}>
                   <TableCell className={classes.teamFixedCell}>
                     <div className={classes.teamBody}>
-                      <b className={classes.rank}>{confRank}.</b>
+                      <b className={classes.rank}>
+                        {standingsGroupBy === 'standings_conference'
+                          ? confRank
+                          : divRank}
+                        .
+                      </b>
                       <SVGIcon
                         name={teamSitesOnly.teamTricode}
                         width={30}

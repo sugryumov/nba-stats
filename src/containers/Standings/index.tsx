@@ -1,39 +1,64 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  getConfStandingsData,
-  getConfStandingsError,
-  getConfStandingsLoading,
-} from 'common/selectors/Standings/conference';
+  getStandingsData,
+  getStandingsError,
+  getStandingsLoading,
+  getStandingsGroupBy,
+} from 'common/selectors/Standings/getStandings';
+import { getStandingsAction, standingsGroupByAction } from './store/actions';
 import LoadingLayout from 'common/components/LoadingLayout';
-import { confStandingsAction } from './store/Conference/actions';
 import StandingsTable from './components/StandingsTable';
+import StandingsHeader from './components/StandingsHeader';
 
 const StandingsContainer = () => {
   const dispatch = useDispatch();
 
-  const confStandingsData = useSelector(getConfStandingsData);
-  const confStandingsLoading = useSelector(getConfStandingsLoading);
-  const confStandingsError = useSelector(getConfStandingsError);
+  const standingsData = useSelector(getStandingsData);
+  const standingsLoading = useSelector(getStandingsLoading);
+  const standingsError = useSelector(getStandingsError);
+  const standingsGroupBy = useSelector(getStandingsGroupBy);
 
   useEffect(() => {
-    dispatch(confStandingsAction.request());
-  }, [dispatch]);
+    dispatch(getStandingsAction.request(standingsGroupBy));
+  }, [dispatch, standingsGroupBy]);
 
   const renderTable = () => {
-    return Object.entries(confStandingsData)?.map(([conference, data]) => (
-      <StandingsTable key={conference} data={data} conference={conference} />
-    ));
+    return Object.entries(standingsData)?.map(([conference, confTeam]) => {
+      const table = (data, name) => (
+        <div key={name} style={{ paddingBottom: 40 }}>
+          <StandingsTable data={data} name={name} />
+        </div>
+      );
+
+      if (Array.isArray(confTeam)) {
+        return table(confTeam, conference);
+      }
+
+      return Object.entries(confTeam)?.map(([division, divTeam]) =>
+        table(divTeam, division),
+      );
+    });
+  };
+
+  const handleGroupBy = event => {
+    dispatch(standingsGroupByAction(event.target.value));
   };
 
   return (
-    <LoadingLayout
-      data={confStandingsData.east}
-      loading={confStandingsLoading}
-      error={confStandingsError}
-    >
-      <div style={{ paddingBottom: 40 }}>{renderTable()}</div>
-    </LoadingLayout>
+    <>
+      <StandingsHeader
+        groupBy={standingsGroupBy}
+        handleGroupBy={handleGroupBy}
+      />
+      <LoadingLayout
+        data={standingsData.east}
+        loading={standingsLoading}
+        error={standingsError}
+      >
+        {renderTable()}
+      </LoadingLayout>
+    </>
   );
 };
 

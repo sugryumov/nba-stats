@@ -1,6 +1,17 @@
-import { all } from 'redux-saga/effects';
-import { watchConfStandings } from './Conference/effects';
+import { put, call, takeLatest } from 'redux-saga/effects';
+import { getStandingsAction } from './actions';
+import dataNba from 'network/dataNba';
+
+function* getStandingsSaga({ payload }) {
+  try {
+    const response = yield call([dataNba, dataNba.getStandings], payload);
+
+    yield put(getStandingsAction.success(response));
+  } catch (error) {
+    yield put(getStandingsAction.failure(error));
+  }
+}
 
 export function* watchStandings() {
-  yield all([watchConfStandings()]);
+  yield takeLatest(getStandingsAction.request, getStandingsSaga);
 }

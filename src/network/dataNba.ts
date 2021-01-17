@@ -11,12 +11,8 @@ class DataNba extends Instance {
   }
 
   // Standings
-  async getConfStandings(): TAxios {
-    return this.send('get', '/current/standings_conference.json', {});
-  }
-
-  async getDivStandings(): TAxios {
-    return this.send('get', '/current/standings_division.json', {});
+  async getStandings(params): TAxios {
+    return this.send('get', `/current/${params}.json`, {});
   }
 }
 
