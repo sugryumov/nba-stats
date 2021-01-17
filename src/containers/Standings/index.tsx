@@ -24,20 +24,20 @@ const StandingsContainer = () => {
   }, [dispatch, standingsGroupBy]);
 
   const renderTable = () => {
-    return Object.entries(standingsData)?.map(([conference, confTeam]) => {
+    return Object.entries(standingsData)?.map(([conference, team]) => {
       const table = (data, name) => (
         <div key={name} style={{ paddingBottom: 40 }}>
           <StandingsTable data={data} name={name} />
         </div>
       );
 
-      if (Array.isArray(confTeam)) {
-        return table(confTeam, conference);
+      if (Array.isArray(team)) {
+        return table(team, conference);
       }
 
-      return Object.entries(confTeam)?.map(([division, divTeam]) =>
-        table(divTeam, division),
-      );
+      return Object.entries(team)
+        ?.sort()
+        .map(([division, divTeam]) => table(divTeam, division));
     });
   };
 
