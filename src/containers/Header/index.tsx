@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import Brightness3Icon from '@material-ui/icons/Brightness3';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import { ITheme } from 'interfaces/theme';
+import { menuItems } from './constants';
 import Navigation from './components/Navigation';
 
 const useStyles = makeStyles((theme: ITheme) => ({
@@ -35,16 +37,22 @@ const useStyles = makeStyles((theme: ITheme) => ({
       backgroundColor: theme.palette.backgroundHeader,
     },
   },
+  pageName: {
+    color: theme.palette.activeLinkColor,
+    textTransform: 'uppercase',
+  },
 }));
 
 const Header = ({ theme, setTheme }) => {
   const classes = useStyles();
 
+  const { pathname } = useLocation();
+
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const icon =
     theme === 'light' ? (
-      <Brightness3Icon className={classes.icon} />
+      <Brightness4Icon className={classes.icon} />
     ) : (
       <Brightness7Icon className={classes.icon} />
     );
@@ -57,6 +65,10 @@ const Header = ({ theme, setTheme }) => {
     setOpenMenu(open);
   };
 
+  const pageName = menuItems.find(
+    ({ path }) => `${process.env.PUBLIC_URL}${path}` === pathname,
+  )?.name;
+
   return (
     <header className={classes.header}>
       <div className={classes.container}>
@@ -65,7 +77,8 @@ const Header = ({ theme, setTheme }) => {
         </Hidden>
 
         <Hidden smUp>
-          <MenuIcon
+          <MenuRoundedIcon
+            fontSize="large"
             className={classes.icon}
             onClick={toggleMenuHandler(true)}
           />
@@ -77,6 +90,10 @@ const Header = ({ theme, setTheme }) => {
           >
             <Navigation toggleMenu={toggleMenuHandler} />
           </Drawer>
+        </Hidden>
+
+        <Hidden smUp>
+          <p className={classes.pageName}>{pageName}</p>
         </Hidden>
 
         <IconButton edge="end" onClick={onClickThemeHandler}>

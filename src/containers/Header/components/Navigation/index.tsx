@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { ITheme } from 'interfaces/theme';
-import { menuItems } from './constants';
+import { menuItems } from 'containers/Header/constants';
 
 const useStyles = makeStyles((theme: ITheme) => ({
   list: {
@@ -21,7 +21,9 @@ const useStyles = makeStyles((theme: ITheme) => ({
     marginTop: '30px',
   },
   link: {
+    fontSize: 14,
     color: theme.palette.linkColor,
+    textTransform: 'uppercase',
   },
   activeLink: {
     color: theme.palette.activeLinkColor,
