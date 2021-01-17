@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 20,
+    padding: 16,
     marginBottom: 32,
 
     [theme.breakpoints.down('xs')]: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
   title: {
     [theme.breakpoints.down('xs')]: {
       marginBottom: 20,
-      fontSize: 15,
+      fontSize: 16,
     },
   },
   formControl: {
