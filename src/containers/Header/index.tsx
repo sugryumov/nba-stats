@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import dayjs from 'dayjs';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
@@ -46,9 +47,17 @@ const useStyles = makeStyles((theme: ITheme) => ({
 const Header = ({ theme, setTheme }) => {
   const classes = useStyles();
 
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
 
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [gameInfo, setGameInfo] = useState<string | null>(null);
+
+  useEffect(() => {
+    const gameUrlCode = new URLSearchParams(search).get('code');
+    const gameDate: any = new URLSearchParams(search).get('date');
+
+    setGameInfo(`${dayjs(gameDate).format('DD MMMM')} / ${gameUrlCode}`);
+  }, [search]);
 
   const icon =
     theme === 'light' ? (
@@ -93,7 +102,7 @@ const Header = ({ theme, setTheme }) => {
         </Hidden>
 
         <Hidden smUp>
-          <p className={classes.pageName}>{pageName}</p>
+          <p className={classes.pageName}>{pageName ? pageName : gameInfo}</p>
         </Hidden>
 
         <IconButton edge="end" onClick={onClickThemeHandler}>

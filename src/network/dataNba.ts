@@ -1,3 +1,4 @@
+import { TGetBoxScoreRequest } from 'containers/GameStats/store/BoxScore/entities';
 import Instance, { TAxios } from 'network/Instance';
 
 class DataNba extends Instance {
@@ -10,14 +11,17 @@ class DataNba extends Instance {
     return this.send('get', `/${date}/scoreboard.json`, {});
   }
 
+  async getBoxScore(game: TGetBoxScoreRequest): TAxios {
+    const { gameDate, gameId } = game;
+
+    return this.send('get', `/${gameDate}/${gameId}_boxscore.json`, {});
+  }
+
   // Standings
   async getStandings(params): TAxios {
     return this.send('get', `/current/${params}.json`, {});
   }
 }
-
-// "boxscore": "/prod/v1/{{gameDate}}/{{gameId}}_boxscore.json",
-// http://data.nba.net/prod/v1/20210114/0022000174_boxscore.json
 
 // "teamRoster": "/prod/v1/2020/teams/{{teamUrlCode}}/roster.json", // respone playerID
 

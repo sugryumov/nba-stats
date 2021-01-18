@@ -1,4 +1,4 @@
-export interface IFetchGamesList {
+export interface IGetGamesList {
   response: TGameListResponse;
   error: null | Error;
   loading: boolean;

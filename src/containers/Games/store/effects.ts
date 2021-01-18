@@ -1,17 +1,17 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
-import { fetchGamesListAction } from './actions';
+import { getGamesListAction } from './actions';
 import dataNba from 'network/dataNba';
 
-function* fetchGamesListSaga({ payload }) {
+function* getGamesListSaga({ payload }) {
   try {
     const response = yield call([dataNba, dataNba.getGames], payload);
 
-    yield put(fetchGamesListAction.success(response));
+    yield put(getGamesListAction.success(response));
   } catch (error) {
-    yield put(fetchGamesListAction.failure(error));
+    yield put(getGamesListAction.failure(error));
   }
 }
 
-export function* watchFetchGamesList() {
-  yield takeEvery(fetchGamesListAction.request, fetchGamesListSaga);
+export function* watchGetGamesList() {
+  yield takeEvery(getGamesListAction.request, getGamesListSaga);
 }

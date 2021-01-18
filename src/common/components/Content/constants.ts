@@ -2,6 +2,7 @@ import { Paths as P } from 'enums/routes';
 import GameListContainer from 'containers/Games';
 import PlayerStatisticContainer from 'containers/PlayerStatistics';
 import StandingsContainer from 'containers/Standings';
+import GameStatsContainer from 'containers/GameStats';
 
 export const pages = [
   {
@@ -17,6 +18,11 @@ export const pages = [
   {
     component: StandingsContainer,
     path: P.standings,
+    exact: true,
+  },
+  {
+    component: GameStatsContainer,
+    path: P.gameStats,
     exact: true,
   },
 ];

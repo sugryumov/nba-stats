@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import { fetchGamesListReducer } from 'containers/Games/store/reducer';
+import { getGamesListReducer } from 'containers/Games/store/reducer';
 import { statisticsReducer } from 'containers/PlayerStatistics/store/reducers';
 import { standingsReducer } from 'containers/Standings/store/reducers';
+import { gameStatsReducer } from 'containers/GameStats/store/reducers';
 
 const reducers = {
-  gamesList: fetchGamesListReducer,
+  gamesList: getGamesListReducer,
   statistics: statisticsReducer,
   standings: standingsReducer,
+  gameStats: gameStatsReducer,
 };
 
 export const reducer = combineReducers(reducers);

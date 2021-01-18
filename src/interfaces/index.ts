@@ -1,11 +1,13 @@
-import { IFetchGamesList } from 'containers/Games/store/entities';
+import { IGetGamesList } from 'containers/Games/store/entities';
 import { IStatistics } from 'containers/PlayerStatistics/store/entities';
 import { IStandings } from 'containers/Standings/store/entities';
+import { IGameStats } from 'containers/GameStats/store/entities';
 
 export interface IState {
-  gamesList: IFetchGamesList;
+  gamesList: IGetGamesList;
   statistics: IStatistics;
   standings: IStandings;
+  gameStats: IGameStats;
 }
 
 export type TMeta = {

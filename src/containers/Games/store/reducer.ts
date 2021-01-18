@@ -2,12 +2,12 @@ import { parseDateFromYMD } from 'helpers/parse';
 import { createReducer, getType } from 'typesafe-actions';
 import {
   changedGameDateAction,
-  fetchGamesListAction,
+  getGamesListAction,
   showScoreGameAction,
 } from './actions';
-import { IFetchGamesList } from './entities';
+import { IGetGamesList } from './entities';
 
-const initialState: IFetchGamesList = {
+const initialState: IGetGamesList = {
   response: {
     games: [],
   },
@@ -17,8 +17,8 @@ const initialState: IFetchGamesList = {
   changedDate: parseDateFromYMD(),
 };
 
-export const fetchGamesListReducer = createReducer(initialState, {
-  [getType(fetchGamesListAction.request)]: state => ({
+export const getGamesListReducer = createReducer(initialState, {
+  [getType(getGamesListAction.request)]: state => ({
     ...state,
     response: {
       games: [],
@@ -26,13 +26,13 @@ export const fetchGamesListReducer = createReducer(initialState, {
     error: null,
     loading: true,
   }),
-  [getType(fetchGamesListAction.success)]: (state, { payload }) => ({
+  [getType(getGamesListAction.success)]: (state, { payload }) => ({
     ...state,
     response: payload,
     error: null,
     loading: false,
   }),
-  [getType(fetchGamesListAction.failure)]: (state, { payload }) => ({
+  [getType(getGamesListAction.failure)]: (state, { payload }) => ({
     ...state,
     error: payload,
     loading: false,
