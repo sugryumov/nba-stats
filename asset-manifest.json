@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/nba-stats/static/css/main.4c014d2c.chunk.css",
-    "main.js": "/nba-stats/static/js/main.24133072.chunk.js",
+    "main.js": "/nba-stats/static/js/main.6ffcbc7a.chunk.js",
     "runtime-main.js": "/nba-stats/static/js/runtime-main.a9d0ec99.js",
-    "static/js/2.a0452698.chunk.js": "/nba-stats/static/js/2.a0452698.chunk.js",
+    "static/js/2.56df418c.chunk.js": "/nba-stats/static/js/2.56df418c.chunk.js",
     "index.html": "/nba-stats/index.html",
-    "precache-manifest.d20cf6e9dc39cf39bb57d49195fed287.js": "/nba-stats/precache-manifest.d20cf6e9dc39cf39bb57d49195fed287.js",
+    "precache-manifest.1cd2398b0c0fe0b3bdb0ec2ec4c7a6c8.js": "/nba-stats/precache-manifest.1cd2398b0c0fe0b3bdb0ec2ec4c7a6c8.js",
     "service-worker.js": "/nba-stats/service-worker.js",
-    "static/js/2.a0452698.chunk.js.LICENSE.txt": "/nba-stats/static/js/2.a0452698.chunk.js.LICENSE.txt"
+    "static/js/2.56df418c.chunk.js.LICENSE.txt": "/nba-stats/static/js/2.56df418c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a9d0ec99.js",
-    "static/js/2.a0452698.chunk.js",
+    "static/js/2.56df418c.chunk.js",
     "static/css/main.4c014d2c.chunk.css",
-    "static/js/main.24133072.chunk.js"
+    "static/js/main.6ffcbc7a.chunk.js"
   ]
 }
