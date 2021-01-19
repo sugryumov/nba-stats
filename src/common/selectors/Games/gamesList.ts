@@ -19,6 +19,8 @@ export const getGamesListData = createSelector(
           endTimeUTC,
           statusNum,
           extendedStatusNum,
+          clock,
+          period,
         }) => {
           return {
             gameId,
@@ -40,6 +42,8 @@ export const getGamesListData = createSelector(
             endTimeUTC,
             statusNum,
             extendedStatusNum,
+            clock,
+            period,
           };
         },
       )

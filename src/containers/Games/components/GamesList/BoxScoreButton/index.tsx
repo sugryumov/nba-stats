@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme: ITheme) => ({
     '&:hover': {
       border: 'none',
     },
+
+    '&:disabled': {
+      pointerEvents: 'auto',
+      cursor: 'not-allowed',
+    },
   },
 }));
 

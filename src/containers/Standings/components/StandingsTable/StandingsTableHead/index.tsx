@@ -13,6 +13,10 @@ const useStyles = makeStyles((theme: ITheme) => ({
       'padding': 10,
       'fontWeight': 400,
 
+      [theme.breakpoints.down('xs')]: {
+        fontSize: 12,
+      },
+
       '&:first-child': {
         paddingLeft: 16,
       },

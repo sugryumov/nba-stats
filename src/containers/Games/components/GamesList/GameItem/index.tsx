@@ -65,6 +65,15 @@ const useStyles = makeStyles((theme: ITheme) => ({
     fontSize: 26,
     fontWeight: 600,
   },
+  badge: {
+    display: 'inline-block',
+    padding: '2px 6px',
+    marginBottom: 5,
+    backgroundColor: theme.redColor,
+    borderRadius: 2,
+    fontSize: 12,
+    color: theme.whiteColor,
+  },
   timeWrap: {},
   easternTime: {
     marginBottom: 5,
@@ -87,6 +96,35 @@ const useStyles = makeStyles((theme: ITheme) => ({
 const GameItem = ({ game }) => {
   const classes = useStyles();
 
+  const renderStatusGame = (
+    statusNum,
+    startTimeEastern,
+    mskTime,
+    period,
+    clock,
+  ) => {
+    switch (statusNum) {
+      case statusGame.noеStarted:
+        return (
+          <div className={classes.timeWrap}>
+            <p className={classes.easternTime}>{startTimeEastern}</p>
+            <p className={classes.mskTime}>{`${mskTime} MSK`}</p>
+          </div>
+        );
+
+      case statusGame.live:
+        return (
+          <>
+            <span className={classes.badge}>LIVE</span>
+            <p>{`Q${period.current} ${clock ? clock : '0.0'}`}</p>
+          </>
+        );
+
+      default:
+        return <p>FINAL</p>;
+    }
+  };
+
   const {
     gameId,
     startTimeEastern,
@@ -95,6 +133,8 @@ const GameItem = ({ game }) => {
     vTeam,
     statusNum,
     extendedStatusNum,
+    clock,
+    period,
   }: TGameItem = game;
 
   const mskTime = dayjs(startTimeUTC).tz('Europe/Moscow').format('DD.MM HH:mm');
@@ -114,26 +154,31 @@ const GameItem = ({ game }) => {
           </div>
 
           <p className={classes.score}>
-            {statusNum === statusGame.finished ? vTeam.score : ''}
+            {statusNum === statusGame.finished || statusNum === statusGame.live
+              ? vTeam.score
+              : ''}
           </p>
         </div>
 
         <div className={classes.status}>
           {extendedStatusNum === 2 ? (
             <p className={classes.statusPpd}>PPD</p>
-          ) : statusNum === statusGame.finished ? (
-            'FINAL'
           ) : (
-            <div className={classes.timeWrap}>
-              <p className={classes.easternTime}>{startTimeEastern}</p>
-              <p className={classes.mskTime}>{`${mskTime} MSK`}</p>
-            </div>
+            renderStatusGame(
+              statusNum,
+              startTimeEastern,
+              mskTime,
+              period,
+              clock,
+            )
           )}
         </div>
 
         <div className={classes.team}>
           <p className={classes.score}>
-            {statusNum === statusGame.finished ? hTeam.score : ''}
+            {statusNum === statusGame.finished || statusNum === statusGame.live
+              ? hTeam.score
+              : ''}
           </p>
 
           <div className={classes.info}>

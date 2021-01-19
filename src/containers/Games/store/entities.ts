@@ -20,6 +20,8 @@ export type TGameItem = {
   hTeam: TTeam;
   vTeam: TTeam;
   extendedStatusNum: number;
+  clock: string;
+  period: TPeriod;
 };
 
 type TTeam = {
@@ -31,4 +33,12 @@ type TTeam = {
   teamId: string;
   triCode: string;
   win: string;
+};
+
+type TPeriod = {
+  current: number;
+  type: number;
+  maxRegular: number;
+  isHalftime: boolean;
+  isEndOfPeriod: boolean;
 };

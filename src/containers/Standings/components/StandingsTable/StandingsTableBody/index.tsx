@@ -13,10 +13,15 @@ import { TTeamStandings } from 'containers/Standings/store/entities';
 const useStyles = makeStyles((theme: ITheme) => ({
   tableRow: {
     '& .MuiTableCell-root': {
-      'padding': 5,
+      'padding': 10,
+
+      [theme.breakpoints.down('xs')]: {
+        fontSize: 12,
+      },
 
       '&:first-child': {
         paddingLeft: 16,
+        paddingRight: 16,
       },
 
       '&:last-child': {

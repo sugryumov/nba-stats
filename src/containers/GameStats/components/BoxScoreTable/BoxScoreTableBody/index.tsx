@@ -11,9 +11,14 @@ const useStyles = makeStyles((theme: ITheme) => ({
     '& .MuiTableCell-root': {
       'padding': 10,
 
+      [theme.breakpoints.down('xs')]: {
+        fontSize: 12,
+      },
+
       '&:first-child': {
         paddingLeft: 16,
-        // whiteSpace: 'nowrap',
+        paddingRight: 16,
+        whiteSpace: 'nowrap',
       },
       '&:last-child': {
         paddingRight: 16,
@@ -28,7 +33,7 @@ const useStyles = makeStyles((theme: ITheme) => ({
       position: 'sticky',
       left: 0,
       zIndex: 1,
-      minWidth: 150,
+      minWidth: 'auto',
       backgroundColor: theme.palette.background?.paper,
       boxShadow: '3px 0 3px -2px rgba(0,0,0,.1)',
     },
@@ -37,6 +42,11 @@ const useStyles = makeStyles((theme: ITheme) => ({
     '& .MuiTableCell-body': {
       fontWeight: 600,
       color: theme.palette.primary.main,
+
+      [theme.breakpoints.down('xs')]: {
+        padding: '10px 16px',
+        fontSize: 12,
+      },
     },
   },
 }));

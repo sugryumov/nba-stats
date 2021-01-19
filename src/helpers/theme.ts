@@ -13,6 +13,8 @@ export const colors = [
 const general: IGeneralStyle = {
   maxWidth: '1320px',
   margin: '0 auto',
+  whiteColor: '#ffffff',
+  redColor: 'crimson',
 };
 
 export const light: ITheme = {

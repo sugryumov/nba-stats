@@ -1,6 +1,8 @@
 export interface IGeneralStyle {
   maxWidth: string;
   margin: string;
+  whiteColor: string;
+  redColor: string;
 }
 
 export interface ITheme extends IGeneralStyle {
