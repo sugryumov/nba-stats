@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
-import { groupByList } from 'containers/Standings/constants';
+import { groupByList } from 'common/constants/groupByList';
 
 const useStyles = makeStyles((theme: ITheme) => ({
   container: {

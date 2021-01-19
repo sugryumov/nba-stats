@@ -1,7 +1,7 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
 import Cancel from '@material-ui/icons/Cancel';
-import { colors } from 'helpers/theme';
+import { colors } from 'theme';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({

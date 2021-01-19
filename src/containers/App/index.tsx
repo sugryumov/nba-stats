@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
-import { dark, light } from 'helpers/theme';
+import { dark, light } from 'theme';
 import Header from 'containers/Header';
 import Content from 'common/components/Content';
 import './index.css';

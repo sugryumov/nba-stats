@@ -6,8 +6,11 @@ import EventIcon from '@material-ui/icons/Event';
 import { parseDateFromYMD } from 'helpers/parse';
 import { getChangedDate } from 'common/selectors/Games/gamesList';
 import { changedGameDateAction } from 'containers/Games/store/actions';
+import { useStyles } from './styles';
 
-const GameCalendar = ({ styles }) => {
+const GameCalendar = () => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
 
   const changedDate = useSelector(getChangedDate);
@@ -20,16 +23,16 @@ const GameCalendar = ({ styles }) => {
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <div className={styles.calendarWrap}>
+      <div className={classes.root}>
         <DatePicker
           autoOk
           disableToolbar
           variant="inline"
           value={changedDate}
           onChange={handlerChangeDate}
-          className={styles.calendar}
+          className={classes.picker}
         />
-        <EventIcon className={styles.icon} />
+        <EventIcon className={classes.icon} />
       </div>
     </MuiPickersUtilsProvider>
   );

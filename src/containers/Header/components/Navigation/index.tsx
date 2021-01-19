@@ -1,34 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import { ITheme } from 'interfaces/theme';
-import { menuItems } from 'containers/Header/constants';
-
-const useStyles = makeStyles((theme: ITheme) => ({
-  list: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  listMobile: {
-    flexDirection: 'column',
-  },
-  item: {
-    '&:not(:last-child)': {
-      marginRight: '30px',
-    },
-  },
-  itemMobile: {
-    marginTop: '30px',
-  },
-  link: {
-    fontSize: 14,
-    color: theme.palette.linkColor,
-    textTransform: 'uppercase',
-  },
-  activeLink: {
-    color: theme.palette.activeLinkColor,
-  },
-}));
+import { menuItems } from 'common/constants/menuItems';
+import { useStyles } from './styles';
 
 type TNavigationProps = {
   toggleMenu?: (open: boolean) => void;

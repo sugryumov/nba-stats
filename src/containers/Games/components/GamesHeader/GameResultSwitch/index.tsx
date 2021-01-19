@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import Switch from '@material-ui/core/Switch';
 import { getShowScoreGames } from 'common/selectors/Games/gamesList';
 import { showScoreGameAction } from 'containers/Games/store/actions';
+import { useStyles } from './styles';
 
-const GameResultSwitch = ({ styles }) => {
+const GameResultSwitch = () => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
 
   const showScore = useSelector(getShowScoreGames);
@@ -14,10 +17,10 @@ const GameResultSwitch = ({ styles }) => {
   };
 
   return (
-    <div className={styles.switchWrap}>
+    <div className={classes.root}>
       SHOW SCORES{' '}
       <Switch
-        className={styles.switch}
+        className={classes.switch}
         checked={showScore}
         onChange={handleChangeSwitch}
         color="primary"
