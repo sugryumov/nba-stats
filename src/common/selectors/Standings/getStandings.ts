@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 import { IState } from 'interfaces';
-import { TTeamStandings } from 'containers/Standings/store/entities';
 
 export const getStandings = (state: IState) => state.standings;
 
@@ -14,8 +13,46 @@ export const getStandingsData = createSelector(
         },
       },
     },
-  }): { east: Array<TTeamStandings>; west: Array<TTeamStandings> } => {
-    return { east, west };
+  }) => {
+    const divisionGroup = division => {
+      return Object.entries(division).reduce(
+        (acc, [div, teams]: [string, any]) => {
+          const result = {
+            ...acc,
+            [div]: teams.map(team => {
+              return {
+                ...team,
+                teamName: team.teamSitesOnly.teamName,
+                teamNickname: team.teamSitesOnly.teamNickname,
+                teamTricode: team.teamSitesOnly.teamTricode,
+                streakText: team.teamSitesOnly.streakText,
+              };
+            }),
+          };
+
+          return result;
+        },
+        {},
+      );
+    };
+
+    const conferenceGroup = conference => {
+      return conference.map(team => {
+        return {
+          ...team,
+          teamName: team.teamSitesOnly.teamName,
+          teamNickname: team.teamSitesOnly.teamNickname,
+          teamTricode: team.teamSitesOnly.teamTricode,
+          streakText: team.teamSitesOnly.streakText,
+        };
+      });
+    };
+
+    if (Array.isArray(east)) {
+      return { east: conferenceGroup(east), west: conferenceGroup(west) };
+    } else {
+      return { east: divisionGroup(east), west: divisionGroup(west) };
+    }
   },
 );
 
