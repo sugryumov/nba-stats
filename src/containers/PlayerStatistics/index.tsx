@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { TPlayer } from 'interfaces';
-import { firstRequest } from 'helpers/firstRequest';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSelectedPlayers } from 'common/selectors/Statistics/searchPlayers';
 import { searchPlayerAction } from './store/SearchPlayer/actions';
 import { seasonAveragesAction } from './store/SeasonAverages/actions';
 import SearchPlayer from './components/SearchPlayer';
@@ -11,35 +10,31 @@ import ChangedPlayerChip from './components/ChangedPlayerChip';
 const PlayerStatisticContainer = () => {
   const dispatch = useDispatch();
 
-  const [changedPlayers, setChangedPlayers] = useState<TPlayer[]>(firstRequest);
+  const selectedPlayers = useSelector(getSelectedPlayers);
 
   const onFinishSearch = (value: string) => {
     dispatch(searchPlayerAction.request({ search: value }));
   };
 
   useEffect(() => {
-    const requestBody = changedPlayers?.map(({ id }): number => id);
+    const requestBody = selectedPlayers?.map(({ id }): number => id);
 
     if (requestBody) {
       dispatch(seasonAveragesAction.request({ player_ids: requestBody }));
     }
-  }, [dispatch, changedPlayers]);
+  }, [dispatch, selectedPlayers]);
 
   return (
     <>
       <SearchPlayer
         onFinishSearch={onFinishSearch}
-        changedPlayers={changedPlayers}
-        setChangedPlayers={setChangedPlayers}
+        selectedPlayers={selectedPlayers}
       />
 
-      <ChangedPlayerChip
-        changedPlayers={changedPlayers}
-        setChangedPlayers={setChangedPlayers}
-      />
+      <ChangedPlayerChip selectedPlayers={selectedPlayers} />
 
-      {changedPlayers?.length ? (
-        <StatsPlayer changedPlayers={changedPlayers} />
+      {selectedPlayers?.length ? (
+        <StatsPlayer selectedPlayers={selectedPlayers} />
       ) : null}
     </>
   );

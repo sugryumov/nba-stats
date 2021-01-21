@@ -1,39 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import makeStyles from '@material-ui/core/styles/makeStyles';
-import { ITheme } from 'interfaces/theme';
 import { TPlayer } from 'interfaces';
 import {
   getSearchPlayersData,
   getSearchPlayersLoading,
 } from 'common/selectors/Statistics/searchPlayers';
+import { selectedPlayerAction } from 'containers/PlayerStatistics/store/SearchPlayer/actions';
+import { useStyles } from './styles';
 
-const useStyles = makeStyles((theme: ITheme) => ({
-  search: {
-    '& .MuiInputLabel-root.Mui-focused': {
-      color: theme.palette.primaryColor,
-    },
-    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: theme.palette.primaryColor,
-    },
-
-    '& label': {
-      [theme.breakpoints.down('xs')]: {
-        fontSize: 14,
-        lineHeight: 1.4,
-      },
-    },
-  },
-}));
-
-const SearchPlayer = ({
-  onFinishSearch,
-  changedPlayers,
-  setChangedPlayers,
-}) => {
+const SearchPlayer = ({ onFinishSearch, selectedPlayers }) => {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
 
   const [openOptionsList, setOpenOptionsList] = useState<boolean>(false);
   const [searchInputValue, setSearchInputValue] = useState<string>('');
@@ -68,7 +48,7 @@ const SearchPlayer = ({
     option.first_name === value.first_name;
 
   const onChangeHandler = (_, value) => {
-    setChangedPlayers(value);
+    dispatch(selectedPlayerAction(value));
   };
 
   const renderInput = params => {
@@ -94,8 +74,8 @@ const SearchPlayer = ({
   return (
     <Autocomplete
       multiple
-      className={classes.search}
-      value={changedPlayers}
+      className={classes.root}
+      value={selectedPlayers}
       closeIcon={false}
       forcePopupIcon={false}
       open={openOptionsList && searchInputValue.length !== 0}

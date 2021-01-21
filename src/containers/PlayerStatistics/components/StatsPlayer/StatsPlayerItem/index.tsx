@@ -5,23 +5,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import { colors } from 'theme';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-  container: {
-    paddingBottom: '40px',
-  },
-  name: {
-    fontSize: '18px',
-    marginBottom: '5px',
-  },
-  info: {
-    fontSize: '14px',
-  },
-  table: {
-    overflowX: 'auto',
-  },
-});
+import { useStyles } from './styles';
 
 const StatsPlayerItem = ({ playerFullInfo }) => {
   const classes = useStyles();

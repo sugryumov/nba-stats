@@ -4,6 +4,7 @@ export interface ISearchPlayer {
   response: TSearchPlayerResponse;
   error: null | Error;
   loading: boolean;
+  selectedPlayer: Array<TPlayer>;
 }
 
 export type TSearchPlayerResponse = {
