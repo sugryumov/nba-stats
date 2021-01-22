@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: ITheme) =>
       padding: '10px 16px',
     },
     icon: {
-      color: theme.palette.activeLinkColor,
+      color: theme.whiteColor,
     },
     drawer: {
       '& .MuiDrawer-paper': {
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: ITheme) =>
       },
     },
     pageName: {
-      color: theme.palette.activeLinkColor,
+      color: theme.whiteColor,
       textTransform: 'uppercase',
     },
   }),

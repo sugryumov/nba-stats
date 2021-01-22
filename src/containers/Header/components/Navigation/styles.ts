@@ -19,12 +19,20 @@ const useStyles = makeStyles((theme: ITheme) =>
       marginTop: '30px',
     },
     link: {
-      fontSize: 14,
-      color: theme.palette.linkColor,
-      textTransform: 'uppercase',
+      'fontSize': 14,
+      'color': theme.palette.linkColor,
+      'fontWeight': 500,
+      'letterSpacing': 0.4,
+      'textTransform': 'uppercase',
+      'opacity': 0.7,
+
+      '&:hover': {
+        opacity: 1,
+      },
     },
     activeLink: {
-      color: theme.palette.activeLinkColor,
+      opacity: 1,
+      color: theme.palette.linkColor,
     },
   }),
 );

@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import {
-  getActivePlayers,
-  getBoxScoreError,
-  getBoxScoreLoading,
-} from 'common/selectors/GameStats/getBoxScore';
 import { getBoxScoreAction } from './store/BoxScore/actions';
-import BoxScoreTable from './components/BoxScoreTable';
-import LoadingLayout from 'common/components/LoadingLayout';
+import TabsGameStats from './components/TabsGameStats';
+import TabsContent from './components/TabsContent';
+import { TTabsGameStatsValue } from 'common/constants/tabsGameStats';
 
 const GameStatsContainer = () => {
   const dispatch = useDispatch();
   const { search } = useLocation();
+
+  const [activeTab, setActiveTab] = useState<TTabsGameStatsValue>('box-score');
 
   useEffect(() => {
     const gameDate = new URLSearchParams(search).get('date')!;
@@ -26,28 +24,15 @@ const GameStatsContainer = () => {
     dispatch(getBoxScoreAction.request(params));
   }, [dispatch, search]);
 
-  const activePlayers = useSelector(getActivePlayers);
-  const boxScoreLoading = useSelector(getBoxScoreLoading);
-  const boxScoreError = useSelector(getBoxScoreError);
-
-  const renderTable = () => {
-    return Object.entries(activePlayers)?.map(([team, players]) => {
-      return (
-        <div key={team} style={{ paddingBottom: 40 }}>
-          <BoxScoreTable data={players} team={team} />
-        </div>
-      );
-    });
+  const handleTabClick = (_, activeTab: TTabsGameStatsValue) => {
+    setActiveTab(activeTab);
   };
 
   return (
-    <LoadingLayout
-      data={activePlayers}
-      loading={boxScoreLoading}
-      error={boxScoreError}
-    >
-      {renderTable()}
-    </LoadingLayout>
+    <>
+      <TabsGameStats activeTab={activeTab} handleTabClick={handleTabClick} />
+      <TabsContent activeTab={activeTab} />
+    </>
   );
 };
 

@@ -32,8 +32,7 @@ export const light: ITheme = {
     secondaryColor: '#e4e4e4',
     backgroundHeader: '#1976d2',
     backgroundBody: '#f7f7f7',
-    linkColor: '#fff9',
-    activeLinkColor: '#ffffff',
+    linkColor: '#ffffff',
   },
 };
 
@@ -52,7 +51,6 @@ export const dark: ITheme = {
     secondaryColor: '#424242',
     backgroundHeader: '#212121',
     backgroundBody: '#1a1a1a',
-    linkColor: '#fff9',
-    activeLinkColor: '#ffffff',
+    linkColor: '#ffffff',
   },
 };

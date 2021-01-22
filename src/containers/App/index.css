@@ -5,6 +5,7 @@ html {
 
 body {
   margin: 0;
+  padding-right: 0 !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Rajdhani', 'Segoe UI',
     'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif;

@@ -16,7 +16,6 @@ export interface ITheme extends IGeneralStyle {
     backgroundHeader: string;
     backgroundBody: string;
     linkColor: string;
-    activeLinkColor: string;
   };
 
   breakpoints?: any;
