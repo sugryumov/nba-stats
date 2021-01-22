@@ -21,6 +21,7 @@ type TColumns = {
     count: number;
     columnName: string;
   };
+  styles?: any;
 };
 
 const ReusableTable = ({ columns, data }: ReusableTableProps) => {
@@ -31,7 +32,11 @@ const ReusableTable = ({ columns, data }: ReusableTableProps) => {
       <TableHead>
         <TableRow>
           {columns.map(column => (
-            <TableCell key={column.id} className={classes.headTableCell}>
+            <TableCell
+              key={column.id}
+              className={classes.headTableCell}
+              style={column.styles ? column.styles : {}}
+            >
               {column.label}
             </TableCell>
           ))}
@@ -53,6 +58,7 @@ const ReusableTable = ({ columns, data }: ReusableTableProps) => {
                     className={classes.bodyTableCell}
                     colSpan={colSpan && column.colSpan?.count}
                     align={colSpan ? 'left' : 'center'}
+                    style={column.styles ? column.styles : {}}
                   >
                     {createElement(column.component, {
                       value: item[column.name],

@@ -4,6 +4,7 @@ import { IGetBoxScore } from './entities';
 
 const initialState: IGetBoxScore = {
   response: {
+    basicGameData: {},
     stats: {
       activePlayers: [],
       hTeam: null,
@@ -20,6 +21,7 @@ export const getBoxScoreReducer = createReducer(initialState, {
   [getType(getBoxScoreAction.request)]: state => ({
     ...state,
     response: {
+      basicGameData: {},
       stats: {
         activePlayers: [],
         hTeam: null,

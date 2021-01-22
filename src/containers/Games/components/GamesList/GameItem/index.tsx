@@ -41,7 +41,7 @@ const GameItem = ({ game }) => {
 
       <BoxScoreButton
         gameId={gameId}
-        gameUrlCode={`${hTeam.triCode} - ${vTeam.triCode}`}
+        gameUrlCode={`${vTeam.triCode} - ${hTeam.triCode}`}
         disabled={statusNum !== statusGame.finished}
       />
     </Card>

@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import { IState } from 'interfaces';
+import { flatObject } from 'helpers/normalize';
 import { TActivePlayers } from 'containers/GameStats/store/BoxScore/entities';
 import { teamList } from 'common/constants/teams';
 
@@ -27,14 +28,39 @@ export const getActivePlayers = createSelector(
   },
 );
 
-export const getTeamStats = createSelector(
+export const getLineScore = createSelector(
   getBoxScore,
   ({
     response: {
-      stats: { hTeam, vTeam },
+      basicGameData: { vTeam, hTeam },
     },
   }) => {
-    return { hTeam, vTeam };
+    const vLineScore = Object.fromEntries(flatObject(vTeam));
+    const hLineScore = Object.fromEntries(flatObject(hTeam));
+
+    return [vLineScore, hLineScore];
+  },
+);
+
+export const getLineScoreStats = createSelector(
+  getBoxScore,
+  ({
+    response: {
+      stats: { vTeam, hTeam },
+    },
+  }) => {
+    return [vTeam, hTeam];
+  },
+);
+
+export const getGameDate = createSelector(
+  getBoxScore,
+  ({
+    response: {
+      basicGameData: { homeStartDate },
+    },
+  }) => {
+    return homeStartDate;
   },
 );
 

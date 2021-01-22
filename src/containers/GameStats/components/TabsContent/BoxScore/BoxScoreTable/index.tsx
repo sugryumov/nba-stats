@@ -3,13 +3,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Column from 'common/components/ReusableTable/Column';
 import ReusableTable from 'common/components/ReusableTable';
 import { useStyles } from './styles';
 
 const BoxScoreTable = ({ data, team }) => {
   const classes = useStyles();
-
-  const Column = ({ value }) => <span>{value}</span>;
 
   const ColumnName = ({ _, render }) => {
     const [firstName, lastName, pos] = render;

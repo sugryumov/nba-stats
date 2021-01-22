@@ -6,8 +6,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import { ConfDivName } from 'enums/confDivName';
-import ReusableTable from 'common/components/ReusableTable';
 import SVGIcon from 'common/components/SVGIcon';
+import ReusableTable from 'common/components/ReusableTable';
+import Column from 'common/components/ReusableTable/Column';
 import { getStandingsGroupBy } from 'common/selectors/Standings/getStandings';
 import { useStyles } from './styles';
 
@@ -15,8 +16,6 @@ const StandingsTable = ({ data, name }) => {
   const classes = useStyles();
 
   const standingsGroupBy = useSelector(getStandingsGroupBy);
-
-  const Column = ({ value }) => <span>{value}</span>;
 
   const ColumnName = ({ _, render }) => {
     const [teamName, teamNickname, teamTricode, confRank, divRank] = render;

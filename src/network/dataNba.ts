@@ -25,6 +25,8 @@ class DataNba extends Instance {
 
 // "teamRoster": "/prod/v1/2020/teams/{{teamUrlCode}}/roster.json", // respone playerID
 
+// "playerProfile": http://data.nba.net/prod/v1/2020/players/1630173_profile.json
+
 // stats.nba
 // https://stats.nba.com/js/data/widgets/home_season.json - season stats
 // https://stats.nba.com/js/data/widgets/home_daily.json - daily stats

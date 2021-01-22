@@ -5,6 +5,7 @@ export interface IGetBoxScore {
 }
 
 export type TGetBoxScoreResponse = {
+  basicGameData: any;
   stats: {
     activePlayers: Array<TActivePlayers>;
     hTeam: null | TGameStatsTeam;
