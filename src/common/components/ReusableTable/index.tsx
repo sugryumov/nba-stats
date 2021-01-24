@@ -4,6 +4,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import Tooltip from '@material-ui/core/Tooltip';
 import { useStyles } from './styles';
 
 type ReusableTableProps = {
@@ -22,6 +23,7 @@ type TColumns = {
     columnName: string;
   };
   styles?: any;
+  tooltip?: string;
 };
 
 const ReusableTable = ({ columns, data }: ReusableTableProps) => {
@@ -32,13 +34,20 @@ const ReusableTable = ({ columns, data }: ReusableTableProps) => {
       <TableHead>
         <TableRow>
           {columns.map(column => (
-            <TableCell
+            <Tooltip
               key={column.id}
-              className={classes.headTableCell}
-              style={column.styles ? column.styles : {}}
+              title={column.tooltip ? column.tooltip : ''}
+              aria-label={column.tooltip}
+              placement="top"
+              enterTouchDelay={0}
             >
-              {column.label}
-            </TableCell>
+              <TableCell
+                className={classes.headTableCell}
+                style={column.styles ? column.styles : {}}
+              >
+                {column.label}
+              </TableCell>
+            </Tooltip>
           ))}
         </TableRow>
       </TableHead>
@@ -46,7 +55,7 @@ const ReusableTable = ({ columns, data }: ReusableTableProps) => {
       <TableBody>
         {data.map((item, idx) => {
           return (
-            <TableRow hover key={`TableRow_${idx}`}>
+            <TableRow hover={data.length > 2} key={`TableRow_${idx}`}>
               {columns.map(column => {
                 const render = column.render?.map(el => item[el]);
                 const colSpan =

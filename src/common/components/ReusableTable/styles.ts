@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: ITheme) =>
       'backgroundColor': theme.palette.secondaryColor,
       'textAlign': 'center',
       'whiteSpace': 'nowrap',
+      'userSelect': 'none',
 
       [theme.breakpoints.down('xs')]: {
         fontSize: 12,
@@ -31,6 +32,7 @@ const useStyles = makeStyles((theme: ITheme) =>
 
     bodyTableCell: {
       'padding': '12px 0',
+      'userSelect': 'none',
 
       [theme.breakpoints.down('xs')]: {
         fontSize: 12,
