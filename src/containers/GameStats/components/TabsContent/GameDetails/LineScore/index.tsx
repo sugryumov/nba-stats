@@ -15,38 +15,59 @@ const LineScore = () => {
       id: 1,
       component: Column,
       name: 'triCode',
-      label: 'TEAM',
+      label: '',
       width: 'auto',
+      styles: {
+        minWidth: 50,
+        position: 'relative',
+        boxShadow: 'none',
+        backgroundColor: 'transparent',
+      },
     },
     {
       id: 2,
       component: Column,
       name: 'Q1score',
       label: 'Q1',
+      styles: {
+        backgroundColor: 'transparent',
+      },
     },
     {
       id: 3,
       component: Column,
       name: 'Q2score',
       label: 'Q2',
+      styles: {
+        backgroundColor: 'transparent',
+      },
     },
     {
       id: 4,
       component: Column,
       name: 'Q3score',
       label: 'Q3',
+      styles: {
+        backgroundColor: 'transparent',
+      },
     },
     {
       id: 5,
       component: Column,
       name: 'Q4score',
       label: 'Q4',
+      styles: {
+        backgroundColor: 'transparent',
+      },
     },
     {
       id: 6,
       component: Column,
       name: 'score',
       label: 'FINAL',
+      styles: {
+        backgroundColor: 'transparent',
+      },
     },
   ];
 

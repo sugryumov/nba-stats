@@ -53,6 +53,24 @@ export const getLineScoreStats = createSelector(
   },
 );
 
+export const getTotalGameStats = createSelector(getBoxScore, ({ response }) => {
+  const {
+    stats: { vTeam, hTeam },
+    basicGameData,
+  } = response;
+
+  const vTotalStats = {
+    ...vTeam?.totals,
+    team: basicGameData.vTeam.triCode,
+  };
+  const hTotalStats = {
+    ...hTeam?.totals,
+    team: basicGameData.hTeam.triCode,
+  };
+
+  return [vTotalStats, hTotalStats];
+});
+
 export const getGameDate = createSelector(
   getBoxScore,
   ({
