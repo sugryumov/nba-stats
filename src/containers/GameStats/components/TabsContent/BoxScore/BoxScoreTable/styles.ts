@@ -1,6 +1,7 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { ITheme } from 'interfaces/theme';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: ITheme) =>
   createStyles({
     container: {
       '&:not(:last-child)': {
@@ -16,7 +17,14 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     table: {
-      overflowX: 'auto',
+      'overflowX': 'auto',
+
+      '& .MuiTableRow-root:last-child': {
+        '& .MuiTableCell-body': {
+          color: `${theme.palette.primary.main} !important`,
+          fontWeight: 'bold',
+        },
+      },
     },
   }),
 );

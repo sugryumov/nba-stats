@@ -53,7 +53,7 @@ const ReusableTable = ({ columns, data }: ReusableTableProps) => {
       </TableHead>
 
       <TableBody>
-        {data.map((item, idx) => {
+        {data?.map((item, idx) => {
           return (
             <TableRow hover={data.length > 2} key={`TableRow_${idx}`}>
               {columns.map(column => {

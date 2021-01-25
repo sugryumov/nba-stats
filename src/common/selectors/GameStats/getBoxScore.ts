@@ -13,7 +13,7 @@ export const getActivePlayers = createSelector(
       stats: { activePlayers, hTeam, vTeam },
     },
   }): { [key: string]: Array<TActivePlayers> } => {
-    return activePlayers.reduce((acc, cur) => {
+    const gameData = activePlayers.reduce((acc, cur) => {
       const { teamId, fullName } = teamList.find(
         ({ teamId }) => teamId === cur.teamId,
       )!;
@@ -25,6 +25,25 @@ export const getActivePlayers = createSelector(
           }
         : acc;
     }, {});
+
+    const addTotals = (name, players, totals) => {
+      const newObj = {
+        ...totals,
+        firstName: 'TOTALS',
+        lastName: '',
+        min: '',
+      };
+
+      return { [name]: players && players.concat(newObj) };
+    };
+
+    const [vName, hName] = Object.keys(gameData);
+    const [vPlayers, hPlayers] = Object.values(gameData);
+
+    const vData = addTotals(vName, vPlayers, vTeam?.totals);
+    const hData = addTotals(hName, hPlayers, hTeam?.totals);
+
+    return { ...vData, ...hData };
   },
 );
 
@@ -52,24 +71,6 @@ export const getLineScoreStats = createSelector(
     return [vTeam, hTeam];
   },
 );
-
-export const getTotalGameStats = createSelector(getBoxScore, ({ response }) => {
-  const {
-    stats: { vTeam, hTeam },
-    basicGameData,
-  } = response;
-
-  const vTotalStats = {
-    ...vTeam?.totals,
-    team: basicGameData.vTeam.triCode,
-  };
-  const hTotalStats = {
-    ...hTeam?.totals,
-    team: basicGameData.hTeam.triCode,
-  };
-
-  return [vTotalStats, hTotalStats];
-});
 
 export const getGameDate = createSelector(
   getBoxScore,

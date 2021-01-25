@@ -7,7 +7,6 @@ import Hidden from '@material-ui/core/Hidden';
 import { getGameDate } from 'common/selectors/GameStats/getBoxScore';
 import LineScore from './LineScore';
 import LineScoreStats from './LineScoreStats';
-import TotalStats from './TotalStats';
 import { useStyles } from './styles';
 
 const GameDetails = () => {
@@ -27,7 +26,7 @@ const GameDetails = () => {
 
       <Hidden smUp>
         <Typography variant="h6" className={classes.title}>
-          Line score
+          Summary
         </Typography>
       </Hidden>
 
@@ -36,8 +35,6 @@ const GameDetails = () => {
         <div className={classes.line}></div>
         <LineScoreStats />
       </div>
-
-      <TotalStats />
     </Paper>
   );
 };
