@@ -14,6 +14,7 @@ const TabsGameStats = ({ handleTabClick, activeTab }) => {
         className={classes.tabs}
         value={activeTab}
         onChange={handleTabClick}
+        TabIndicatorProps={{ className: classes.indicator }}
       >
         {tabsGameStats.map(({ id, value, label }) => {
           return (

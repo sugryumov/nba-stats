@@ -1,6 +1,7 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { ITheme } from 'interfaces/theme';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: ITheme) =>
   createStyles({
     root: {
       marginBottom: 32,
@@ -9,7 +10,15 @@ const useStyles = makeStyles((theme: Theme) =>
 
     tabs: {},
 
-    tab: {},
+    tab: {
+      [theme.breakpoints.down('xs')]: {
+        width: '50%',
+      },
+    },
+
+    indicator: {
+      backgroundColor: theme.palette.primary.main,
+    },
   }),
 );
 
