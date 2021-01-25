@@ -13,6 +13,8 @@ const GameStatus = ({
 }) => {
   const classes = useStyles();
 
+  const { current, isEndOfPeriod } = period;
+
   const mskTime = dayjs(startTimeUTC).tz('Europe/Moscow').format('DD.MM HH:mm');
 
   return (
@@ -27,7 +29,11 @@ const GameStatus = ({
       ) : statusNum === statusGame.live ? (
         <>
           <span className={classes.live}>LIVE</span>
-          <p>{`Q${period.current} ${clock ? clock : '0.0'}`}</p>
+          {isEndOfPeriod ? (
+            <p>{`END Q${current}`}</p>
+          ) : (
+            <p>{`Q${current} ${clock}`}</p>
+          )}
         </>
       ) : (
         <p>FINAL</p>
