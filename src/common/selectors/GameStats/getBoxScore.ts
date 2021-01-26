@@ -72,6 +72,53 @@ export const getLineScoreStats = createSelector(
   },
 );
 
+const getInfo = (team, statName, triCode?) => {
+  const [player] = team?.leaders[statName].players;
+  const { value } = team?.leaders[statName];
+
+  return {
+    fullName: `${player.firstName} ${player.lastName}`,
+    value,
+    triCode,
+  };
+};
+
+export const getGameLeadersPoints = createSelector(
+  getBoxScore,
+  ({
+    response: {
+      stats: { vTeam, hTeam },
+      basicGameData,
+    },
+  }) => {
+    const vTriCode = basicGameData.vTeam.triCode;
+    const hTriCode = basicGameData.hTeam.triCode;
+
+    return [
+      getInfo(vTeam, 'points', vTriCode),
+      getInfo(hTeam, 'points', hTriCode),
+    ];
+  },
+);
+
+export const getGameLeadersAssists = createSelector(
+  getBoxScore,
+  ({
+    response: {
+      stats: { vTeam, hTeam },
+    },
+  }) => [getInfo(vTeam, 'assists'), getInfo(hTeam, 'assists')],
+);
+
+export const getGameLeadersRebounds = createSelector(
+  getBoxScore,
+  ({
+    response: {
+      stats: { vTeam, hTeam },
+    },
+  }) => [getInfo(vTeam, 'rebounds'), getInfo(hTeam, 'rebounds')],
+);
+
 export const getGameDate = createSelector(
   getBoxScore,
   ({
@@ -81,6 +128,15 @@ export const getGameDate = createSelector(
   }) => {
     return homeStartDate;
   },
+);
+
+export const getTriCode = createSelector(
+  getBoxScore,
+  ({
+    response: {
+      basicGameData: { vTeam, hTeam },
+    },
+  }) => [{ triCode: vTeam.triCode }, { triCode: hTeam.triCode }],
 );
 
 export const getBoxScoreLoading = createSelector(

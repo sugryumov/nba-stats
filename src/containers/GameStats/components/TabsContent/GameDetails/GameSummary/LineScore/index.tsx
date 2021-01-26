@@ -16,7 +16,6 @@ const LineScore = () => {
       component: Column,
       name: 'triCode',
       label: '',
-      width: 'auto',
       styles: {
         minWidth: 50,
         position: 'relative',

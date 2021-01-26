@@ -5,8 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import { getGameDate } from 'common/selectors/GameStats/getBoxScore';
-import LineScore from './LineScore';
-import LineScoreStats from './LineScoreStats';
+import GameLeaders from './GameLeaders';
+import GameSummary from './GameSummary';
 import { useStyles } from './styles';
 
 const GameDetails = () => {
@@ -14,7 +14,7 @@ const GameDetails = () => {
 
   const gameDate = useSelector(getGameDate);
 
-  const parseGameDate = dayjs(gameDate).format('DD MMMM');
+  const parseGameDate = dayjs(gameDate).format('DD MMMM YYYY');
 
   return (
     <Paper className={classes.root}>
@@ -30,11 +30,13 @@ const GameDetails = () => {
         </Typography>
       </Hidden>
 
-      <div className={classes.container}>
-        <LineScore />
-        <div className={classes.line}></div>
-        <LineScoreStats />
-      </div>
+      <GameSummary />
+
+      <Typography variant="h6" className={classes.title}>
+        Game Leaders
+      </Typography>
+
+      <GameLeaders />
     </Paper>
   );
 };

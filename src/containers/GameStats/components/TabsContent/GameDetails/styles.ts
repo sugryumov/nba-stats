@@ -10,12 +10,15 @@ const useStyles = makeStyles((theme: ITheme) =>
         padding: 16,
       },
     },
-    container: {
+
+    wrapper: {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       overflowX: 'auto',
+      marginBottom: 30,
     },
+
     title: {
       marginBottom: 10,
 
@@ -23,6 +26,7 @@ const useStyles = makeStyles((theme: ITheme) =>
         fontSize: 16,
       },
     },
+
     line: {
       minWidth: 1,
       height: 100,
