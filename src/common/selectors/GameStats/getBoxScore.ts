@@ -148,3 +148,8 @@ export const getBoxScoreError = createSelector(
   getBoxScore,
   ({ error }) => error,
 );
+
+export const getActiveTab = createSelector(
+  getBoxScore,
+  ({ activeTab }) => activeTab,
+);

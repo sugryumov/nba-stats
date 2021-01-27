@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { getBoxScoreAction } from './store/BoxScore/actions';
+import { getActiveTab } from 'common/selectors/GameStats/getBoxScore';
+import {
+  changedActiveTabAction,
+  getBoxScoreAction,
+} from './store/BoxScore/actions';
 import TabsGameStats from './components/TabsGameStats';
 import TabsContent from './components/TabsContent';
-import { TTabsGameStatsValue } from 'common/constants/tabsGameStats';
+import { TTabsGameStatsValue } from './store/BoxScore/entities';
 
 const GameStatsContainer = () => {
   const dispatch = useDispatch();
   const { search } = useLocation();
 
-  const [activeTab, setActiveTab] = useState<TTabsGameStatsValue>('box-score');
+  const activeTab = useSelector(getActiveTab);
 
   useEffect(() => {
     const gameDate = new URLSearchParams(search).get('date')!;
@@ -25,7 +29,7 @@ const GameStatsContainer = () => {
   }, [dispatch, search]);
 
   const handleTabClick = (_, activeTab: TTabsGameStatsValue) => {
-    setActiveTab(activeTab);
+    dispatch(changedActiveTabAction(activeTab));
   };
 
   return (

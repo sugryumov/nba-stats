@@ -2,7 +2,10 @@ export interface IGetBoxScore {
   response: TGetBoxScoreResponse;
   error: null | Error;
   loading: boolean;
+  activeTab: TTabsGameStatsValue;
 }
+
+export type TTabsGameStatsValue = 'box-score' | 'details';
 
 export type TGetBoxScoreResponse = {
   basicGameData: any;

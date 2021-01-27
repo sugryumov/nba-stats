@@ -50,7 +50,7 @@ const StandingsTable = ({ data, name }) => {
         'confRank',
         'divRank',
       ],
-      label: 'PLAYER',
+      label: 'TEAM',
     },
     {
       id: 2,

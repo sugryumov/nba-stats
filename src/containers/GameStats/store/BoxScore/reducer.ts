@@ -1,5 +1,5 @@
 import { createReducer, getType } from 'typesafe-actions';
-import { getBoxScoreAction } from './actions';
+import { changedActiveTabAction, getBoxScoreAction } from './actions';
 import { IGetBoxScore } from './entities';
 
 const initialState: IGetBoxScore = {
@@ -15,6 +15,7 @@ const initialState: IGetBoxScore = {
   },
   error: null,
   loading: false,
+  activeTab: 'box-score',
 };
 
 export const getBoxScoreReducer = createReducer(initialState, {
@@ -34,6 +35,7 @@ export const getBoxScoreReducer = createReducer(initialState, {
     loading: true,
   }),
   [getType(getBoxScoreAction.success)]: (state, { payload }) => ({
+    ...state,
     response: payload,
     error: null,
     loading: false,
@@ -42,5 +44,10 @@ export const getBoxScoreReducer = createReducer(initialState, {
     ...state,
     error: payload,
     loading: false,
+  }),
+
+  [getType(changedActiveTabAction)]: (state, { payload }) => ({
+    ...state,
+    activeTab: payload,
   }),
 });
