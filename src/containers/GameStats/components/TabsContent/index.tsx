@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import LoadingLayout from 'common/components/LoadingLayout';
-import { tabsGameStats } from 'common/constants/tabsGameStats';
 import {
   getActivePlayers,
   getBoxScoreLoading,
   getBoxScoreError,
 } from 'common/selectors/GameStats/getBoxScore';
+import { tabsGameStats } from 'containers/GameStats/constants';
 import { useStyles } from './styles';
 
 const TabsContent = ({ activeTab }) => {
@@ -34,7 +34,7 @@ const TabsContent = ({ activeTab }) => {
       loading={boxScoreLoading}
       error={boxScoreError}
     >
-      {tabContent()}
+      {Object.keys(activePlayers).length > 1 && tabContent()}
     </LoadingLayout>
   );
 };
