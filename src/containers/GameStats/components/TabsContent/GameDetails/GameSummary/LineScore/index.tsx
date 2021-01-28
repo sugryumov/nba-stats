@@ -10,8 +10,6 @@ const LineScore = () => {
 
   const lineScore = useSelector(getLineScore);
 
-  console.log('lineScore', lineScore)
-
   const columns = [
     {
       id: 1,
