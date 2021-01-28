@@ -1,4 +1,4 @@
-import { TGetBoxScoreRequest } from 'containers/GameStats/store/BoxScore/entities';
+import { TGetDataRequest } from 'interfaces';
 import Instance, { TAxios } from 'network/Instance';
 
 class DataNba extends Instance {
@@ -11,10 +11,16 @@ class DataNba extends Instance {
     return this.send('get', `/${date}/scoreboard.json`, {});
   }
 
-  async getBoxScore(game: TGetBoxScoreRequest): TAxios {
+  async getBoxScore(game: TGetDataRequest): TAxios {
     const { gameDate, gameId } = game;
 
     return this.send('get', `/${gameDate}/${gameId}_boxscore.json`, {});
+  }
+
+  async getGamePreview(game: TGetDataRequest): TAxios {
+    const { gameDate, gameId } = game;
+
+    return this.send('get', `/${gameDate}/${gameId}_preview_article.json`, {});
   }
 
   // Standings

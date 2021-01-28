@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { Paths } from 'enums/routes';
 import { getChangedDate } from 'common/selectors/Games/gamesList';
-import { useStyles } from './styles';
 import { changedActiveTabAction } from 'containers/GameStats/store/BoxScore/actions';
+import { useStyles } from './styles';
 
-const BoxScoreButton = ({ gameId, gameUrlCode, disabled }) => {
+const GameStatsButton = ({ gameId, gameUrlCode }) => {
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -17,16 +17,11 @@ const BoxScoreButton = ({ gameId, gameUrlCode, disabled }) => {
   const toPath = `${process.env.PUBLIC_URL}${Paths.gameStats}?date=${changedDate}&id=${gameId}&code=${gameUrlCode}`;
 
   return (
-    <Link
-      to={toPath}
-      onClick={e => disabled && e.preventDefault()}
-      className={classes.root}
-    >
+    <Link to={toPath} className={classes.root}>
       <Button
         variant="outlined"
         color="primary"
         className={classes.button}
-        disabled={disabled}
         onClick={() => dispatch(changedActiveTabAction('box-score'))}
       >
         BOX SCORE
@@ -36,7 +31,6 @@ const BoxScoreButton = ({ gameId, gameUrlCode, disabled }) => {
         variant="outlined"
         color="primary"
         className={classes.button}
-        disabled={disabled}
         onClick={() => dispatch(changedActiveTabAction('details'))}
       >
         GAME DETAILS
@@ -45,4 +39,4 @@ const BoxScoreButton = ({ gameId, gameUrlCode, disabled }) => {
   );
 };
 
-export default BoxScoreButton;
+export default GameStatsButton;

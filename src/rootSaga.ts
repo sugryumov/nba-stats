@@ -3,6 +3,7 @@ import { watchGetGamesList } from 'containers/Games/store/effects';
 import { watchStatistics } from 'containers/PlayerStatistics/store/effects';
 import { watchStandings } from 'containers/Standings/store/effects';
 import { watchGameStats } from 'containers/GameStats/store/effects';
+import { watchGamePreview } from 'containers/GamePreview/store/effects';
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     watchStatistics(),
     watchStandings(),
     watchGameStats(),
+    watchGamePreview(),
   ]);
 }

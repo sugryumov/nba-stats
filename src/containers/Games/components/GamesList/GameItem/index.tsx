@@ -2,9 +2,10 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import { statusGame } from 'common/constants/statusGame';
 import { TGameItem } from 'containers/Games/store/entities';
-import BoxScoreButton from 'containers/Games/components/GamesList/BoxScoreButton';
 import Team from 'containers/Games/components/GamesList/GameItem/Team';
 import GameStatus from 'containers/Games/components/GamesList/GameItem/GameStatus';
+import GameStatsButton from 'containers/Games/components/GamesList/GameItem/GameStatsButton';
+import GamePreviewButton from 'containers/Games/components/GamesList/GameItem/GamePreviewButton';
 import { useStyles } from './styles';
 
 const GameItem = ({ game }) => {
@@ -39,14 +40,18 @@ const GameItem = ({ game }) => {
         <Team team={hTeam} statusNum={statusNum} reverse={false} />
       </div>
 
-      <BoxScoreButton
-        gameId={gameId}
-        gameUrlCode={`${vTeam.triCode} - ${hTeam.triCode}`}
-        disabled={
-          statusNum === statusGame.notStarted ||
-          extendedStatusNum === statusGame.ppd
-        }
-      />
+      {statusNum === statusGame.notStarted ? (
+        <GamePreviewButton
+          gameId={gameId}
+          gameUrlCode={`${vTeam.triCode} - ${hTeam.triCode}`}
+          disabled={extendedStatusNum === statusGame.ppd}
+        />
+      ) : (
+        <GameStatsButton
+          gameId={gameId}
+          gameUrlCode={`${vTeam.triCode} - ${hTeam.triCode}`}
+        />
+      )}
     </Card>
   );
 };

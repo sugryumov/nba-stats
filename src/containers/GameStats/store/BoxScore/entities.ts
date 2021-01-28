@@ -96,8 +96,3 @@ type TGameTotals = {
   tpp: string;
   turnovers: string;
 };
-
-export type TGetBoxScoreRequest = {
-  gameDate: string;
-  gameId: string;
-};

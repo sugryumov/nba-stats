@@ -17,11 +17,6 @@ const useStyles = makeStyles((theme: Theme) =>
       '&:hover': {
         border: 'none',
       },
-
-      '&:disabled': {
-        pointerEvents: 'auto',
-        cursor: 'not-allowed',
-      },
     },
   }),
 );
