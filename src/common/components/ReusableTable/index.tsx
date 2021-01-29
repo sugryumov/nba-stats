@@ -5,25 +5,12 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Tooltip from '@material-ui/core/Tooltip';
+import { TColumns } from 'interfaces';
 import { useStyles } from './styles';
 
 type ReusableTableProps = {
   data: any;
   columns: TColumns[];
-};
-
-type TColumns = {
-  id: number;
-  component: any;
-  name: string;
-  render?: string[];
-  label: string;
-  colSpan?: {
-    count: number;
-    columnName: string;
-  };
-  styles?: any;
-  tooltip?: string;
 };
 
 const ReusableTable = ({ columns, data }: ReusableTableProps) => {
