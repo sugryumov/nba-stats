@@ -1,20 +1,8 @@
 import React from 'react';
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
-import { makeStyles } from '@material-ui/core/styles';
-import { ITheme } from 'interfaces/theme';
 import Spinner from '../Spinner';
-
-const useStyles = makeStyles((theme: ITheme) => ({
-  message: {
-    marginTop: 15,
-    color: theme.palette.primaryColor,
-  },
-  icon: {
-    fontSize: 45,
-    color: theme.palette.primaryColor,
-  },
-}));
+import { useStyles } from './styles';
 
 const LoadingLayout = ({ loading, error, data, children }) => {
   const classes = useStyles();
