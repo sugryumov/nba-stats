@@ -4,7 +4,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       padding: 20,
-      marginBottom: 20,
 
       [theme.breakpoints.down('xs')]: {
         padding: 16,

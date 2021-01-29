@@ -26,9 +26,7 @@ const StandingsContainer = () => {
   const renderTable = () => {
     return Object.entries(standingsData)?.map(([conference, team]) => {
       const table = (data, name) => (
-        <div key={name} style={{ paddingBottom: 40 }}>
-          <StandingsTable data={data} name={name} />
-        </div>
+        <StandingsTable key={name} data={data} name={name} />
       );
 
       if (Array.isArray(team)) {
