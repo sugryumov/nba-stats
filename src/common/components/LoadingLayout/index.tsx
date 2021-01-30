@@ -15,7 +15,7 @@ const LoadingLayout = ({ loading, error, data, children }) => {
         <div className="block-center">
           <ErrorOutlineIcon className={classes.icon} />
           <p className={classes.message}>
-            {error ? error.message : 'server is not available'}
+            {error.message ? error.message : 'server is not available'}
           </p>
         </div>
       ) : data ? (
