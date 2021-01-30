@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import InstallPWA from 'common/components/IsntallPWA';
 import { menuItems } from 'common/constants/menuItems';
 import Navigation from './components/Navigation';
 import { useStyles } from './styles';
@@ -72,9 +73,13 @@ const Header = ({ theme, setTheme }) => {
           <p className={classes.pageName}>{pageName ? pageName : gameInfo}</p>
         </Hidden>
 
-        <IconButton edge="end" onClick={onClickThemeHandler}>
-          {icon}
-        </IconButton>
+        <div className={classes.controls}>
+          <InstallPWA />
+
+          <IconButton edge="end" onClick={onClickThemeHandler}>
+            {icon}
+          </IconButton>
+        </div>
       </div>
     </header>
   );

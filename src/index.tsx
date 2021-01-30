@@ -9,6 +9,8 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
 import { reducer } from 'reducer';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
 import rootSaga from 'rootSaga';
 import App from 'containers/App';
 
@@ -32,3 +34,7 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root') as HTMLElement,
 );
+
+serviceWorkerRegistration.register();
+
+reportWebVitals();

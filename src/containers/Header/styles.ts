@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme: ITheme) =>
       color: theme.whiteColor,
       textTransform: 'uppercase',
     },
+    controls: {},
   }),
 );
 
