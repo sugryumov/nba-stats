@@ -29,7 +29,7 @@ function App() {
   const styleContainer = {
     maxWidth: appliedTheme.maxWidth,
     margin: appliedTheme.margin,
-    padding: '0 16px 50px',
+    padding: '0 16px 40px',
   };
 
   return (

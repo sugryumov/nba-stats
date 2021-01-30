@@ -8,24 +8,38 @@ class DataNba extends Instance {
 
   // Games
   async getGames(date): TAxios {
-    return this.send('get', `/${date}/scoreboard.json`, {});
+    return this.send('get', `/prod/v1/${date}/scoreboard.json`, {});
   }
 
   async getBoxScore(game: TGetDataRequest): TAxios {
     const { gameDate, gameId } = game;
 
-    return this.send('get', `/${gameDate}/${gameId}_boxscore.json`, {});
+    return this.send('get', `/prod/v1/${gameDate}/${gameId}_boxscore.json`, {});
   }
 
-  async getGamePreview(game: TGetDataRequest): TAxios {
+  async getPreviewArticles(game: TGetDataRequest): TAxios {
     const { gameDate, gameId } = game;
 
-    return this.send('get', `/${gameDate}/${gameId}_preview_article.json`, {});
+    return this.send(
+      'get',
+      `/prod/v1/${gameDate}/${gameId}_preview_article.json`,
+      {},
+    );
+  }
+
+  async getPlayersPerGame(game: TGetDataRequest): TAxios {
+    const { gameDate, gameId } = game;
+
+    return this.send(
+      'get',
+      `/data/10s/json/cms/2020/game/${gameDate}/${gameId}/playersPerGame.json`,
+      {},
+    );
   }
 
   // Standings
   async getStandings(params): TAxios {
-    return this.send('get', `/current/${params}.json`, {});
+    return this.send('get', `/prod/v1/current/${params}.json`, {});
   }
 }
 
@@ -42,7 +56,7 @@ class DataNba extends Instance {
 
 // https://stats.nba.com/js/data/playermovement/NBA_Player_Movement.json - trade
 
-const baseUrl = 'https://data.nba.net/prod/v1';
+const baseUrl = 'https://data.nba.net';
 const network = new DataNba(baseUrl);
 
 export default network;

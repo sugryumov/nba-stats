@@ -1,43 +1,35 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import LoadingLayout from 'common/components/LoadingLayout';
-import {
-  getGetArticleError,
-  getGetArticleList,
-  getGetArticleLoading,
-} from 'common/selectors/GamePreview/gameArticle';
-import { getGameArticleAction } from 'containers/GamePreview/store/GameArticle/actions';
-import ArticelList from 'containers/GamePreview/components/ArticelList';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { TTabsGamePreviewValue } from 'containers/GamePreview//store/entities';
+import { clearPreviewArticlesAction } from 'containers/GamePreview/store/PreviewArticles/actions';
+import TabsGamePreview from 'containers/GamePreview/components/TabsGamePreview';
+import PreviewArticles from 'containers/GamePreview/components/TabsContent/PreviewArticles';
+import PlayersPerGame from 'containers/GamePreview/components/TabsContent/PlayersPerGame';
+import { clearPlayersPerGameAction } from 'containers/GamePreview/store/PlayersPerGame/actions';
 
 const GamePreviewContainer = () => {
   const dispatch = useDispatch();
-  const { search } = useLocation();
 
-  const articleList = useSelector(getGetArticleList);
-  const articleLoading = useSelector(getGetArticleLoading);
-  const articleError = useSelector(getGetArticleError);
+  const [activeTab, setActiveTab] = useState<TTabsGamePreviewValue>('articles');
 
   useEffect(() => {
-    const gameDate = new URLSearchParams(search).get('date')!;
-    const gameId = new URLSearchParams(search).get('id')!;
-
-    const params = {
-      gameDate,
-      gameId,
+    return () => {
+      dispatch(clearPreviewArticlesAction());
+      dispatch(clearPlayersPerGameAction());
     };
+  }, [dispatch]);
 
-    dispatch(getGameArticleAction.request(params));
-  }, [dispatch, search]);
+  const handleTabClick = (_, activeTab: TTabsGamePreviewValue) => {
+    setActiveTab(activeTab);
+  };
 
   return (
-    <LoadingLayout
-      data={articleList}
-      loading={articleLoading}
-      error={articleError}
-    >
-      <ArticelList articleList={articleList} />
-    </LoadingLayout>
+    <>
+      <TabsGamePreview activeTab={activeTab} handleTabClick={handleTabClick} />
+
+      {activeTab === 'articles' && <PreviewArticles />}
+      {activeTab === 'players' && <PlayersPerGame />}
+    </>
   );
 };
 

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { getGameArticleReducer } from './GameArticle/reducer';
+import { getPreviewArticlesReducer } from './PreviewArticles/reducer';
+import { getPlayersPerGameReducer } from './PlayersPerGame/reducer';
 
 const gamePreviewReducers = {
-  getGameArticle: getGameArticleReducer,
+  previewArticles: getPreviewArticlesReducer,
+  playersPerGame: getPlayersPerGameReducer,
 };
 
 export const gamePreviewReducer = combineReducers(gamePreviewReducers);

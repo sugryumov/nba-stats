@@ -1,10 +1,10 @@
-export interface IGetGameArticle {
-  response: TGetGameArticleResponse;
+export interface IGetPreviewArticles {
+  response: TGetPreviewArticlesResponse;
   error: null | Error;
   loading: boolean;
 }
 
-export type TGetGameArticleResponse = {
+export type TGetPreviewArticlesResponse = {
   paragraphs: Array<TParagraphs>;
   pubDateUTC: string;
   title: string;

@@ -10,21 +10,32 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
 
+    date: {
+      fontSize: 12,
+    },
+
+    line: {
+      display: 'block',
+      margin: '0 0 10px 0',
+    },
+
     title: {
-      marginBottom: 30,
+      marginBottom: 16,
+      fontSize: 16,
+      fontWeight: 'bold',
+      lineHeight: 1.4,
 
       [theme.breakpoints.down('xs')]: {
-        marginBottom: 15,
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontSize: 14,
       },
     },
 
     text: {
-      marginBottom: 20,
+      marginBottom: 14,
+      fontSize: 16,
+      lineHeight: 1.4,
 
       [theme.breakpoints.down('xs')]: {
-        marginBottom: 10,
         fontSize: 14,
       },
     },
