@@ -54,8 +54,8 @@ export const getLineScore = createSelector(
       basicGameData: { vTeam, hTeam },
     },
   }) => {
-    const vLineScore = Object.fromEntries(flatObject(vTeam));
-    const hLineScore = Object.fromEntries(flatObject(hTeam));
+    const vLineScore = hTeam && Object.fromEntries(flatObject(vTeam));
+    const hLineScore = vTeam && Object.fromEntries(flatObject(hTeam));
 
     return [vLineScore, hLineScore];
   },

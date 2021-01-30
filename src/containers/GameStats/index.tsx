@@ -1,19 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { getActiveTab } from 'common/selectors/GameStats/getBoxScore';
+import LoadingLayout from 'common/components/LoadingLayout';
+import {
+  getActivePlayers,
+  getActiveTab,
+  getBoxScoreError,
+  getBoxScoreLoading,
+} from 'common/selectors/GameStats/getBoxScore';
 import {
   changedActiveTabAction,
   getBoxScoreAction,
-} from './store/BoxScore/actions';
-import TabsGameStats from './components/TabsGameStats';
-import TabsContent from './components/TabsContent';
-import { TTabsGameStatsValue } from './store/BoxScore/entities';
+} from 'containers/GameStats/store/BoxScore/actions';
+import { TTabsGameStatsValue } from 'containers/GameStats/store/BoxScore/entities';
+import TabsGameStats from 'containers/GameStats/components/TabsGameStats';
+import BoxScore from 'containers/GameStats/components/TabsContent/BoxScore';
+import GameDetails from 'containers/GameStats/components/TabsContent/GameDetails';
 
 const GameStatsContainer = () => {
   const dispatch = useDispatch();
   const { search } = useLocation();
 
+  const activePlayers = useSelector(getActivePlayers);
+  const boxScoreLoading = useSelector(getBoxScoreLoading);
+  const boxScoreError = useSelector(getBoxScoreError);
   const activeTab = useSelector(getActiveTab);
 
   useEffect(() => {
@@ -35,7 +45,17 @@ const GameStatsContainer = () => {
   return (
     <>
       <TabsGameStats activeTab={activeTab} handleTabClick={handleTabClick} />
-      <TabsContent activeTab={activeTab} />
+
+      <LoadingLayout
+        data={activePlayers}
+        loading={boxScoreLoading}
+        error={boxScoreError}
+      >
+        {activeTab === 'box-score' && <BoxScore />}
+        {activeTab === 'details' && Object.keys(activePlayers).length > 1 && (
+          <GameDetails />
+        )}
+      </LoadingLayout>
     </>
   );
 };
