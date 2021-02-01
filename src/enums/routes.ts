@@ -4,4 +4,5 @@ export enum Paths {
   standings = '/standings',
   gameStats = '/game-stats',
   gamePreview = '/game-preview',
+  stats = '/stats',
 }

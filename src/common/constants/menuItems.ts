@@ -10,6 +10,10 @@ export const menuItems = [
     path: P.standings,
   },
   {
+    name: 'Stats',
+    path: P.stats,
+  },
+  {
     name: 'Player Statistic',
     path: P.playerStatistic,
   },

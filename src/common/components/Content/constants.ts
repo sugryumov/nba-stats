@@ -4,6 +4,7 @@ import PlayerStatisticContainer from 'containers/PlayerStatistics';
 import StandingsContainer from 'containers/Standings';
 import GameStatsContainer from 'containers/GameStats';
 import GamePreviewContainer from 'containers/GamePreview';
+import StatsContainer from 'containers/Stats';
 
 export const pages = [
   {
@@ -24,6 +25,11 @@ export const pages = [
   {
     component: GameStatsContainer,
     path: P.gameStats,
+    exact: true,
+  },
+  {
+    component: StatsContainer,
+    path: P.stats,
     exact: true,
   },
   {
