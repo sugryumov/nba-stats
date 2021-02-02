@@ -6,7 +6,7 @@ import { TPlayer } from 'interfaces';
 import {
   getSearchPlayersData,
   getSearchPlayersLoading,
-} from 'common/selectors/Statistics/searchPlayers';
+} from 'common/selectors/PlayerStatistics/searchPlayers';
 import { selectedPlayerAction } from 'containers/PlayerStatistics/store/SearchPlayer/actions';
 import { useStyles } from './styles';
 

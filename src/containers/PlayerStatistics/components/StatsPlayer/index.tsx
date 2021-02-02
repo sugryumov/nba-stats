@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import {
   getSeasonAveragesData,
   getSeasonAveragesLoading,
-} from 'common/selectors/Statistics/seasonAverages';
+} from 'common/selectors/PlayerStatistics/seasonAverages';
 import Spinner from 'common/components/Spinner';
-import StatsPlayerItem from './StatsPlayerItem';
+import StatsPlayerItem from 'containers/PlayerStatistics/components/StatsPlayer/StatsPlayerItem';
 import { useStyles } from './styles';
 
 const StatsPlayer = ({ selectedPlayers }) => {
