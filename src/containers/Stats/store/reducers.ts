@@ -1,5 +1,5 @@
 import { createReducer, getType } from 'typesafe-actions';
-import { getStatsAction } from './actions';
+import { getStatsAction, statsGroupByAction } from './actions';
 import { IStats } from './entities';
 
 const initialState: IStats = {
@@ -9,6 +9,7 @@ const initialState: IStats = {
   },
   error: null,
   loading: false,
+  groupBy: 'home_daily',
 };
 
 const getStatsReducer = createReducer(initialState, {
@@ -27,6 +28,11 @@ const getStatsReducer = createReducer(initialState, {
     ...state,
     error: payload,
     loading: false,
+  }),
+
+  [getType(statsGroupByAction)]: (state, { payload }) => ({
+    ...state,
+    groupBy: payload,
   }),
 });
 

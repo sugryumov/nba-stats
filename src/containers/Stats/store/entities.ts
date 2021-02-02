@@ -2,6 +2,7 @@ export interface IStats {
   response: TGetStatsResponse;
   error: null | Error;
   loading: boolean;
+  groupBy: 'home_daily' | 'home_season';
 }
 
 export type TGetStatsResponse = {
