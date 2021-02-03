@@ -8,6 +8,22 @@ export const getStatsData = createSelector(
   ({ response }) => response,
 );
 
+export const getStatsPlayers = createSelector(
+  getStats,
+  ({ response: { items } }) =>
+    items.find(
+      ({ uid }) => uid === 'home_daily_players' || uid === 'season_players',
+    )?.items,
+);
+
+export const getStatsTeams = createSelector(
+  getStats,
+  ({ response: { items } }) =>
+    items.find(
+      ({ uid }) => uid === 'home_daily_teams' || uid === 'season_teams',
+    )?.items,
+);
+
 export const getStatsLoading = createSelector(
   getStats,
   ({ loading }) => loading,

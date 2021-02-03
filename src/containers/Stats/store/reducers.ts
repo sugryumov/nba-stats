@@ -6,6 +6,7 @@ const initialState: IStats = {
   response: {
     title: '',
     items: [],
+    last_updated: '',
   },
   error: null,
   loading: false,

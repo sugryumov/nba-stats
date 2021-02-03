@@ -22,6 +22,12 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
 
+    subtitle: {
+      fontSize: 12,
+      fontWeight: 100,
+      opacity: 0.8,
+    },
+
     formControl: {
       'minWidth': 150,
       'height': 40,

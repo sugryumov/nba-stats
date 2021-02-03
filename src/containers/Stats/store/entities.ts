@@ -8,9 +8,11 @@ export interface IStats {
 export type TGetStatsResponse = {
   title: string;
   items: Array<TSeasonLeadersPlayers>;
+  last_updated: string;
 };
 
 type TSeasonLeadersPlayers = {
+  uid: string;
   title: string;
   count: number;
   items: Array<TPlayerStatsItem>;
