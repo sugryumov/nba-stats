@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme: ITheme) =>
       padding: '20px 20px',
 
       [theme.breakpoints.down('xs')]: {
-        padding: '20px 10px',
+        padding: '20px 16px',
       },
     },
 
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: ITheme) =>
       borderBottom: `1px solid ${theme.palette.secondaryColor}`,
     },
 
-    player: {
+    stats: {
       'display': 'flex',
       'justifyContent': 'space-between',
 

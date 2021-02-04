@@ -12,7 +12,7 @@ import {
   statsGroupByAction,
 } from 'containers/Stats/store/actions';
 import StatsHeader from 'containers/Stats/components/StatsHeader';
-import StatsPlayers from 'containers/Stats/components/StatsPlayers';
+import StatsContent from 'containers/Stats/components/StatsContent';
 
 const StatsContainer = () => {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const StatsContainer = () => {
       <StatsHeader groupBy={statsGroupBy} handleGroupBy={handleGroupBy} />
 
       <LoadingLayout data={statsData} loading={statsLoading} error={statsError}>
-        <StatsPlayers />
+        <StatsContent />
       </LoadingLayout>
     </>
   );
