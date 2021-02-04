@@ -18,9 +18,8 @@ class StatsNba extends Instance {
 
 // https://stats.nba.com/js/data/playermovement/NBA_Player_Movement.json - trade
 
-const baseUrl = window.location.host.includes('localhost')
-  ? 'https://cors-anywhere.herokuapp.com/https://stats.nba.com/js/data'
-  : 'https://stats.nba.com/js/data';
+const baseUrl =
+  'https://cors-anywhere.herokuapp.com/https://stats.nba.com/js/data';
 
 const network = new StatsNba(baseUrl);
 
