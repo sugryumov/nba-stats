@@ -13,6 +13,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import rootSaga from 'rootSaga';
 import App from 'containers/App';
+// import { store } from 'store';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
