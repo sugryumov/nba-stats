@@ -4,7 +4,7 @@ import Chip from '@material-ui/core/Chip';
 import Cancel from '@material-ui/icons/Cancel';
 import { colors } from 'theme';
 import { useStyles } from './styles';
-import { selectedPlayerAction } from 'containers/PlayerStatistics/store/SearchPlayer/actions';
+import { selectedPlayerAction } from 'containers/PlayerStatistics/store/SearchPlayer';
 
 const ChangedPlayerChip = ({ selectedPlayers }) => {
   const classes = useStyles();

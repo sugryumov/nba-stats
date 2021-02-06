@@ -4,6 +4,7 @@ import gameStatsReducer from 'containers/GameStats/store';
 import gamePreviewReducer from 'containers/GamePreview/store';
 import standingsReducer from 'containers/Standings/store';
 import statsReducer from 'containers/Stats/store';
+import gamePlayerStatisticsReducer from 'containers/PlayerStatistics/store';
 
 export const rootReducer = combineReducers({
   games: gamesReducer,
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
   gamePreview: gamePreviewReducer,
   standings: standingsReducer,
   stats: statsReducer,
+  playerStatistics: gamePlayerStatisticsReducer,
 });

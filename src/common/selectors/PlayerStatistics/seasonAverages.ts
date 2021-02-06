@@ -1,10 +1,20 @@
-import { IState } from 'interfaces';
+import { createSelector } from '@reduxjs/toolkit';
+import { TState } from 'store/types';
 
-export const getSeasonAveragesData = (state: IState) =>
-  state.statistics.seasonAverages.response.data;
+export const getSeasonAverages = (state: TState) =>
+  state.playerStatistics.seasonAverages;
 
-export const getSeasonAveragesLoading = (state: IState) =>
-  state.statistics.seasonAverages.loading;
+export const getSeasonAveragesData = createSelector(
+  getSeasonAverages,
+  ({ response: { data } }) => data,
+);
 
-export const getSeasonAveragesError = (state: IState) =>
-  state.statistics.seasonAverages.error;
+export const getSeasonAveragesLoading = createSelector(
+  getSeasonAverages,
+  ({ loading }) => loading,
+);
+
+export const getSeasonAveragesError = createSelector(
+  getSeasonAverages,
+  ({ error }) => error,
+);

@@ -1,11 +1,11 @@
-import { TMeta, TPlayer } from 'interfaces';
+import { TMeta, TPlayer } from '../types';
 
-export interface ISearchPlayer {
+export type TSearchPlayerState = {
   response: TSearchPlayerResponse;
-  error: null | Error;
+  error: null | string;
   loading: boolean;
   selectedPlayer: Array<TPlayer>;
-}
+};
 
 export type TSearchPlayerResponse = {
   data: Array<TPlayer>;

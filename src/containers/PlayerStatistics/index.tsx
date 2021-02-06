@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedPlayers } from 'common/selectors/PlayerStatistics/searchPlayers';
-import { searchPlayerAction } from './store/SearchPlayer/actions';
-import { seasonAveragesAction } from './store/SeasonAverages/actions';
+import { fetchSearchPlayer } from './store/SearchPlayer';
+import { fetchSeasonAverages } from './store/SeasonAverages';
 import SearchPlayer from './components/SearchPlayer';
 import StatsPlayer from './components/StatsPlayer';
 import ChangedPlayerChip from './components/ChangedPlayerChip';
@@ -13,14 +13,14 @@ const PlayerStatisticContainer = () => {
   const selectedPlayers = useSelector(getSelectedPlayers);
 
   const onFinishSearch = (value: string) => {
-    dispatch(searchPlayerAction.request({ search: value }));
+    dispatch(fetchSearchPlayer({ search: value }));
   };
 
   useEffect(() => {
     const requestBody = selectedPlayers?.map(({ id }): number => id);
 
     if (requestBody.length) {
-      dispatch(seasonAveragesAction.request({ player_ids: requestBody }));
+      dispatch(fetchSeasonAverages({ player_ids: requestBody }));
     }
   }, [dispatch, selectedPlayers]);
 

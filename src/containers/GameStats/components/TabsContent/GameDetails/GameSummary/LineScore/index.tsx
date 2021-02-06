@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { TColumns } from 'interfaces';
+import { TColumns } from 'types';
 import { getLineScore } from 'common/selectors/GameStats';
 import ReusableTable from 'common/components/ReusableTable';
 import Column from 'common/components/ReusableTable/Column';

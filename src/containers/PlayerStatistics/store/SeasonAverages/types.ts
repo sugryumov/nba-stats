@@ -1,10 +1,10 @@
-export interface ISeasonAverages {
+export type TSeasonAveragesState = {
   response: {
     data: TSeasonAveragesResponse[];
   };
-  error: null | Error;
+  error: null | string;
   loading: boolean;
-}
+};
 
 export type TSeasonAveragesResponse = {
   ast: number;

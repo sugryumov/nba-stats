@@ -1,4 +1,4 @@
-import { ITheme, IGeneralStyle } from 'interfaces/theme';
+import { ITheme, IGeneralStyle } from 'types/theme';
 
 export const colors = [
   '#2979FF',

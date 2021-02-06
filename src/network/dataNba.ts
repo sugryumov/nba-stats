@@ -1,4 +1,4 @@
-import { TGetDataRequest } from 'interfaces';
+import { TGetDataRequest } from 'types';
 import Instance, { TAxios } from 'network/Instance';
 
 class DataNba extends Instance {

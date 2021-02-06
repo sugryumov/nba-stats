@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import network from 'network/dataNba';
-import { TGetDataRequest } from 'interfaces';
+import { TGetDataRequest } from 'types';
 import { TPlayersPerGameResponse, TPlayersPerGameState } from './types';
 
 export const fetchPlayersPerGame = createAsyncThunk(
