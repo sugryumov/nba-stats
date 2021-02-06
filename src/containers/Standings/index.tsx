@@ -6,7 +6,7 @@ import {
   getStandingsLoading,
   getStandingsGroupBy,
 } from 'common/selectors/Standings/getStandings';
-import { getStandingsAction, standingsGroupByAction } from './store/actions';
+import { fetchStandings, standingsGroupByAction } from './store';
 import LoadingLayout from 'common/components/LoadingLayout';
 import StandingsTable from './components/StandingsTable';
 import StandingsHeader from './components/StandingsHeader';
@@ -20,7 +20,7 @@ const StandingsContainer = () => {
   const standingsGroupBy = useSelector(getStandingsGroupBy);
 
   useEffect(() => {
-    dispatch(getStandingsAction.request(standingsGroupBy));
+    dispatch(fetchStandings(standingsGroupBy));
   }, [dispatch, standingsGroupBy]);
 
   const renderTable = () => {

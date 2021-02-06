@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import { IState } from 'interfaces';
+import { TState } from 'store/types';
 
-export const getStandings = (state: IState) => state.standings;
+export const getStandings = (state: TState) => state.standings;
 
 export const getStandingsData = createSelector(
   getStandings,

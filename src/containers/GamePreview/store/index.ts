@@ -2,7 +2,9 @@ import { combineReducers } from '@reduxjs/toolkit';
 import previewArticlesReducer from './PreviewArticles';
 import playersPerGameReducer from './PlayersPerGame';
 
-export const gamePreviewReducer = combineReducers({
+const gamePreviewReducer = combineReducers({
   previewArticles: previewArticlesReducer,
   playersPerGame: playersPerGameReducer,
 });
+
+export default gamePreviewReducer;

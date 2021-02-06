@@ -1,10 +1,8 @@
 import { IStatistics } from 'containers/PlayerStatistics/store/entities';
-import { IStandings } from 'containers/Standings/store/entities';
 import { IStats } from 'containers/Stats/store/entities';
 
 export interface IState {
   statistics: IStatistics;
-  standings: IStandings;
   stats: IStats;
 }
 
