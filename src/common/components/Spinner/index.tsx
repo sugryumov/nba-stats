@@ -1,7 +1,7 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
-import { ITheme } from 'types/theme';
+import { ITheme } from 'theme/i';
 
 const useStyles = makeStyles((theme: ITheme) => ({
   spinner: {

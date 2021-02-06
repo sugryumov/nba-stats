@@ -1,6 +1,6 @@
-import { createSelector } from 'reselect';
-import { teamList } from 'common/constants/teams';
+import { createSelector } from '@reduxjs/toolkit';
 import { TState } from 'store/types';
+import { teamList } from 'common/constants/teams';
 
 export const playersPerGame = (state: TState) =>
   state.gamePreview.playersPerGame;

@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import Chip from '@material-ui/core/Chip';
 import Cancel from '@material-ui/icons/Cancel';
 import { colors } from 'theme';
-import { useStyles } from './styles';
 import { selectedPlayerAction } from 'containers/PlayerStatistics/store/SearchPlayer';
+import { useStyles } from './styles';
 
 const ChangedPlayerChip = ({ selectedPlayers }) => {
   const classes = useStyles();

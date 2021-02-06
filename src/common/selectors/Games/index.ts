@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector } from '@reduxjs/toolkit';
 import { TState } from 'store/types';
 import { TGameItem } from 'containers/Games/store/types';
 

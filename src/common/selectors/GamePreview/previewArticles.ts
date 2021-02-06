@@ -1,6 +1,6 @@
-import { createSelector } from 'reselect';
-import { TPreviewArticlesResponse } from 'containers/GamePreview/store/PreviewArticles/types';
+import { createSelector } from '@reduxjs/toolkit';
 import { TState } from 'store/types';
+import { TPreviewArticlesResponse } from 'containers/GamePreview/store/PreviewArticles/types';
 
 export const previewArticles = (state: TState) =>
   state.gamePreview.previewArticles;

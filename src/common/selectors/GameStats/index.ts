@@ -1,8 +1,8 @@
-import { createSelector } from 'reselect';
+import { createSelector } from '@reduxjs/toolkit';
 import { flatObject } from 'helpers/normalize';
-import { TGameStatsActivePlayers } from 'containers/GameStats/store/types';
-import { teamList } from 'common/constants/teams';
 import { TState } from 'store/types';
+import { teamList } from 'common/constants/teams';
+import { TGameStatsActivePlayers } from 'containers/GameStats/store/types';
 
 export const getGameStats = (state: TState) => state.gameStats;
 

@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector } from '@reduxjs/toolkit';
 import { TState } from 'store/types';
 
 export const getStats = (state: TState) => state.stats;
