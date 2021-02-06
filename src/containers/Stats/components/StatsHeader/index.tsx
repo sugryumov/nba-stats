@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import { leadersGroupByList } from 'common/constants/leadersGroupByList';
-import { getStatsData } from 'common/selectors/Stats/getStats';
+import { getStatsData } from 'common/selectors/Stats';
 import { useStyles } from './styles';
 
 const StatsHeader = ({ groupBy, handleGroupBy }) => {

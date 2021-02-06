@@ -5,7 +5,7 @@ import {
   getStandingsError,
   getStandingsLoading,
   getStandingsGroupBy,
-} from 'common/selectors/Standings/getStandings';
+} from 'common/selectors/Standings';
 import { fetchStandings, standingsGroupByAction } from './store';
 import LoadingLayout from 'common/components/LoadingLayout';
 import StandingsTable from './components/StandingsTable';

@@ -9,7 +9,7 @@ import { ConfDivName } from 'enums/confDivName';
 import SVGIcon from 'common/components/SVGIcon';
 import ReusableTable from 'common/components/ReusableTable';
 import Column from 'common/components/ReusableTable/Column';
-import { getStandingsGroupBy } from 'common/selectors/Standings/getStandings';
+import { getStandingsGroupBy } from 'common/selectors/Standings';
 import { useStyles } from './styles';
 
 const StandingsTable = ({ data, name }) => {

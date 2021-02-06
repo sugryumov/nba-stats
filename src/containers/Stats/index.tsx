@@ -5,7 +5,7 @@ import {
   getStatsError,
   getStatsGroupBy,
   getStatsLoading,
-} from 'common/selectors/Stats/getStats';
+} from 'common/selectors/Stats';
 import LoadingLayout from 'common/components/LoadingLayout';
 import { fetchStats, statsGroupByAction } from 'containers/Stats/store';
 import StatsHeader from 'containers/Stats/components/StatsHeader';
