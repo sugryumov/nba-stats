@@ -13,19 +13,19 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import rootSaga from 'rootSaga';
 import App from 'containers/App';
-// import { store } from 'store';
+import { store } from 'store';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
-  reducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware)),
-);
+// const store = createStore(
+//   reducer,
+//   composeWithDevTools(applyMiddleware(sagaMiddleware)),
+// );
 
-sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>

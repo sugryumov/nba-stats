@@ -1,10 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { parseDateFromYMD } from 'helpers/parse';
 import network from 'network/dataNba';
-import {
-  TGamesResponse,
-  TGamesState,
-} from 'containers/GamesToolkit/store/types';
+import { TGamesResponse, TGamesState } from 'containers/Games/store/types';
 
 export const fetchGames = createAsyncThunk(
   'games/fetchGames',
@@ -24,9 +21,7 @@ const initialState = {
 
 const gamesSlice = createSlice({
   name: 'games',
-
   initialState,
-
   reducers: {
     changedGameDate(state, { payload }) {
       state.changedDate = payload;

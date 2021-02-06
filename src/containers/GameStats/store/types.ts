@@ -1,16 +1,16 @@
-export interface IGetBoxScore {
-  response: TGetBoxScoreResponse;
-  error: null | Error;
+export type TGameStatsState = {
+  response: TGameStatsResponse;
+  error: null | string;
   loading: boolean;
   activeTab: TTabsGameStatsValue;
-}
+};
 
 export type TTabsGameStatsValue = 'box-score' | 'details';
 
-export type TGetBoxScoreResponse = {
+export type TGameStatsResponse = {
   basicGameData: any;
   stats: {
-    activePlayers: Array<TActivePlayers>;
+    activePlayers: Array<TGameStatsActivePlayers>;
     hTeam: null | TGameStatsTeam;
     vTeam: null | TGameStatsTeam;
     leadChanges: string;
@@ -18,7 +18,7 @@ export type TGetBoxScoreResponse = {
   };
 };
 
-export type TActivePlayers = {
+export type TGameStatsActivePlayers = {
   assists: string;
   blocks: string;
   defReb: string;
@@ -59,19 +59,19 @@ type TGameStatsTeam = {
   pointsOffTurnovers: string;
   secondChancePoints: string;
   leaders: {
-    assists: TGameLeader;
-    points: TGameLeader;
-    rebounds: TGameLeader;
+    assists: TGameStatsLeader;
+    points: TGameStatsLeader;
+    rebounds: TGameStatsLeader;
   };
-  totals: TGameTotals;
+  totals: TGameStatsTotals;
 };
 
-type TGameLeader = {
+type TGameStatsLeader = {
   players: Array<{ personId: string; firstName: string; lastName: string }>;
   value: string;
 };
 
-type TGameTotals = {
+type TGameStatsTotals = {
   assists: string;
   blocks: string;
   defReb: string;

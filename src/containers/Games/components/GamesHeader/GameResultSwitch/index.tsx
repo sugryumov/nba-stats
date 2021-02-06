@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Switch from '@material-ui/core/Switch';
-import { getShowScoreGames } from 'common/selectors/Games/gamesList';
-import { showScoreGameAction } from 'containers/Games/store/actions';
+import { getShowScoreGames } from 'common/selectors/Games';
+import { showScoreGame } from 'containers/Games/store';
 import { useStyles } from './styles';
 
 const GameResultSwitch = () => {
@@ -13,7 +13,7 @@ const GameResultSwitch = () => {
   const showScore = useSelector(getShowScoreGames);
 
   const handleChangeSwitch = () => {
-    dispatch(showScoreGameAction(!showScore));
+    dispatch(showScoreGame(!showScore));
   };
 
   return (

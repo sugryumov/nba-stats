@@ -1,16 +1,10 @@
-import { IGetGamesList } from 'containers/Games/store/entities';
 import { IStatistics } from 'containers/PlayerStatistics/store/entities';
 import { IStandings } from 'containers/Standings/store/entities';
-import { IGameStats } from 'containers/GameStats/store/entities';
-import { IGamePreview } from 'containers/GamePreview/store/entities';
 import { IStats } from 'containers/Stats/store/entities';
 
 export interface IState {
-  gamesList: IGetGamesList;
   statistics: IStatistics;
   standings: IStandings;
-  gameStats: IGameStats;
-  gamePreview: IGamePreview;
   stats: IStats;
 }
 

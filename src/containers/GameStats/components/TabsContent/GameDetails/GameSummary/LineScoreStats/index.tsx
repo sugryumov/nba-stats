@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getLineScoreStats } from 'common/selectors/GameStats/getBoxScore';
+import { getLineScoreStats } from 'common/selectors/GameStats';
 import ReusableTable from 'common/components/ReusableTable';
 import Column from 'common/components/ReusableTable/Column';
 import { useStyles } from './styles';

@@ -1,7 +1,7 @@
 import React from 'react';
-import GameCalendar from './GameCalendar';
-import GameResultSwitch from './GameResultSwitch';
 import Paper from '@material-ui/core/Paper';
+import GameCalendar from 'containers/Games/components/GamesHeader/GameCalendar';
+import GameResultSwitch from 'containers/Games/components/GamesHeader/GameResultSwitch';
 import { useStyles } from './styles';
 
 const GamesHeader = () => {

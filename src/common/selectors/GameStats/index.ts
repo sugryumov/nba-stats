@@ -1,18 +1,18 @@
 import { createSelector } from 'reselect';
-import { IState } from 'interfaces';
 import { flatObject } from 'helpers/normalize';
-import { TActivePlayers } from 'containers/GameStats/store/BoxScore/entities';
+import { TGameStatsActivePlayers } from 'containers/GameStats/store/types';
 import { teamList } from 'common/constants/teams';
+import { TState } from 'store/types';
 
-export const getBoxScore = (state: IState) => state.gameStats.getBoxScore;
+export const getGameStats = (state: TState) => state.gameStats;
 
 export const getActivePlayers = createSelector(
-  getBoxScore,
+  getGameStats,
   ({
     response: {
       stats: { activePlayers, hTeam, vTeam },
     },
-  }): { [key: string]: Array<TActivePlayers> } => {
+  }): { [key: string]: Array<TGameStatsActivePlayers> } => {
     const gameData = activePlayers.reduce((acc, cur) => {
       const { teamId, fullName } = teamList.find(
         ({ teamId }) => teamId === cur.teamId,
@@ -48,7 +48,7 @@ export const getActivePlayers = createSelector(
 );
 
 export const getLineScore = createSelector(
-  getBoxScore,
+  getGameStats,
   ({
     response: {
       basicGameData: { vTeam, hTeam },
@@ -62,7 +62,7 @@ export const getLineScore = createSelector(
 );
 
 export const getLineScoreStats = createSelector(
-  getBoxScore,
+  getGameStats,
   ({
     response: {
       stats: { vTeam, hTeam },
@@ -84,7 +84,7 @@ const getInfo = (team, statName, triCode?) => {
 };
 
 export const getGameLeadersPoints = createSelector(
-  getBoxScore,
+  getGameStats,
   ({
     response: {
       stats: { vTeam, hTeam },
@@ -102,7 +102,7 @@ export const getGameLeadersPoints = createSelector(
 );
 
 export const getGameLeadersAssists = createSelector(
-  getBoxScore,
+  getGameStats,
   ({
     response: {
       stats: { vTeam, hTeam },
@@ -111,7 +111,7 @@ export const getGameLeadersAssists = createSelector(
 );
 
 export const getGameLeadersRebounds = createSelector(
-  getBoxScore,
+  getGameStats,
   ({
     response: {
       stats: { vTeam, hTeam },
@@ -120,7 +120,7 @@ export const getGameLeadersRebounds = createSelector(
 );
 
 export const getGameDate = createSelector(
-  getBoxScore,
+  getGameStats,
   ({
     response: {
       basicGameData: { homeStartDate },
@@ -131,7 +131,7 @@ export const getGameDate = createSelector(
 );
 
 export const getTriCode = createSelector(
-  getBoxScore,
+  getGameStats,
   ({
     response: {
       basicGameData: { vTeam, hTeam },
@@ -140,16 +140,16 @@ export const getTriCode = createSelector(
 );
 
 export const getBoxScoreLoading = createSelector(
-  getBoxScore,
+  getGameStats,
   ({ loading }) => loading,
 );
 
 export const getBoxScoreError = createSelector(
-  getBoxScore,
+  getGameStats,
   ({ error }) => error,
 );
 
 export const getActiveTab = createSelector(
-  getBoxScore,
+  getGameStats,
   ({ activeTab }) => activeTab,
 );

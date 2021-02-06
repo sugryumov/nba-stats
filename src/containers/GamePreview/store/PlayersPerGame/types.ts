@@ -1,10 +1,10 @@
-export interface IGetPlayersPerGame {
-  response: TGetPlayersPerGameResponse;
-  error: null | Error;
+export type TPlayersPerGameState = {
+  response: TPlayersPerGameResponse;
+  error: null | string;
   loading: boolean;
-}
+};
 
-export type TGetPlayersPerGameResponse = {
+export type TPlayersPerGameResponse = {
   sports_content: {
     game: TPerGame;
   };

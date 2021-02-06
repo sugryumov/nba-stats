@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import { statusGame } from 'common/constants/statusGame';
-import { TGameItem } from 'containers/Games/store/entities';
+import { TGameItem } from 'containers/Games/store/types';
 import Team from 'containers/Games/components/GamesList/GameItem/Team';
 import GameStatus from 'containers/Games/components/GamesList/GameItem/GameStatus';
 import GameStatsButton from 'containers/Games/components/GamesList/GameItem/GameStatsButton';

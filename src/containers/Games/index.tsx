@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getChangedDate } from 'common/selectors/Games/gamesList';
-import { getGamesListAction } from './store/actions';
-import GamesHeader from './components/GamesHeader';
-import GamesList from './components/GamesList';
+import { getChangedDate } from 'common/selectors/Games';
+import GamesHeader from 'containers/Games/components/GamesHeader';
+import GamesList from 'containers/Games/components/GamesList';
+import { fetchGames } from './store';
 
-function GamesListContainer() {
+function GameListContainer() {
   const dispatch = useDispatch();
 
   const changedDate = useSelector(getChangedDate);
 
   useEffect(() => {
-    dispatch(getGamesListAction.request(changedDate));
+    dispatch(fetchGames(changedDate));
   }, [dispatch, changedDate]);
 
   return (
@@ -22,4 +22,4 @@ function GamesListContainer() {
   );
 }
 
-export default GamesListContainer;
+export default GameListContainer;

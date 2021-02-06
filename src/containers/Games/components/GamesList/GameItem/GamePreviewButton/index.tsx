@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import { useStyles } from './styles';
-import { Paths } from 'enums/routes';
 import { useSelector } from 'react-redux';
-import { getChangedDate } from 'common/selectors/Games/gamesList';
+import Button from '@material-ui/core/Button';
+import { Paths } from 'enums/routes';
+import { getChangedDate } from 'common/selectors/Games';
+import { useStyles } from './styles';
 
 const GamePreviewButton = ({ gameId, gameUrlCode, disabled }) => {
   const classes = useStyles();

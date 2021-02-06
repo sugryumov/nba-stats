@@ -1,10 +1,10 @@
-export interface IGetPreviewArticles {
-  response: TGetPreviewArticlesResponse;
-  error: null | Error;
+export type TPreviewArticlesState = {
+  response: TPreviewArticlesResponse;
+  error: null | string;
   loading: boolean;
-}
+};
 
-export type TGetPreviewArticlesResponse = {
+export type TPreviewArticlesResponse = {
   paragraphs: Array<TParagraphs>;
   pubDateUTC: string;
   title: string;

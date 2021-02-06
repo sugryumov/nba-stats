@@ -4,7 +4,7 @@ import {
   getGameLeadersAssists,
   getGameLeadersPoints,
   getGameLeadersRebounds,
-} from 'common/selectors/GameStats/getBoxScore';
+} from 'common/selectors/GameStats';
 import VerticalLine from 'common/components/VerticalLine';
 import ReusableTable from 'common/components/ReusableTable';
 import Column from 'common/components/ReusableTable/Column';

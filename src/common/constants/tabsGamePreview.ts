@@ -1,4 +1,4 @@
-import { TTabsGamePreviewValue } from 'containers/GamePreview/store/entities';
+import { TTabsGamePreviewValue } from 'containers/GamePreview/store/types';
 
 type TTabsGamePreview = {
   id: number;

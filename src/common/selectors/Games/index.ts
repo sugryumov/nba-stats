@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { TState } from 'store/types';
-import { TGameItem } from 'containers/GamesToolkit/store/types';
+import { TGameItem } from 'containers/Games/store/types';
 
 export const getGamesList = (state: TState) => state.games;
 

@@ -6,8 +6,8 @@ import {
   getGamesListData,
   getGamesListError,
   getGamesListLoading,
-} from 'common/selectors/Games/gamesList';
-import GameItem from './GameItem';
+} from 'common/selectors/Games';
+import GameItem from 'containers/Games/components/GamesList/GameItem';
 
 const GamesList = () => {
   const gamesList = useSelector(getGamesListData);

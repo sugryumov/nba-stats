@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getActivePlayers } from 'common/selectors/GameStats/getBoxScore';
+import { getActivePlayers } from 'common/selectors/GameStats';
 import BoxScoreTable from './BoxScoreTable';
 
 const BoxScore = () => {

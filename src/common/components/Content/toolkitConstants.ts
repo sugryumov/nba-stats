@@ -1,5 +1,5 @@
 import { Paths as P } from 'enums/routes';
-import GameListContainer from 'containers/GamesToolkit';
+import GameListContainer from 'containers/Games';
 
 export const pages = [
   {

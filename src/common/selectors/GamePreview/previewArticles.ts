@@ -1,15 +1,15 @@
 import { createSelector } from 'reselect';
-import { IState } from 'interfaces';
-import { TGetPreviewArticlesResponse } from 'containers/GamePreview/store/PreviewArticles/entities';
+import { TPreviewArticlesResponse } from 'containers/GamePreview/store/PreviewArticles/types';
+import { TState } from 'store/types';
 
-export const previewArticles = (state: IState) =>
+export const previewArticles = (state: TState) =>
   state.gamePreview.previewArticles;
 
 export const getPreviewArticlesList = createSelector(
   previewArticles,
   ({
     response: { title, paragraphs, pubDateUTC },
-  }): TGetPreviewArticlesResponse => {
+  }): TPreviewArticlesResponse => {
     return { title, paragraphs, pubDateUTC };
   },
 );

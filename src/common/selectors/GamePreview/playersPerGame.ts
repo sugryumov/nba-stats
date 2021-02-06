@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
-import { IState } from 'interfaces';
 import { teamList } from 'common/constants/teams';
+import { TState } from 'store/types';
 
-export const playersPerGame = (state: IState) =>
+export const playersPerGame = (state: TState) =>
   state.gamePreview.playersPerGame;
 
 const replaceTriCodeToName = team => {

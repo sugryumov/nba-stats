@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
-import { getGameDate } from 'common/selectors/GameStats/getBoxScore';
+import { getGameDate } from 'common/selectors/GameStats';
 import GameLeaders from './GameLeaders';
 import GameSummary from './GameSummary';
 import { useStyles } from './styles';
