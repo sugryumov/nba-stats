@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { TPlayer } from 'interfaces';
 import {
   getSearchPlayersData,
   getSearchPlayersLoading,
 } from 'common/selectors/PlayerStatistics/searchPlayers';
 import { selectedPlayerAction } from 'containers/PlayerStatistics/store/SearchPlayer/actions';
+import { TPlayer } from 'containers/PlayerStatistics/store/entities';
 import { useStyles } from './styles';
 
 const SearchPlayer = ({ onFinishSearch, selectedPlayers }) => {

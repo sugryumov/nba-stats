@@ -1,4 +1,4 @@
-import { TMeta, TPlayer } from 'interfaces';
+import { TMeta, TPlayer } from '../entities';
 
 export interface ISearchPlayer {
   response: TSearchPlayerResponse;

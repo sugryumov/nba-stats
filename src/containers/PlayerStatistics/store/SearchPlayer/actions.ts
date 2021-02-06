@@ -1,6 +1,6 @@
-import { TPlayer } from 'interfaces';
 import { createAction, createAsyncAction } from 'typesafe-actions';
 import { TSearchPlayerRequest, TSearchPlayerResponse } from './entities';
+import { TPlayer } from '../entities';
 
 const SEARCH_PLAYER_REQUESTED = '@statistics/SEARCH_PLAYER_REQUESTED';
 const SEARCH_PLAYER_SUCCEEDED = '@statistics/SEARCH_PLAYER_SUCCEEDED';
