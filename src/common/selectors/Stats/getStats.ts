@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import { IState } from 'interfaces';
+import { TState } from 'store/types';
 
-export const getStats = (state: IState) => state.stats;
+export const getStats = (state: TState) => state.stats;
 
 export const getStatsData = createSelector(
   getStats,

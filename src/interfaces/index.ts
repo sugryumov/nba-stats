@@ -1,9 +1,7 @@
 import { IStatistics } from 'containers/PlayerStatistics/store/entities';
-import { IStats } from 'containers/Stats/store/entities';
 
 export interface IState {
   statistics: IStatistics;
-  stats: IStats;
 }
 
 export type TMeta = {
@@ -53,5 +51,3 @@ export type TColumns = {
   styles?: any;
   tooltip?: string;
 };
-
-export type TGetStatsParams = 'home_season' | 'home_daily';

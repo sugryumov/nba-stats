@@ -1,5 +1,5 @@
-import { TGetStatsParams } from 'interfaces';
 import Instance, { TAxios } from 'network/Instance';
+import { TStatsGrpupBy } from 'containers/Stats/store/types';
 
 class StatsNba extends Instance {
   constructor(baseURL: string, timeout = 30000) {
@@ -7,7 +7,7 @@ class StatsNba extends Instance {
   }
 
   // Standings
-  async getStats(params: TGetStatsParams): TAxios {
+  async getStats(params: TStatsGrpupBy): TAxios {
     return this.send('get', `/widgets/${params}.json`, {});
   }
 }

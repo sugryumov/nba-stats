@@ -1,11 +1,13 @@
-export interface IStats {
-  response: TGetStatsResponse;
-  error: null | Error;
+export type TStatsState = {
+  response: TStatsResponse;
+  error: null | string;
   loading: boolean;
-  groupBy: 'home_daily' | 'home_season';
-}
+  groupBy: TStatsGrpupBy;
+};
 
-export type TGetStatsResponse = {
+export type TStatsGrpupBy = 'home_daily' | 'home_season';
+
+export type TStatsResponse = {
   title: string;
   items: Array<TSeasonLeadersPlayers>;
   last_updated: string;
