@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { IState } from 'interfaces';
-import { TGetPreviewArticlesResponse } from 'containers/GamePreview/store/PreviewArticles/entities';
+import { TGetPreviewArticlesResponse } from 'pages/GamePreview/store/PreviewArticles/entities';
 
 export const previewArticles = (state: IState) =>
   state.gamePreview.previewArticles;

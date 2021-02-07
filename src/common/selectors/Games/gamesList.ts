@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { IState } from 'interfaces';
-import { TGameItem } from 'containers/Games/store/entities';
+import { TGameItem } from 'pages/Games/store/entities';
 
 export const getGamesList = (state: IState) => state.gamesList;
 

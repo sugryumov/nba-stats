@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { dark, light } from 'theme';
-import Header from 'containers/Header';
-import Content from 'common/components/Content';
+import Spinner from 'common/components/Spinner';
+import Header from 'common/components/Header';
+import { useStyles } from './styles';
 import './index.css';
 
 const getLocalStorageThemeKey = (): string => {
@@ -12,7 +13,9 @@ const getLocalStorageThemeKey = (): string => {
     : 'light';
 };
 
-function App() {
+export const App = ({ children }) => {
+  const classes = useStyles();
+
   const [theme, setTheme] = useState<string>(getLocalStorageThemeKey());
 
   useEffect(() => {
@@ -26,23 +29,15 @@ function App() {
     minHeight: '100vh',
   };
 
-  const styleContainer = {
-    maxWidth: appliedTheme.maxWidth,
-    margin: appliedTheme.margin,
-    padding: '0 16px 40px',
-  };
-
   return (
     <ThemeProvider theme={appliedTheme}>
       <div style={styleBody}>
         <Header theme={theme} setTheme={setTheme} />
 
-        <div style={styleContainer}>
-          <Content />
-        </div>
+        <main className={classes.container}>
+          <Suspense fallback={<Spinner />}>{children}</Suspense>
+        </main>
       </div>
     </ThemeProvider>
   );
-}
-
-export default App;
+};

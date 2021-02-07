@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { IState } from 'interfaces';
 import { flatObject } from 'helpers/normalize';
-import { TActivePlayers } from 'containers/GameStats/store/BoxScore/entities';
+import { TActivePlayers } from 'pages/GameStats/store/BoxScore/entities';
 import { teamList } from 'common/constants/teams';
 
 export const getBoxScore = (state: IState) => state.gameStats.getBoxScore;

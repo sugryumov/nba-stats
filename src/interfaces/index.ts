@@ -1,9 +1,9 @@
-import { IGetGamesList } from 'containers/Games/store/entities';
-import { IStatistics } from 'containers/PlayerStatistics/store/entities';
-import { IStandings } from 'containers/Standings/store/entities';
-import { IGameStats } from 'containers/GameStats/store/entities';
-import { IGamePreview } from 'containers/GamePreview/store/entities';
-import { IStats } from 'containers/Stats/store/entities';
+import { IGetGamesList } from 'pages/Games/store/entities';
+import { IStatistics } from 'pages/PlayerStats/store/entities';
+import { IStandings } from 'pages/Standings/store/entities';
+import { IGameStats } from 'pages/GameStats/store/entities';
+import { IGamePreview } from 'pages/GamePreview/store/entities';
+import { IStats } from 'pages/Stats/store/entities';
 
 export interface IState {
   gamesList: IGetGamesList;
