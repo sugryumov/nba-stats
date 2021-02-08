@@ -1,20 +1,11 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles } from '@material-ui/core/styles';
-import { ITheme } from 'theme/i';
-
-const useStyles = makeStyles((theme: ITheme) => ({
-  spinner: {
-    display: 'block',
-    margin: '70px auto 0',
-    color: theme.palette.primaryColor,
-  },
-}));
+import { useStyles } from './styles';
 
 const Spinner = () => {
   const classes = useStyles();
 
-  return <CircularProgress className={classes.spinner} />;
+  return <CircularProgress className={classes.root} color="inherit" />;
 };
 
 export default Spinner;
