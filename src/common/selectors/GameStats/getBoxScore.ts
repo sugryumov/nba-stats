@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { IState } from 'interfaces';
 import { flatObject } from 'helpers/normalize';
 import { TActivePlayers } from 'pages/GameStats/store/BoxScore/entities';
-import { teamList } from 'common/constants/teams';
+import { FULL_NAME_TEAMS } from 'common/constants/fullNameTeams';
 
 export const getBoxScore = (state: IState) => state.gameStats.getBoxScore;
 
@@ -14,7 +14,7 @@ export const getActivePlayers = createSelector(
     },
   }): { [key: string]: Array<TActivePlayers> } => {
     const gameData = activePlayers.reduce((acc, cur) => {
-      const { teamId, fullName } = teamList.find(
+      const { teamId, fullName } = FULL_NAME_TEAMS.find(
         ({ teamId }) => teamId === cur.teamId,
       )!;
 

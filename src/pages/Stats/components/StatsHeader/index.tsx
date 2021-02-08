@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
-import { leadersGroupByList } from 'common/constants/leadersGroupByList';
+import { GROUP_BY_LEADERS } from 'common/constants/groupByLeaders';
 import { getStatsData } from 'common/selectors/Stats/getStats';
 import { useStyles } from './styles';
 
@@ -33,7 +33,7 @@ const StatsHeader = ({ groupBy, handleGroupBy }) => {
             id: 'group-by-select',
           }}
         >
-          {leadersGroupByList.map(({ id, name, value }) => {
+          {GROUP_BY_LEADERS.map(({ id, name, value }) => {
             return (
               <option key={id} value={value}>
                 {name}

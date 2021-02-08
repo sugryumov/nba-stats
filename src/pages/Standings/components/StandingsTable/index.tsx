@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
-import { ConfDivName } from 'common/constants/confDivName';
+import { CONFERENCE_DIVISION_NAME } from 'common/constants/conferenceDivisionName';
 import SVGIcon from 'common/components/SVGIcon';
 import ReusableTable from 'common/components/ReusableTable';
 import Column from 'common/components/ReusableTable/Column';
@@ -117,7 +117,7 @@ const StandingsTable = ({ data, name }) => {
     <TableContainer component={Paper} className={classes.root}>
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.title}>
-          {ConfDivName[name]}
+          {CONFERENCE_DIVISION_NAME[name]}
         </Typography>
       </Toolbar>
 

@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
-import { groupByList } from 'common/constants/groupByList';
+import { GROUP_BY_STANDINGS } from 'common/constants/groupByStandings';
 
 const useStyles = makeStyles((theme: ITheme) => ({
   container: {
@@ -69,7 +69,7 @@ const StandingsHeader = ({ groupBy, handleGroupBy }) => {
             id: 'group-by-select',
           }}
         >
-          {groupByList.map(({ id, name, value }) => {
+          {GROUP_BY_STANDINGS.map(({ id, name, value }) => {
             return (
               <option key={id} value={value}>
                 {name}

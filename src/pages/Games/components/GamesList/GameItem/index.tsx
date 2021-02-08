@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import { statusGame } from 'common/constants/statusGame';
+import { GAME_STATUS } from 'common/constants/gameStatus';
 import { TGameItem } from 'pages/Games/store/entities';
 import Team from 'pages/Games/components/GamesList/GameItem/Team';
 import GameStatus from 'pages/Games/components/GamesList/GameItem/GameStatus';
@@ -40,11 +40,11 @@ const GameItem = ({ game }) => {
         <Team team={hTeam} statusNum={statusNum} reverse={false} />
       </div>
 
-      {statusNum === statusGame.notStarted ? (
+      {statusNum === GAME_STATUS.notStarted ? (
         <GamePreviewButton
           gameId={gameId}
           gameUrlCode={`${vTeam.triCode} - ${hTeam.triCode}`}
-          disabled={extendedStatusNum === statusGame.ppd}
+          disabled={extendedStatusNum === GAME_STATUS.ppd}
         />
       ) : (
         <GameStatsButton

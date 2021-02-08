@@ -1,8 +1,8 @@
 import React from 'react';
-import { TeamName } from 'common/constants/teamName';
+import { NAME_TEAMS } from 'common/constants/nameTeams';
 import SVGIcon from 'common/components/SVGIcon';
 import { nbaTeam } from 'common/components/SVGIcon/interface';
-import { statusGame } from 'common/constants/statusGame';
+import { GAME_STATUS } from 'common/constants/gameStatus';
 import { useStyles } from './styles';
 
 const Team = ({ team, statusNum, reverse }) => {
@@ -13,7 +13,7 @@ const Team = ({ team, statusNum, reverse }) => {
       <div className={classes.info}>
         <SVGIcon name={nbaTeam[team.triCode]} width={54} height={54} />
 
-        <p className={classes.name}>{TeamName[team.triCode]}</p>
+        <p className={classes.name}>{NAME_TEAMS[team.triCode]}</p>
 
         <p className={classes.winLoss}>
           {team.win} - {team.loss}
@@ -21,7 +21,7 @@ const Team = ({ team, statusNum, reverse }) => {
       </div>
 
       <p className={classes.score}>
-        {statusNum === statusGame.finished || statusNum === statusGame.live
+        {statusNum === GAME_STATUS.finished || statusNum === GAME_STATUS.live
           ? team.score
           : ''}
       </p>

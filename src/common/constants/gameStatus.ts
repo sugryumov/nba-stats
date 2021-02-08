@@ -1,13 +1,13 @@
-type TStatusGame = {
+type TGameStatus = {
   ppd: number;
   notStarted: number;
   live: number;
   finished: number;
 };
 
-export const statusGame: TStatusGame = {
+export const GAME_STATUS = {
   ppd: 2,
   notStarted: 1,
   live: 2,
   finished: 3,
-};
+} as TGameStatus;

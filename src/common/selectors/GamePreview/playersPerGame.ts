@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect';
 import { IState } from 'interfaces';
-import { teamList } from 'common/constants/teams';
+import { FULL_NAME_TEAMS } from 'common/constants/fullNameTeams';
 
 export const playersPerGame = (state: IState) =>
   state.gamePreview.playersPerGame;
 
 const replaceTriCodeToName = team => {
-  const findTeam = teamList.find(el => el.teamId === team?.id)?.fullName;
+  const findTeam = FULL_NAME_TEAMS.find(el => el.teamId === team?.id)?.fullName;
 
   return {
     ...team,

@@ -1,6 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import { statusGame } from 'common/constants/statusGame';
+import { GAME_STATUS } from 'common/constants/gameStatus';
 import { useStyles } from './styles';
 
 const GameStatus = ({
@@ -19,14 +19,14 @@ const GameStatus = ({
 
   return (
     <div className={classes.root}>
-      {extendedStatusNum === statusGame.ppd ? (
+      {extendedStatusNum === GAME_STATUS.ppd ? (
         <p className={classes.ppdStatus}>PPD</p>
-      ) : statusNum === statusGame.notStarted ? (
+      ) : statusNum === GAME_STATUS.notStarted ? (
         <>
           <p className={classes.easternTime}>{startTimeEastern}</p>
           <p className={classes.mskTime}>{`${mskTime} MSK`}</p>
         </>
-      ) : statusNum === statusGame.live ? (
+      ) : statusNum === GAME_STATUS.live ? (
         <>
           <span className={classes.live}>LIVE</span>
           {isEndOfPeriod ? (

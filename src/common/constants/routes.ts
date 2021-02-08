@@ -1,17 +1,17 @@
 const ROUTE_PREF = process.env.PUBLIC_URL;
 
-interface Route {
+type Route = {
   ROUTE: string;
   PATH: string;
   NAME: string;
   DISPLAY_IN_MENU: boolean;
-}
+};
 
-interface Routes {
+type Routes = {
   [key: string]: Route;
-}
+};
 
-const ROUTES: Routes = {
+const ROUTES = {
   GAMES: {
     ROUTE: `${ROUTE_PREF}/`,
     PATH: `${ROUTE_PREF}/`,
@@ -48,6 +48,6 @@ const ROUTES: Routes = {
     NAME: 'PLAYER STATS',
     DISPLAY_IN_MENU: true,
   },
-};
+} as Routes;
 
 export { ROUTES };

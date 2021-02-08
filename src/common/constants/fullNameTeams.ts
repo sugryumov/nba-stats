@@ -1,9 +1,9 @@
-type TTeamList = {
+type TFullNameTeams = {
   teamId: string;
   fullName: string;
 };
 
-export const teamList: TTeamList[] = [
+export const FULL_NAME_TEAMS = [
   { teamId: '1610612749', fullName: 'Milwaukee Bucks' },
   { teamId: '1610612738', fullName: 'Boston Celtics' },
   { teamId: '1610612755', fullName: 'Philadelphia 76ers' },
@@ -34,4 +34,4 @@ export const teamList: TTeamList[] = [
   { teamId: '1610612745', fullName: 'Houston Rockets' },
   { teamId: '1610612758', fullName: 'Sacramento Kings' },
   { teamId: '1610612750', fullName: 'Minnesota Timberwolves' },
-];
+] as TFullNameTeams[];

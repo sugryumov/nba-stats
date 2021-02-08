@@ -1,0 +1,37 @@
+type TNameTeams = {
+  [key: string]: string;
+};
+
+export const NAME_TEAMS = {
+  ATL: 'Hawks',
+  BKN: 'Nets',
+  BOS: 'Celtics',
+  CHA: 'Hornets',
+  CHI: 'Bulls',
+  CLE: 'Cavaliers',
+  DAL: 'Mavericks',
+  DEN: 'Nuggets',
+  DET: 'Pistons',
+  GSW: 'Warriors',
+  HOU: 'Rockets',
+  IND: 'Pacers',
+  LAC: 'Clippers',
+  LAL: 'Lakers',
+  MEM: 'Grizzlies',
+  MIA: 'Heat',
+  MIL: 'Bucks',
+  MIN: 'Timberwolves',
+  NOP: 'Pelicans',
+  NYK: 'Knicks',
+  OKC: 'Thunder',
+  ORL: 'Magic',
+  PHI: '76ers',
+  PHX: 'Suns',
+  POR: 'Trail Blazers',
+  SAC: 'Kings',
+  SAS: 'Spurs',
+  TOR: 'Raptors',
+  UTA: 'Jazz',
+  WAS: 'Wizards',
+  NBA: 'NBA',
+} as TNameTeams;
