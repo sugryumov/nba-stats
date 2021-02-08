@@ -8,13 +8,11 @@ export interface IGeneralStyle {
 export interface ITheme extends IGeneralStyle {
   palette: {
     primary: { main: string };
-    background?: { paper: string };
+    background?: { paper: string; default: string };
     text: { primary: string };
     type: 'light' | 'dark';
     primaryColor: string;
     secondaryColor: string;
-    backgroundHeader: string;
-    backgroundBody: string;
     linkColor: string;
   };
 

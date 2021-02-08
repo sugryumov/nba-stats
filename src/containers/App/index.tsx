@@ -1,11 +1,9 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { dark, light } from 'theme';
-import Spinner from 'common/components/Spinner';
 import Header from 'common/components/Header';
-import { useStyles } from './styles';
-import './index.css';
 
 const getLocalStorageThemeKey = (): string => {
   return localStorage.getItem('theme') !== null
@@ -13,9 +11,11 @@ const getLocalStorageThemeKey = (): string => {
     : 'light';
 };
 
-export const App = ({ children }) => {
-  const classes = useStyles();
+type TApp = {
+  children: React.ReactNode;
+};
 
+export const App = ({ children }: TApp) => {
   const [theme, setTheme] = useState<string>(getLocalStorageThemeKey());
 
   useEffect(() => {
@@ -24,20 +24,18 @@ export const App = ({ children }) => {
 
   const appliedTheme: any = createMuiTheme(theme === 'light' ? light : dark);
 
-  const styleBody = {
-    backgroundColor: appliedTheme.palette.backgroundBody,
-    minHeight: '100vh',
+  const styleContainer = {
+    maxWidth: appliedTheme.maxWidth,
+    margin: appliedTheme.margin,
+    padding: '0 16px 40px',
   };
 
   return (
     <ThemeProvider theme={appliedTheme}>
-      <div style={styleBody}>
-        <Header theme={theme} setTheme={setTheme} />
+      <CssBaseline />
+      <Header theme={theme} setTheme={setTheme} />
 
-        <main className={classes.container}>
-          <Suspense fallback={<Spinner />}>{children}</Suspense>
-        </main>
-      </div>
+      <main style={styleContainer}>{children}</main>
     </ThemeProvider>
   );
 };

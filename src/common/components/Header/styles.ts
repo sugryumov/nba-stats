@@ -4,7 +4,7 @@ import { ITheme } from 'theme/i';
 const useStyles = makeStyles((theme: ITheme) =>
   createStyles({
     root: {
-      backgroundColor: theme.palette.backgroundHeader,
+      backgroundColor: theme.palette.background?.paper,
       marginBottom: 50,
 
       [theme.breakpoints.down('xs')]: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: ITheme) =>
     drawer: {
       '& .MuiDrawer-paper': {
         padding: '0 20px',
-        backgroundColor: theme.palette.backgroundHeader,
+        backgroundColor: theme.palette.background?.paper,
       },
     },
     pageName: {
