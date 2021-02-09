@@ -12,6 +12,7 @@ export interface ITheme extends IGeneralStyle {
     text: { primary: string };
     type: 'light' | 'dark';
     primaryColor: string;
+    backgroundHeader: string;
     secondaryColor: string;
     linkColor: string;
   };
