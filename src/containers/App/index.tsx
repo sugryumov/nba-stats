@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { dark, light } from 'theme';
 import Header from 'common/components/Header';
+import Spinner from 'common/components/Spinner';
 
 const getLocalStorageThemeKey = (): string => {
   return localStorage.getItem('theme') !== null
@@ -35,7 +36,9 @@ export const App = ({ children }: TApp) => {
       <CssBaseline />
       <Header theme={theme} setTheme={setTheme} />
 
-      <main style={styleContainer}>{children}</main>
+      <Suspense fallback={<Spinner />}>
+        <main style={styleContainer}>{children}</main>
+      </Suspense>
     </ThemeProvider>
   );
 };
