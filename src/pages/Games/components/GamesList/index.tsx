@@ -6,7 +6,7 @@ import {
   getGamesListData,
   getGamesListError,
   getGamesListLoading,
-} from 'common/selectors/Games/gamesList';
+} from 'common/selectors/Games';
 import GameItem from 'pages/Games/components/GamesList/GameItem';
 
 const GamesList = () => {

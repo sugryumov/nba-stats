@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getActivePlayers } from 'common/selectors/GameStats/getBoxScore';
-import BoxScoreTable from './BoxScoreTable';
+import { getActivePlayers } from 'common/selectors/GameStats';
+import BoxScoreTable from 'pages/GameStats/components/TabsContent/BoxScore/BoxScoreTable';
 
 const BoxScore = () => {
   const activePlayers = useSelector(getActivePlayers);

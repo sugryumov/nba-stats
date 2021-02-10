@@ -1,4 +1,4 @@
-import { TTabsGamePreviewValue } from 'pages/GamePreview/store/entities';
+import { TTabsGamePreviewValue } from 'pages/GamePreview/store/types';
 
 type TGamePreviewTabs = {
   id: number;

@@ -1,9 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {
-  getStatsPlayers,
-  getStatsTeams,
-} from 'common/selectors/Stats/getStats';
+import { getStatsPlayers, getStatsTeams } from 'common/selectors/Stats';
 import StatsPaper from 'pages/Stats/components/StatsContent/StatsPaper';
 
 const StatsContent = () => {

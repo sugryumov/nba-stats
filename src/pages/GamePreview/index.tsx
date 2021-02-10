@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { TTabsGamePreviewValue } from 'pages/GamePreview//store/entities';
-import { clearPreviewArticlesAction } from 'pages/GamePreview/store/PreviewArticles/actions';
+import { TTabsGamePreviewValue } from 'pages/GamePreview/store/types';
+import { clearPreviewArticlesAction } from 'pages/GamePreview/store/PreviewArticles';
 import TabsGamePreview from 'pages/GamePreview/components/TabsGamePreview';
 import PreviewArticles from 'pages/GamePreview/components/TabsContent/PreviewArticles';
 import PlayersPerGame from 'pages/GamePreview/components/TabsContent/PlayersPerGame';
-import { clearPlayersPerGameAction } from 'pages/GamePreview/store/PlayersPerGame/actions';
+import { clearPlayersPerGameAction } from 'pages/GamePreview/store/PlayersPerGame';
 
 const GamePreviewContainer = () => {
   const dispatch = useDispatch();

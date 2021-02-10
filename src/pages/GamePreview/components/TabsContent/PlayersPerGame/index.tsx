@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import LoadingLayout from 'common/components/LoadingLayout';
-import { getPlayersPerGameAction } from 'pages/GamePreview/store/PlayersPerGame/actions';
+import { fetchPlayersPerGame } from 'pages/GamePreview/store/PlayersPerGame';
 import {
   getPlayersPerGame,
   getPlayersPerGameError,
@@ -28,7 +28,7 @@ const PlayersPerGame = () => {
     };
 
     if (!playersPerGame.hTeam) {
-      dispatch(getPlayersPerGameAction.request(params));
+      dispatch(fetchPlayersPerGame(params));
     }
   }, [dispatch, search, playersPerGame.hTeam]);
 

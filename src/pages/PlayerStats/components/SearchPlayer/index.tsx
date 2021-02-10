@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress, TextField } from '@material-ui/core';
+import debounce from '@material-ui/core/utils/debounce';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {
   getSearchPlayersData,
   getSearchPlayersLoading,
 } from 'common/selectors/PlayerStats/searchPlayers';
-import { selectedPlayerAction } from 'pages/PlayerStats/store/SearchPlayer/actions';
-import { TPlayer } from 'pages/PlayerStats/store/entities';
+import { selectedPlayerAction } from 'pages/PlayerStats/store/SearchPlayer';
+import { TPlayer } from 'pages/PlayerStats/store/types';
 import { useStyles } from './styles';
 
 const SearchPlayer = ({ onFinishSearch, selectedPlayers }) => {
@@ -25,11 +26,6 @@ const SearchPlayer = ({ onFinishSearch, selectedPlayers }) => {
   useEffect(() => {
     setOptions(playerData);
   }, [setOptions, playerData]);
-
-  const searchHandler = event => {
-    setSearchInputValue(event.target.value);
-    onFinishSearch(event.target.value);
-  };
 
   const onOpenHandler = () => {
     setOpenOptionsList(true);
@@ -51,13 +47,24 @@ const SearchPlayer = ({ onFinishSearch, selectedPlayers }) => {
     dispatch(selectedPlayerAction(value));
   };
 
+  const delayedSearch = debounce((search: string) => {
+    setSearchInputValue(search);
+    onFinishSearch(search);
+  }, 1000);
+
+  const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.currentTarget;
+
+    delayedSearch(value);
+  };
+
   const renderInput = params => {
     return (
       <TextField
         {...params}
         variant="outlined"
         label="SEARCH FOR A PLAYER e.g. LEBRON JAMES"
-        onChange={searchHandler}
+        onChange={onChangeSearch}
         InputProps={{
           ...params.InputProps,
           endAdornment: (

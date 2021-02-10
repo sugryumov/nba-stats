@@ -1,4 +1,4 @@
-import { TTabsGameStatsValue } from 'pages/GameStats/store/BoxScore/entities';
+import { TTabsGameStatsValue } from 'pages/GameStats/store/types';
 
 type TGameStatsTabs = {
   id: number;

@@ -1,18 +1,16 @@
-import { combineReducers } from 'redux';
-import { getGamesListReducer } from 'pages/Games/store/reducer';
-import { statisticsReducer } from 'pages/PlayerStats/store/reducers';
-import { standingsReducer } from 'pages/Standings/store/reducers';
-import { gameStatsReducer } from 'pages/GameStats/store/reducers';
-import { gamePreviewReducer } from 'pages/GamePreview/store/reducers';
-import { statsReducer } from 'pages/Stats/store/reducers';
+import { combineReducers } from '@reduxjs/toolkit';
+import gamesReducer from 'pages/Games/store';
+import gameStatsReducer from 'pages/GameStats/store';
+import gamePreviewReducer from 'pages/GamePreview/store';
+import standingsReducer from 'pages/Standings/store';
+import statsReducer from 'pages/Stats/store';
+import gamePlayerStatisticsReducer from 'pages/PlayerStats/store';
 
-const reducer = combineReducers({
-  gamesList: getGamesListReducer,
-  statistics: statisticsReducer,
-  standings: standingsReducer,
+export const rootReducer = combineReducers({
+  games: gamesReducer,
   gameStats: gameStatsReducer,
   gamePreview: gamePreviewReducer,
+  standings: standingsReducer,
   stats: statsReducer,
+  playerStatistics: gamePlayerStatisticsReducer,
 });
-
-export default reducer;

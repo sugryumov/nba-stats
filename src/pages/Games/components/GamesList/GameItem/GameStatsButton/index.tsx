@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { getChangedDate } from 'common/selectors/Games/gamesList';
-import { changedActiveTabAction } from 'pages/GameStats/store/BoxScore/actions';
+import { getChangedDate } from 'common/selectors/Games';
+import { changedActiveTab } from 'pages/GameStats/store';
 import { useStyles } from './styles';
 import { ROUTES } from 'common/constants/routes';
 
@@ -22,7 +22,7 @@ const GameStatsButton = ({ gameId, gameUrlCode }) => {
         variant="outlined"
         color="primary"
         className={classes.button}
-        onClick={() => dispatch(changedActiveTabAction('box-score'))}
+        onClick={() => dispatch(changedActiveTab('box-score'))}
       >
         BOX SCORE
       </Button>
@@ -31,7 +31,7 @@ const GameStatsButton = ({ gameId, gameUrlCode }) => {
         variant="outlined"
         color="primary"
         className={classes.button}
-        onClick={() => dispatch(changedActiveTabAction('details'))}
+        onClick={() => dispatch(changedActiveTab('details'))}
       >
         GAME DETAILS
       </Button>

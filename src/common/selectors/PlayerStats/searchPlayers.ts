@@ -1,13 +1,25 @@
-import { IState } from 'interfaces';
+import { createSelector } from '@reduxjs/toolkit';
+import { TState } from 'store/types';
 
-export const getSearchPlayersData = (state: IState) =>
-  state.statistics.searchPlayer.response.data;
+export const getSearchPlayers = (state: TState) =>
+  state.playerStatistics.searchPlayer;
 
-export const getSearchPlayersLoading = (state: IState) =>
-  state.statistics.searchPlayer.loading;
+export const getSearchPlayersData = createSelector(
+  getSearchPlayers,
+  ({ response: { data } }) => data,
+);
 
-export const getSearchPlayersError = (state: IState) =>
-  state.statistics.searchPlayer.error;
+export const getSelectedPlayers = createSelector(
+  getSearchPlayers,
+  ({ selectedPlayer }) => selectedPlayer,
+);
 
-export const getSelectedPlayers = (state: IState) =>
-  state.statistics.searchPlayer.selectedPlayer;
+export const getSearchPlayersLoading = createSelector(
+  getSearchPlayers,
+  ({ loading }) => loading,
+);
+
+export const getSearchPlayersError = createSelector(
+  getSearchPlayers,
+  ({ error }) => error,
+);

@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getChangedDate,
-  getGamesListData,
-} from 'common/selectors/Games/gamesList';
+import { getChangedDate, getGamesListData } from 'common/selectors/Games';
 import IconButton from '@material-ui/core/IconButton';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import { GAME_STATUS } from 'common/constants/gameStatus';
-import { getGamesListAction } from 'pages/Games/store/actions';
+import { fetchGames } from 'pages/Games/store';
 import GamesHeader from 'pages/Games/components/GamesHeader';
 import GamesList from 'pages/Games/components/GamesList';
 import { useStyles } from './styles';
@@ -22,11 +19,11 @@ function GamesListContainer() {
   const hasLiveGame = gamesList.filter(el => GAME_STATUS.live === el.statusNum);
 
   useEffect(() => {
-    dispatch(getGamesListAction.request(changedDate));
+    dispatch(fetchGames(changedDate));
   }, [dispatch, changedDate]);
 
   const refreshGameList = () => {
-    dispatch(getGamesListAction.request(changedDate));
+    dispatch(fetchGames(changedDate));
   };
 
   return (

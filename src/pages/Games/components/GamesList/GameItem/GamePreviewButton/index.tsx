@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { useStyles } from './styles';
 
 import { useSelector } from 'react-redux';
-import { getChangedDate } from 'common/selectors/Games/gamesList';
+import { getChangedDate } from 'common/selectors/Games';
 import { ROUTES } from 'common/constants/routes';
 
 const GamePreviewButton = ({ gameId, gameUrlCode, disabled }) => {

@@ -5,7 +5,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Tooltip from '@material-ui/core/Tooltip';
-import { TColumns } from 'interfaces';
+import { TColumns } from 'types';
 import { useStyles } from './styles';
 
 type ReusableTableProps = {

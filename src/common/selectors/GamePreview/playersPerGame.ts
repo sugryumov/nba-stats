@@ -1,8 +1,8 @@
-import { createSelector } from 'reselect';
-import { IState } from 'interfaces';
+import { createSelector } from '@reduxjs/toolkit';
+import { TState } from 'store/types';
 import { FULL_NAME_TEAMS } from 'common/constants/fullNameTeams';
 
-export const playersPerGame = (state: IState) =>
+export const playersPerGame = (state: TState) =>
   state.gamePreview.playersPerGame;
 
 const replaceTriCodeToName = team => {

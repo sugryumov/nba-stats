@@ -1,15 +1,15 @@
-import { createSelector } from 'reselect';
-import { IState } from 'interfaces';
-import { TGetPreviewArticlesResponse } from 'pages/GamePreview/store/PreviewArticles/entities';
+import { createSelector } from '@reduxjs/toolkit';
+import { TState } from 'store/types';
+import { TPreviewArticlesResponse } from 'pages/GamePreview/store/PreviewArticles/types';
 
-export const previewArticles = (state: IState) =>
+export const previewArticles = (state: TState) =>
   state.gamePreview.previewArticles;
 
 export const getPreviewArticlesList = createSelector(
   previewArticles,
   ({
     response: { title, paragraphs, pubDateUTC },
-  }): TGetPreviewArticlesResponse => {
+  }): TPreviewArticlesResponse => {
     return { title, paragraphs, pubDateUTC };
   },
 );

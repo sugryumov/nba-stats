@@ -7,12 +7,9 @@ import {
   getActiveTab,
   getBoxScoreError,
   getBoxScoreLoading,
-} from 'common/selectors/GameStats/getBoxScore';
-import {
-  changedActiveTabAction,
-  getBoxScoreAction,
-} from 'pages/GameStats/store/BoxScore/actions';
-import { TTabsGameStatsValue } from 'pages/GameStats/store/BoxScore/entities';
+} from 'common/selectors/GameStats';
+import { changedActiveTab, fetchGameStats } from 'pages/GameStats/store';
+import { TTabsGameStatsValue } from 'pages/GameStats/store/types';
 import TabsGameStats from 'pages/GameStats/components/TabsGameStats';
 import BoxScore from 'pages/GameStats/components/TabsContent/BoxScore';
 import GameDetails from 'pages/GameStats/components/TabsContent/GameDetails';
@@ -35,11 +32,11 @@ const GameStatsContainer = () => {
       gameId,
     };
 
-    dispatch(getBoxScoreAction.request(params));
+    dispatch(fetchGameStats(params));
   }, [dispatch, search]);
 
   const handleTabClick = (_, activeTab: TTabsGameStatsValue) => {
-    dispatch(changedActiveTabAction(activeTab));
+    dispatch(changedActiveTab(activeTab));
   };
 
   return (

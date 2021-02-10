@@ -4,9 +4,9 @@ import dayjs from 'dayjs';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
-import { getGameDate } from 'common/selectors/GameStats/getBoxScore';
-import GameLeaders from './GameLeaders';
-import GameSummary from './GameSummary';
+import { getGameDate } from 'common/selectors/GameStats';
+import GameLeaders from 'pages/GameStats/components/TabsContent/GameDetails/GameLeaders';
+import GameSummary from 'pages/GameStats/components/TabsContent/GameDetails/GameSummary';
 import { useStyles } from './styles';
 
 const GameDetails = () => {

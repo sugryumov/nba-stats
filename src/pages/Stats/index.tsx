@@ -5,12 +5,9 @@ import {
   getStatsError,
   getStatsGroupBy,
   getStatsLoading,
-} from 'common/selectors/Stats/getStats';
+} from 'common/selectors/Stats';
 import LoadingLayout from 'common/components/LoadingLayout';
-import {
-  getStatsAction,
-  statsGroupByAction,
-} from 'pages/Stats/store/actions';
+import { fetchStats, statsGroupByAction } from 'pages/Stats/store';
 import StatsHeader from 'pages/Stats/components/StatsHeader';
 import StatsContent from 'pages/Stats/components/StatsContent';
 
@@ -23,7 +20,7 @@ const StatsContainer = () => {
   const statsGroupBy = useSelector(getStatsGroupBy);
 
   useEffect(() => {
-    dispatch(getStatsAction.request(statsGroupBy));
+    dispatch(fetchStats(statsGroupBy));
   }, [dispatch, statsGroupBy]);
 
   const handleGroupBy = event => {

@@ -9,7 +9,7 @@ import {
   getPreviewArticlesLoading,
 } from 'common/selectors/GamePreview/previewArticles';
 import LoadingLayout from 'common/components/LoadingLayout';
-import { getPreviewArticlesAction } from 'pages/GamePreview/store/PreviewArticles/actions';
+import { fetchGamePreviewArticles } from 'pages/GamePreview/store/PreviewArticles';
 import { useStyles } from './styles';
 
 const PreviewArticles = () => {
@@ -34,7 +34,7 @@ const PreviewArticles = () => {
     };
 
     if (title === '') {
-      dispatch(getPreviewArticlesAction.request(params));
+      dispatch(fetchGamePreviewArticles(params));
     }
   }, [dispatch, search, title]);
 
