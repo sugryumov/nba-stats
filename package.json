@@ -27,6 +27,7 @@
   "scripts": {
     "start": "NODE_PATH=./src react-scripts start",
     "build": "NODE_PATH=./src GENERATE_SOURCEMAP=false react-scripts build && cp build/index.html build/404.html",
+    "bundle-analyzer": "npx cra-bundle-analyzer",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,6 +50,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-redux": "^7.1.9",
+    "cra-bundle-analyzer": "^0.1.0",
     "prettier": "^2.0.5",
     "typescript": "^3.7.5"
   }
