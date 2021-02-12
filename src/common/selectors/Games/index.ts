@@ -7,8 +7,6 @@ export const getGamesList = (state: TState) => state.games;
 export const getGamesListData = createSelector(
   getGamesList,
   ({ response, showScore }): Array<TGameItem> => {
-    console.log('response', response);
-
     const gamesList = response.games
       .map(
         ({
