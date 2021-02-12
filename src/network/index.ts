@@ -13,6 +13,10 @@ class Network extends Instance {
   async seasonAverages(params): TAxios {
     return this.send('get', `/season_averages`, { params });
   }
+
+  async playerStats(params): TAxios {
+    return this.send('get', `/stats`, { params });
+  }
 }
 
 const baseUrl = 'https://www.balldontlie.io/api/v1';

@@ -1,9 +1,11 @@
 import { TSearchPlayerState } from './SearchPlayer/types';
 import { TSeasonAveragesState } from './SeasonAverages/types';
+import { TPlayerStatsState } from './PlayerStats/types';
 
 export type TPlayerStatisticsState = {
   searchPlayer: TSearchPlayerState;
   seasonAverages: TSeasonAveragesState;
+  playerStats: TPlayerStatsState;
 };
 
 export type TPlayer = {

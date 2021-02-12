@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+// import { playerStats } from 'helpers/fakeData';
 import { TState } from 'store/types';
 
 export const getSearchPlayers = (state: TState) =>
@@ -11,6 +12,7 @@ export const getSearchPlayersData = createSelector(
 
 export const getSelectedPlayers = createSelector(
   getSearchPlayers,
+  // ({ selectedPlayer }) => [...playerStats, ...selectedPlayer],
   ({ selectedPlayer }) => selectedPlayer,
 );
 

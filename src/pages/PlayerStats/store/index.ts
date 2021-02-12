@@ -1,10 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import searchPlayerReducer from './SearchPlayer';
-import SeasonAveragesReducer from './SeasonAverages';
+import seasonAveragesReducer from './SeasonAverages';
+import playerStatsReducer from './PlayerStats';
 
 const gamePlayerStatisticsReducer = combineReducers({
   searchPlayer: searchPlayerReducer,
-  seasonAverages: SeasonAveragesReducer,
+  seasonAverages: seasonAveragesReducer,
+  playerStats: playerStatsReducer,
 });
 
 export default gamePlayerStatisticsReducer;
