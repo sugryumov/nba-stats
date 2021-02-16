@@ -58,7 +58,7 @@ const LineScoreStats = () => {
       id: 5,
       component: Column,
       name: 'secondChancePoints',
-      label: 'SEC CH PTS',
+      label: '2ND CH PTS',
       tooltip: 'Second chance points',
       styles: {
         backgroundColor: 'transparent',
