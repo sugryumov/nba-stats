@@ -72,6 +72,15 @@ export const getLineScoreStats = createSelector(
   },
 );
 
+export const getExtraInfo = createSelector(
+  getGameStats,
+  ({
+    response: {
+      stats: { leadChanges, timesTied },
+    },
+  }) => ({ leadChanges, timesTied }),
+);
+
 const getInfo = (team, statName, triCode?) => {
   const [player] = team?.leaders[statName].players;
   const { value } = team?.leaders[statName];

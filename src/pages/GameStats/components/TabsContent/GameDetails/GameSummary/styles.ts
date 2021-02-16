@@ -1,10 +1,10 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       display: 'grid',
-      gridTemplateColumns: '1fr 1px 1fr',
+      gridTemplateColumns: '1fr 1px 1fr 190px',
       alignItems: 'center',
       columnGap: 20,
       overflowX: 'auto',
