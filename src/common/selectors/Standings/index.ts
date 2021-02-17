@@ -3,14 +3,31 @@ import { TState } from 'store/types';
 
 export const getStandings = (state: TState) => state.standings;
 
+export const getAllStandingsData = createSelector(
+  getStandings,
+  ({
+    response: {
+      league: {
+        standard: { teams },
+      },
+    },
+  }) =>
+    teams?.map(team => ({
+      ...team,
+      teamName: team.teamSitesOnly.teamName,
+      teamNickname: team.teamSitesOnly.teamNickname,
+      teamTricode: team.teamSitesOnly.teamTricode,
+      streakText: team.teamSitesOnly.streakText,
+      rank: team.sortKey.defaultOrder,
+    })),
+);
+
 export const getStandingsData = createSelector(
   getStandings,
   ({
     response: {
       league: {
-        standard: {
-          conference: { east, west },
-        },
+        standard: { conference },
       },
     },
   }) => {
@@ -48,10 +65,16 @@ export const getStandingsData = createSelector(
       });
     };
 
-    if (Array.isArray(east)) {
-      return { east: conferenceGroup(east), west: conferenceGroup(west) };
-    } else {
-      return { east: divisionGroup(east), west: divisionGroup(west) };
+    if (Array.isArray(conference?.east)) {
+      return {
+        east: conferenceGroup(conference?.east),
+        west: conferenceGroup(conference?.west),
+      };
+    } else if (conference) {
+      return {
+        east: divisionGroup(conference?.east),
+        west: divisionGroup(conference?.west),
+      };
     }
   },
 );

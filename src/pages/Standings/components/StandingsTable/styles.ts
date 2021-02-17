@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme: Theme) =>
         },
       },
     },
+    tableAll: {
+      overflowX: 'auto',
+    },
     cellTeamWrap: {
       display: 'flex',
       alignItems: 'center',

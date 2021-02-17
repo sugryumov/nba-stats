@@ -5,17 +5,21 @@ export type TStandingsState = {
   groupBy: TStandingsGroupBy;
 };
 
-export type TStandingsGroupBy = 'standings_conference' | 'standings_division';
+export type TStandingsGroupBy =
+  | 'standings_conference'
+  | 'standings_division'
+  | 'standings_all';
 
 export type TStandingsResponse = {
   league: {
     standard: {
-      conference: {
+      conference?: {
         east: Array<TTeamStandings>;
         west: Array<TTeamStandings>;
       };
-      seasonStageId: null | number;
-      seasonYear: null | number;
+      seasonStageId?: null | number;
+      seasonYear?: null | number;
+      teams?: Array<TTeamStandings>;
     };
   };
 };
@@ -37,6 +41,9 @@ export type TTeamStandings = {
   lastTenLoss: string;
   lastTenWin: string;
   divRank: string;
+  sortKey: {
+    defaultOrder: number;
+  };
 };
 
 type TTeamSitesOnly = {

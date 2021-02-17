@@ -18,12 +18,24 @@ const StandingsTable = ({ data, name }) => {
   const standingsGroupBy = useSelector(getStandingsGroupBy);
 
   const ColumnName = ({ _, render }) => {
-    const [teamName, teamNickname, teamTricode, confRank, divRank] = render;
+    const [
+      teamName,
+      teamNickname,
+      teamTricode,
+      confRank,
+      divRank,
+      rank,
+    ] = render;
 
     return (
       <div className={classes.cellTeamWrap}>
         <b className={classes.cellTeamRank}>
-          {standingsGroupBy === 'standings_conference' ? confRank : divRank}.
+          {standingsGroupBy === 'standings_conference'
+            ? confRank
+            : standingsGroupBy === 'standings_division'
+            ? divRank
+            : rank}
+          .
         </b>
         <SVGIcon name={teamTricode} width={30} height={30} />
         <p className={classes.cellTeamName}>
@@ -49,6 +61,7 @@ const StandingsTable = ({ data, name }) => {
         'teamTricode',
         'confRank',
         'divRank',
+        'rank',
       ],
       label: 'TEAM',
     },
@@ -121,7 +134,13 @@ const StandingsTable = ({ data, name }) => {
         </Typography>
       </Toolbar>
 
-      <div className={classes.table}>
+      <div
+        className={
+          standingsGroupBy === 'standings_all'
+            ? classes.tableAll
+            : classes.table
+        }
+      >
         <ReusableTable data={data} columns={columns} />
       </div>
     </TableContainer>

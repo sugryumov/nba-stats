@@ -11,4 +11,5 @@ export const CONFERENCE_DIVISION_NAME = {
   northwest: 'Northwest Division',
   pacific: 'Pacific Division',
   southwest: 'Southwest Division',
+  all: 'All Teams',
 } as TConferenceDivisionName;
