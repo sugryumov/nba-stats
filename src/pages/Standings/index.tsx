@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  getStandingsData,
-  getStandingsError,
-  getStandingsLoading,
-  getStandingsGroupBy,
-  getAllStandingsData,
-} from 'common/selectors/Standings';
-import { fetchStandings, standingsGroupByAction } from 'pages/Standings/store';
+  getAllStandingsTeamData,
+  getStandingsTeamData,
+  getStandingsTeamLoading,
+  getStandingsTeamError,
+  getStandingsTeamGroupBy,
+} from 'common/selectors/Standings/standingsTeam';
+import {
+  fetchStandingsTeam,
+  standingsGroupByAction,
+} from 'pages/Standings/store/StandingsTeam';
 import LoadingLayout from 'common/components/LoadingLayout';
 import StandingsTable from './components/StandingsTable';
 import StandingsHeader from './components/StandingsHeader';
@@ -15,14 +18,14 @@ import StandingsHeader from './components/StandingsHeader';
 const StandingsContainer = () => {
   const dispatch = useDispatch();
 
-  const standingsData = useSelector(getStandingsData);
-  const standingsLoading = useSelector(getStandingsLoading);
-  const standingsError = useSelector(getStandingsError);
-  const standingsGroupBy = useSelector(getStandingsGroupBy);
-  const standingsAll = useSelector(getAllStandingsData);
+  const standingsData = useSelector(getStandingsTeamData);
+  const standingsLoading = useSelector(getStandingsTeamLoading);
+  const standingsError = useSelector(getStandingsTeamError);
+  const standingsGroupBy = useSelector(getStandingsTeamGroupBy);
+  const standingsAll = useSelector(getAllStandingsTeamData);
 
   useEffect(() => {
-    dispatch(fetchStandings(standingsGroupBy));
+    dispatch(fetchStandingsTeam(standingsGroupBy));
   }, [dispatch, standingsGroupBy]);
 
   const renderTable = () => {

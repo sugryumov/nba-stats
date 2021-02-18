@@ -41,6 +41,11 @@ class DataNba extends Instance {
   async getStandings(params): TAxios {
     return this.send('get', `/prod/v1/current/${params}.json`, {});
   }
+
+  // Teams schedule
+  async getScheduleTeam(params): TAxios {
+    return this.send('get', `prod/v1/2020/teams/${params}/schedule.json`, {});
+  }
 }
 
 // "teamRoster": "/prod/v1/2020/teams/{{teamUrlCode}}/roster.json", // respone playerID

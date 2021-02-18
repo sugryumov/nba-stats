@@ -1,10 +1,11 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { TState } from 'store/types';
 
-export const getStandings = (state: TState) => state.standings;
+export const getStandingsTeam = (state: TState) =>
+  state.standings.standingsTeam;
 
-export const getAllStandingsData = createSelector(
-  getStandings,
+export const getAllStandingsTeamData = createSelector(
+  getStandingsTeam,
   ({
     response: {
       league: {
@@ -22,8 +23,8 @@ export const getAllStandingsData = createSelector(
     })),
 );
 
-export const getStandingsData = createSelector(
-  getStandings,
+export const getStandingsTeamData = createSelector(
+  getStandingsTeam,
   ({
     response: {
       league: {
@@ -79,17 +80,17 @@ export const getStandingsData = createSelector(
   },
 );
 
-export const getStandingsLoading = createSelector(
-  getStandings,
+export const getStandingsTeamLoading = createSelector(
+  getStandingsTeam,
   ({ loading }) => loading,
 );
 
-export const getStandingsError = createSelector(
-  getStandings,
+export const getStandingsTeamError = createSelector(
+  getStandingsTeam,
   ({ error }) => error,
 );
 
-export const getStandingsGroupBy = createSelector(
-  getStandings,
+export const getStandingsTeamGroupBy = createSelector(
+  getStandingsTeam,
   ({ groupBy }) => groupBy,
 );

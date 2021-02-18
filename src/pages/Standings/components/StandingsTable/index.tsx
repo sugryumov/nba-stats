@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import TableContainer from '@material-ui/core/TableContainer';
 import Paper from '@material-ui/core/Paper';
@@ -9,16 +9,28 @@ import { CONFERENCE_DIVISION_NAME } from 'common/constants/conferenceDivisionNam
 import SVGIcon from 'common/components/SVGIcon';
 import ReusableTable from 'common/components/ReusableTable';
 import Column from 'common/components/ReusableTable/Column';
-import { getStandingsGroupBy } from 'common/selectors/Standings';
+import { getStandingsTeamGroupBy } from 'common/selectors/Standings/standingsTeam';
+import ScheduleTeamModal from './ScheduleTeamModal';
 import { useStyles } from './styles';
 
 const StandingsTable = ({ data, name }) => {
   const classes = useStyles();
 
-  const standingsGroupBy = useSelector(getStandingsGroupBy);
+  const standingsGroupBy = useSelector(getStandingsTeamGroupBy);
+
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [currentTeamId, setCurrentTeamId] = useState<string | null>(null);
+  const [currentTeamName, setCurrentTeamName] = useState<string | null>(null);
+
+  const teamScheduleHandler = (teamId: string, teamName: string) => {
+    setOpenModal(true);
+    setCurrentTeamId(teamId);
+    setCurrentTeamName(teamName);
+  };
 
   const ColumnName = ({ _, render }) => {
     const [
+      teamId,
       teamName,
       teamNickname,
       teamTricode,
@@ -27,8 +39,13 @@ const StandingsTable = ({ data, name }) => {
       rank,
     ] = render;
 
+    const fullTeamName = `${teamName} ${teamNickname}`;
+
     return (
-      <div className={classes.cellTeamWrap}>
+      <div
+        className={classes.cellTeamWrap}
+        // onClick={() => teamScheduleHandler(teamId, fullTeamName)}
+      >
         <b className={classes.cellTeamRank}>
           {standingsGroupBy === 'standings_conference'
             ? confRank
@@ -39,7 +56,7 @@ const StandingsTable = ({ data, name }) => {
         </b>
         <SVGIcon name={teamTricode} width={30} height={30} />
         <p className={classes.cellTeamName}>
-          <Hidden xsDown>{`${teamName} ${teamNickname}`}</Hidden>
+          <Hidden xsDown>{fullTeamName}</Hidden>
           <Hidden smUp>{teamTricode}</Hidden>
         </p>
       </div>
@@ -56,6 +73,7 @@ const StandingsTable = ({ data, name }) => {
       component: ColumnName,
       name: '',
       render: [
+        'teamId',
         'teamName',
         'teamNickname',
         'teamTricode',
@@ -143,6 +161,13 @@ const StandingsTable = ({ data, name }) => {
       >
         <ReusableTable data={data} columns={columns} />
       </div>
+
+      <ScheduleTeamModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        currentTeamId={currentTeamId}
+        currentTeamName={currentTeamName}
+      />
     </TableContainer>
   );
 };
