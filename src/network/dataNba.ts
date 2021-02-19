@@ -44,7 +44,7 @@ class DataNba extends Instance {
 
   // Teams schedule
   async getScheduleTeam(params): TAxios {
-    return this.send('get', `prod/v1/2020/teams/${params}/schedule.json`, {});
+    return this.send('get', `/prod/v1/2020/teams/${params}/schedule.json`, {});
   }
 }
 

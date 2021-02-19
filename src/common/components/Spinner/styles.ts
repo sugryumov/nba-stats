@@ -4,7 +4,7 @@ const useStyles = makeStyles(() =>
   createStyles({
     root: {
       display: 'block',
-      margin: '70px auto 0',
+      margin: '70px auto',
     },
   }),
 );
