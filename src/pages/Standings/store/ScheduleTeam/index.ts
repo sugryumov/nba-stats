@@ -11,9 +11,7 @@ export const fetchScheduleTeam = createAsyncThunk(
 const initialState = {
   response: {
     league: {
-      standard: {
-        conference: [],
-      },
+      standard: [],
     },
   },
   error: null,

@@ -6,9 +6,7 @@ export type TScheduleTeamState = {
 
 export type TScheduleTeamResponse = {
   league: {
-    standard: {
-      conference: Array<TScheduleTeamGame>;
-    };
+    standard: Array<TScheduleTeamGame>;
   };
 };
 
@@ -22,8 +20,8 @@ export type TScheduleTeamGame = {
     score: string;
   };
   startDateEastern: string;
-  startTimeEastern: string;
-  startTimeUTC: string;
   statusNum: number;
   extendedStatusNum: number;
+  gameId: string;
+  gameUrlCode: string;
 };

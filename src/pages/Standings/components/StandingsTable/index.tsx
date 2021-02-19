@@ -44,7 +44,7 @@ const StandingsTable = ({ data, name }) => {
     return (
       <div
         className={classes.cellTeamWrap}
-        // onClick={() => teamScheduleHandler(teamId, fullTeamName)}
+        onClick={() => teamScheduleHandler(teamId, fullTeamName)}
       >
         <b className={classes.cellTeamRank}>
           {standingsGroupBy === 'standings_conference'
