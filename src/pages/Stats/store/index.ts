@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import network from 'network/statsNba';
-import { TStatsResponse, TStatsGrpupBy, TStatsState } from './types';
+import { TStatsResponse, TStatsGroupBy, TStatsState } from './types';
 
 export const fetchStats = createAsyncThunk(
   'stats/fetchStats',
-  async (data: TStatsGrpupBy) =>
+  async (data: TStatsGroupBy) =>
     ((await network.getStats(data)) as unknown) as TStatsResponse,
 );
 

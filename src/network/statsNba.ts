@@ -1,4 +1,4 @@
-import { TStatsGrpupBy } from 'pages/Stats/store/types';
+import { TStatsGroupBy } from 'pages/Stats/store/types';
 import Instance, { TAxios } from 'network/Instance';
 
 class StatsNba extends Instance {
@@ -7,7 +7,7 @@ class StatsNba extends Instance {
   }
 
   // Standings
-  async getStats(params: TStatsGrpupBy): TAxios {
+  async getStats(params: TStatsGroupBy): TAxios {
     return this.send('get', `/widgets/${params}.json`, {});
   }
 }
@@ -18,8 +18,7 @@ class StatsNba extends Instance {
 
 // https://stats.nba.com/js/data/playermovement/NBA_Player_Movement.json - trade
 
-const baseUrl =
-  'https://cors-anywhere.herokuapp.com/https://stats.nba.com/js/data';
+const baseUrl = 'https://stats.nba.com/js/data';
 
 const network = new StatsNba(baseUrl);
 

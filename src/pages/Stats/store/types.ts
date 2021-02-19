@@ -2,10 +2,10 @@ export type TStatsState = {
   response: TStatsResponse;
   error: null | string;
   loading: boolean;
-  groupBy: TStatsGrpupBy;
+  groupBy: TStatsGroupBy;
 };
 
-export type TStatsGrpupBy = 'home_daily' | 'home_season';
+export type TStatsGroupBy = 'home_daily' | 'home_season';
 
 export type TStatsResponse = {
   title: string;
