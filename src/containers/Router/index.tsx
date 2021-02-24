@@ -8,7 +8,7 @@ const RouterContainer = () => {
   const Standings = React.lazy(() => import('../../pages/Standings'));
   const GamePreview = React.lazy(() => import('../../pages/GamePreview'));
   const GameStats = React.lazy(() => import('../../pages/GameStats'));
-  const Stats = React.lazy(() => import('../../pages/Stats'));
+  // const Stats = React.lazy(() => import('../../pages/Stats'));
   const PlayerStats = React.lazy(() => import('../../pages/PlayerStats'));
 
   return (
@@ -19,7 +19,7 @@ const RouterContainer = () => {
           <Route path={ROUTES.STANDINGS.ROUTE} exact component={Standings} />
           <Route path={ROUTES.GAME_PREVIEW.ROUTE} exact component={GamePreview} />
           <Route path={ROUTES.GAME_STATS.ROUTE} exact component={GameStats} />
-          <Route path={ROUTES.STATS.ROUTE} exact component={Stats} />
+          {/* <Route path={ROUTES.STATS.ROUTE} exact component={Stats} /> */}
           <Route path={ROUTES.PLAYER_STATS.ROUTE} exact component={PlayerStats} />
         </Switch>
       </App>
