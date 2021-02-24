@@ -30,8 +30,13 @@ const useStyles = makeStyles((theme: Theme) =>
       overflowX: 'auto',
     },
     cellTeamWrap: {
-      display: 'flex',
-      alignItems: 'center',
+      'display': 'flex',
+      'alignItems': 'center',
+      'cursor': 'pointer',
+
+      '&:hover': {
+        textDecoration: 'underline',
+      },
     },
     cellTeamRank: {
       width: 20,
