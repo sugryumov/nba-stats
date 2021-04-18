@@ -19,9 +19,14 @@ const useStyles = makeStyles((theme: Theme) =>
       'overflowX': 'auto',
 
       '& .MuiTableRow-root': {
-        '&:nth-child(8)': {
+        '&:nth-child(6)': {
           '& .MuiTableCell-root': {
             borderBottom: `2px solid ${theme.palette.text.primary}`,
+          },
+        },
+        '&:nth-child(10)': {
+          '& .MuiTableCell-root': {
+            borderBottom: `2px dashed ${theme.palette.text.primary}`,
           },
         },
       },
