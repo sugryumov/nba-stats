@@ -21,12 +21,12 @@ const useStyles = makeStyles((theme: Theme) =>
       '& .MuiTableRow-root': {
         '&:nth-child(6)': {
           '& .MuiTableCell-root': {
-            borderBottom: `2px solid ${theme.palette.text.primary}`,
+            borderBottom: `2px dashed ${theme.palette.text.primary}`,
           },
         },
         '&:nth-child(10)': {
           '& .MuiTableCell-root': {
-            borderBottom: `2px dashed ${theme.palette.text.primary}`,
+            borderBottom: `2px solid ${theme.palette.text.primary}`,
           },
         },
       },
