@@ -1,6 +1,6 @@
 export type TGamesState = {
   response: TGamesResponse;
-  error: string | null
+  error: string | null;
   loading: boolean;
   showScore: boolean;
   changedDate: string;
@@ -22,6 +22,8 @@ export type TGameItem = {
   extendedStatusNum: number;
   clock: string;
   period: TPeriod;
+  seasonStageId: number;
+  playoffs: TPlayoffs;
 };
 
 type TTeam = {
@@ -41,4 +43,22 @@ type TPeriod = {
   maxRegular: number;
   isHalftime: boolean;
   isEndOfPeriod: boolean;
+};
+
+type TPlayoffs = {
+  confName: string;
+  gameNumInSeries: string;
+  hTeam: TPlayoffsTeam;
+  isIfNecessary: boolean;
+  isSeriesCompleted: boolean;
+  roundNum: string;
+  seriesId: string;
+  seriesSummaryText: string;
+  vTeam: TPlayoffsTeam;
+};
+
+type TPlayoffsTeam = {
+  seedNum: string;
+  seriesWin: string;
+  isSeriesWinner: boolean;
 };

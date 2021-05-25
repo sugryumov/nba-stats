@@ -11,3 +11,11 @@ export const GAME_STATUS = {
   live: 2,
   finished: 3,
 } as TGameStatus;
+
+type TStageStatus = {
+  playoff: number;
+};
+
+export const STAGE_STATUS = {
+  playoff: 4,
+} as TStageStatus;

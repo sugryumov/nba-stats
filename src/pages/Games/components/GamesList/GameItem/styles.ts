@@ -12,6 +12,14 @@ const useStyles = makeStyles((theme: Theme) =>
         padding: '20px 10px',
       },
     },
+    rootPlayoff: {
+      padding: '0px 20px 30px',
+    },
+    title: {
+      paddingTop: 30,
+      textAlign: 'center',
+      fontSize: 12,
+    },
   }),
 );
 

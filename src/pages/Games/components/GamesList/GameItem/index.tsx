@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import { GAME_STATUS } from 'common/constants/gameStatus';
+import Typography from '@material-ui/core/Typography';
+import { GAME_STATUS, STAGE_STATUS } from 'common/constants/gameStatus';
 import { TGameItem } from 'pages/Games/store/types';
 import Team from 'pages/Games/components/GamesList/GameItem/Team';
 import GameStatus from 'pages/Games/components/GamesList/GameItem/GameStatus';
@@ -21,12 +22,32 @@ const GameItem = ({ game }) => {
     extendedStatusNum,
     clock,
     period,
+    seasonStageId,
+    playoffs,
   }: TGameItem = game;
 
   return (
     <Card>
-      <div className={classes.root}>
-        <Team team={vTeam} statusNum={statusNum} reverse={true} />
+      {seasonStageId === STAGE_STATUS.playoff && (
+        <Typography variant="h6" className={classes.title}>
+          {`Game ${playoffs.gameNumInSeries}: ${playoffs.seriesSummaryText}`}
+        </Typography>
+      )}
+
+      <div
+        className={
+          seasonStageId === STAGE_STATUS.playoff
+            ? `${classes.root} ${classes.rootPlayoff}`
+            : classes.root
+        }
+      >
+        <Team
+          team={vTeam}
+          statusNum={statusNum}
+          reverse={true}
+          seasonStageId={seasonStageId}
+          seedNum={playoffs?.vTeam?.seedNum}
+        />
 
         <GameStatus
           startTimeUTC={startTimeUTC}
@@ -37,7 +58,13 @@ const GameItem = ({ game }) => {
           extendedStatusNum={extendedStatusNum}
         />
 
-        <Team team={hTeam} statusNum={statusNum} reverse={false} />
+        <Team
+          team={hTeam}
+          statusNum={statusNum}
+          reverse={false}
+          seasonStageId={seasonStageId}
+          seedNum={playoffs?.hTeam?.seedNum}
+        />
       </div>
 
       {statusNum === GAME_STATUS.notStarted ? (

@@ -2,10 +2,10 @@ import React from 'react';
 import { NAME_TEAMS } from 'common/constants/nameTeams';
 import SVGIcon from 'common/components/SVGIcon';
 import { nbaTeam } from 'common/components/SVGIcon/interface';
-import { GAME_STATUS } from 'common/constants/gameStatus';
+import { GAME_STATUS, STAGE_STATUS } from 'common/constants/gameStatus';
 import { useStyles } from './styles';
 
-const Team = ({ team, statusNum, reverse }) => {
+const Team = ({ team, statusNum, reverse, seasonStageId, seedNum }) => {
   const classes = useStyles();
 
   return (
@@ -13,11 +13,19 @@ const Team = ({ team, statusNum, reverse }) => {
       <div className={classes.info}>
         <SVGIcon name={nbaTeam[team.triCode]} width={54} height={54} />
 
-        <p className={classes.name}>{NAME_TEAMS[team.triCode]}</p>
+        <p className={classes.name}>
+          {seasonStageId === STAGE_STATUS.playoff && (
+            <span className={classes.seedNum}>{seedNum}</span>
+          )}
 
-        <p className={classes.winLoss}>
-          {team.win} - {team.loss}
+          {NAME_TEAMS[team.triCode]}
         </p>
+
+        {seasonStageId !== STAGE_STATUS.playoff && (
+          <p className={classes.winLoss}>
+            {team.win} - {team.loss}
+          </p>
+        )}
       </div>
 
       <p className={classes.score}>

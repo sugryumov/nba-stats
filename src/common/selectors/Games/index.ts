@@ -21,6 +21,8 @@ export const getGamesListData = createSelector(
           extendedStatusNum,
           clock,
           period,
+          seasonStageId,
+          playoffs,
         }) => {
           return {
             gameId,
@@ -44,6 +46,11 @@ export const getGamesListData = createSelector(
             extendedStatusNum,
             clock,
             period,
+            seasonStageId,
+            playoffs: {
+              ...playoffs,
+              seriesSummaryText: showScore ? playoffs?.seriesSummaryText : '-',
+            },
           };
         },
       )

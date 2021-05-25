@@ -27,6 +27,13 @@ const useStyles = makeStyles((theme: ITheme) =>
         fontSize: 12,
       },
     },
+    seedNum: {
+      padding: '0px 4px',
+      marginRight: 2,
+      fontSize: 12,
+      background: theme.palette.secondaryColor,
+      borderRadius: 4,
+    },
     winLoss: {
       fontSize: 14,
 
