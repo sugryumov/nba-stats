@@ -42,6 +42,12 @@ const ROUTES = {
   //   NAME: 'STATS',
   //   DISPLAY_IN_MENU: true,
   // },
+  // PLAYOFF: {
+  //   ROUTE: `${ROUTE_PREF}/playoff`,
+  //   PATH: `${ROUTE_PREF}/playoff`,
+  //   NAME: 'PLAYOFF',
+  //   DISPLAY_IN_MENU: true,
+  // },
   PLAYER_STATS: {
     ROUTE: `${ROUTE_PREF}/player-stats`,
     PATH: `${ROUTE_PREF}/player-stats`,

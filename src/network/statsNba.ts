@@ -8,7 +8,16 @@ class StatsNba extends Instance {
 
   // Standings
   async getStats(params: TStatsGroupBy): TAxios {
-    return this.send('get', `/widgets/${params}.json`, {});
+    return this.send('get', `/js/data/widgets/${params}.json`, {});
+  }
+
+  // Playoff
+  async getPlayoffBracket(): TAxios {
+    return this.send(
+      'get',
+      `stats/playoffbracket?LeagueID=00&SeasonYear=2020&State=2`,
+      {},
+    );
   }
 }
 
@@ -18,7 +27,7 @@ class StatsNba extends Instance {
 
 // https://stats.nba.com/js/data/playermovement/NBA_Player_Movement.json - trade
 
-const baseUrl = 'https://stats.nba.com/js/data';
+const baseUrl = 'https://stats.nba.com';
 
 const network = new StatsNba(baseUrl);
 
