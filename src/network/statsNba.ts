@@ -24,8 +24,9 @@ class StatsNba extends Instance {
 // stats.nba
 // https://stats.nba.com/js/data/widgets/home_season.json - season stats
 // https://stats.nba.com/js/data/widgets/home_daily.json - daily stats
-
 // https://stats.nba.com/js/data/playermovement/NBA_Player_Movement.json - trade
+
+// https://stats-prod.nba.com/wp-json/statscms/v1/rotowire/player/ players news
 
 const baseUrl = 'https://stats.nba.com';
 

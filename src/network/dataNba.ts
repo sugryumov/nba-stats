@@ -48,6 +48,7 @@ class DataNba extends Instance {
   }
 }
 
+// "today.json" http://data.nba.net/10s/prod/v1/today.json
 // "teamRoster": "/prod/v1/2020/teams/{{teamUrlCode}}/roster.json", // respone playerID
 // "playerProfile": http://data.nba.net/prod/v1/2020/players/1630173_profile.json
 
