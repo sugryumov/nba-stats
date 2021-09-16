@@ -1,1 +1,1 @@
-# nba-stats
+https://sugryumov.github.io/nba-stats/
