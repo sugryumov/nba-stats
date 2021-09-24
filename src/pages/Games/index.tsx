@@ -7,6 +7,7 @@ import { GAME_STATUS } from 'common/constants/gameStatus';
 import { fetchGames } from 'pages/Games/store';
 import GamesHeader from 'pages/Games/components/GamesHeader';
 import GamesList from 'pages/Games/components/GamesList';
+import Countdown from 'pages/Games/components/Countdown';
 import { useStyles } from './styles';
 
 function GamesListContainer() {
@@ -29,6 +30,9 @@ function GamesListContainer() {
   return (
     <div className={classes.root}>
       <GamesHeader />
+
+      <Countdown deadline={new Date('10/20/2021 02:30 AM')} />
+
       <GamesList />
 
       {hasLiveGame.length !== 0 && (
