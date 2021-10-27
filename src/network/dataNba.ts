@@ -32,7 +32,7 @@ class DataNba extends Instance {
 
     return this.send(
       'get',
-      `/data/10s/json/cms/2020/game/${gameDate}/${gameId}/playersPerGame.json`,
+      `/data/10s/json/cms/2021/game/${gameDate}/${gameId}/playersPerGame.json`,
       {},
     );
   }
@@ -44,7 +44,7 @@ class DataNba extends Instance {
 
   // Teams schedule
   async getScheduleTeam(params): TAxios {
-    return this.send('get', `/prod/v1/2020/teams/${params}/schedule.json`, {});
+    return this.send('get', `/prod/v1/2021/teams/${params}/schedule.json`, {});
   }
 }
 

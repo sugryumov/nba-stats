@@ -55,7 +55,7 @@ const StandingsHeader = ({ groupBy, handleGroupBy }) => {
   return (
     <Paper className={classes.container}>
       <Typography variant="h6" className={classes.title}>
-        '20 - '21 Regular Season Standings
+        '21 - '22 Regular Season Standings
       </Typography>
 
       <FormControl variant="outlined" className={classes.formControl}>
