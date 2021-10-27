@@ -35,7 +35,7 @@ class StatsNba extends Instance {
 
 // https://stats-prod.nba.com/wp-json/statscms/v1/rotowire/player/ players news
 
-const baseUrl = 'https://cors.bridged.cc/https://stats-prod.nba.com';
+const baseUrl = 'https://cors-anywhere.herokuapp.com/https://stats.nba.com';
 
 const network = new StatsNba(baseUrl);
 
