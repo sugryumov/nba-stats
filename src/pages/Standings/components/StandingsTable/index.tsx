@@ -63,16 +63,16 @@ const StandingsTable = ({ data, name }) => {
     );
   };
 
-  const ColumnWinLos = ({ _, value }) => {
-    const [winGame, lossGame] = value;
+  const ColumnWinLos = ({ _, render }) => {
+    const [winGame, lossGame] = render;
 
     return `${winGame} - ${lossGame}`;
   };
 
-  const ColumnStreak = ({ _, value }) => {
-    const [streakLine, isWinStreak] = value;
+  const ColumnStreak = ({ _, render }) => {
+    const [streakLine, isWinStreak] = render;
 
-    return isWinStreak ? `W ${streakLine}` : `L ${streakLine}`
+    return isWinStreak ? `W ${streakLine}` : `L ${streakLine}`;
   };
 
   const columns = [
