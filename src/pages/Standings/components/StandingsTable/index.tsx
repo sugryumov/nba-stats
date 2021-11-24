@@ -50,8 +50,8 @@ const StandingsTable = ({ data, name }) => {
           {standingsGroupBy === 'standings_conference'
             ? confRank
             : standingsGroupBy === 'standings_division'
-            ? divRank
-            : rank}
+              ? divRank
+              : rank}
           .
         </b>
         <SVGIcon name={teamTricode} width={30} height={30} />
@@ -63,8 +63,16 @@ const StandingsTable = ({ data, name }) => {
     );
   };
 
-  const ColumnWinLos = ({ _, render }) => {
-    return <>{`${render[0]} - ${render[1]}`}</>;
+  const ColumnWinLos = ({ _, value }) => {
+    const [winGame, lossGame] = value;
+
+    return `${winGame} - ${lossGame}`;
+  };
+
+  const ColumnStreak = ({ _, value }) => {
+    const [streakLine, isWinStreak] = value;
+
+    return isWinStreak ? `W ${streakLine}` : `L ${streakLine}`
   };
 
   const columns = [
@@ -137,9 +145,9 @@ const StandingsTable = ({ data, name }) => {
     },
     {
       id: 10,
-      component: Column,
-      render: ['awayWin', 'awayLoss'],
-      name: 'streakText',
+      component: ColumnStreak,
+      render: ['streak', 'isWinStreak'],
+      name: '',
       label: 'STREAK',
     },
   ];
