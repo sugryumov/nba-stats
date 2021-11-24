@@ -7,6 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import { GROUP_BY_STANDINGS } from 'common/constants/groupByStandings';
+import { CURRENT_SEASON } from 'common/constants/currentSeason';
 
 const useStyles = makeStyles((theme: ITheme) => ({
   container: {
@@ -55,7 +56,7 @@ const StandingsHeader = ({ groupBy, handleGroupBy }) => {
   return (
     <Paper className={classes.container}>
       <Typography variant="h6" className={classes.title}>
-        '21 - '22 Regular Season Standings
+        {CURRENT_SEASON} Regular Season Standings
       </Typography>
 
       <FormControl variant="outlined" className={classes.formControl}>

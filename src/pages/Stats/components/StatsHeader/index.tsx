@@ -6,6 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import { GROUP_BY_LEADERS } from 'common/constants/groupByLeaders';
+import { CURRENT_SEASON } from 'common/constants/currentSeason';
 import { getStatsData } from 'common/selectors/Stats';
 import { useStyles } from './styles';
 
@@ -20,7 +21,7 @@ const StatsHeader = ({ groupBy, handleGroupBy }) => {
   return (
     <Paper className={classes.root}>
       <Typography variant="h6" className={classes.title}>
-        '20 - '21 Regular Season Stats
+        {CURRENT_SEASON} Regular Season Stats
         <p className={classes.subtitle}>Last update: {updateDate}</p>
       </Typography>
 

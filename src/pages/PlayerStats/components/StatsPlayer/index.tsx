@@ -5,6 +5,7 @@ import {
   getSeasonAveragesLoading,
 } from 'common/selectors/PlayerStats/seasonAverages';
 import Spinner from 'common/components/Spinner';
+import { CURRENT_SEASON } from 'common/constants/currentSeason';
 import StatsPlayerItem from 'pages/PlayerStats/components/StatsPlayer/StatsPlayerItem';
 import { useStyles } from './styles';
 
@@ -33,7 +34,9 @@ const StatsPlayer = ({ selectedPlayers }) => {
 
   return (
     <div className={classes.container}>
-      <h1 className={classes.title}>'20 - '21 SEASON AVERAGES</h1>
+      <h1 className={classes.title}>
+        {CURRENT_SEASON} SEASON AVERAGES
+      </h1>
 
       {seasonAveragesLoading ? (
         <Spinner />
