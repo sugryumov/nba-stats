@@ -6,7 +6,7 @@
     "static/js/3.bcc32ea5.chunk.js": "/nba-stats/static/js/3.bcc32ea5.chunk.js",
     "static/js/4.e49c3cff.chunk.js": "/nba-stats/static/js/4.e49c3cff.chunk.js",
     "main.js": "/nba-stats/static/js/main.763c8a43.chunk.js",
-    "runtime-main.js": "/nba-stats/static/js/runtime-main.c5cc954e.js",
+    "runtime-main.js": "/nba-stats/static/js/runtime-main.9031ba4b.js",
     "static/js/7.358911d1.chunk.js": "/nba-stats/static/js/7.358911d1.chunk.js",
     "static/js/8.97777d59.chunk.js": "/nba-stats/static/js/8.97777d59.chunk.js",
     "static/js/9.0bfb5650.chunk.js": "/nba-stats/static/js/9.0bfb5650.chunk.js",
@@ -14,13 +14,13 @@
     "static/js/11.c0c7dc8c.chunk.js": "/nba-stats/static/js/11.c0c7dc8c.chunk.js",
     "static/js/12.4bac9e78.chunk.js": "/nba-stats/static/js/12.4bac9e78.chunk.js",
     "static/js/13.45beb90d.chunk.js": "/nba-stats/static/js/13.45beb90d.chunk.js",
-    "static/js/14.eae85ee7.chunk.js": "/nba-stats/static/js/14.eae85ee7.chunk.js",
+    "static/js/14.9885744b.chunk.js": "/nba-stats/static/js/14.9885744b.chunk.js",
     "static/js/15.a021b831.chunk.js": "/nba-stats/static/js/15.a021b831.chunk.js",
     "static/js/16.d1e894d1.chunk.js": "/nba-stats/static/js/16.d1e894d1.chunk.js",
     "static/js/17.4ca52833.chunk.js": "/nba-stats/static/js/17.4ca52833.chunk.js",
     "static/js/18.23e99daf.chunk.js": "/nba-stats/static/js/18.23e99daf.chunk.js",
     "index.html": "/nba-stats/index.html",
-    "precache-manifest.22d3b6022f7e358cf8b8b48c5f391e9b.js": "/nba-stats/precache-manifest.22d3b6022f7e358cf8b8b48c5f391e9b.js",
+    "precache-manifest.ca30d9479e751a985a3933b1369acfe3.js": "/nba-stats/precache-manifest.ca30d9479e751a985a3933b1369acfe3.js",
     "service-worker.js": "/nba-stats/service-worker.js",
     "static/js/0.1579cef0.chunk.js.LICENSE.txt": "/nba-stats/static/js/0.1579cef0.chunk.js.LICENSE.txt",
     "static/js/1.b03659cf.chunk.js.LICENSE.txt": "/nba-stats/static/js/1.b03659cf.chunk.js.LICENSE.txt",
@@ -29,7 +29,7 @@
     "static/js/8.97777d59.chunk.js.LICENSE.txt": "/nba-stats/static/js/8.97777d59.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c5cc954e.js",
+    "static/js/runtime-main.9031ba4b.js",
     "static/js/7.358911d1.chunk.js",
     "static/js/main.763c8a43.chunk.js"
   ]
