@@ -36,12 +36,12 @@ const ROUTES = {
     NAME: '',
     DISPLAY_IN_MENU: false,
   },
-  STATS: {
-    ROUTE: `${ROUTE_PREF}/stats`,
-    PATH: `${ROUTE_PREF}/stats`,
-    NAME: 'STATS',
-    DISPLAY_IN_MENU: true,
-  },
+  // STATS: {
+  //   ROUTE: `${ROUTE_PREF}/stats`,
+  //   PATH: `${ROUTE_PREF}/stats`,
+  //   NAME: 'STATS',
+  //   DISPLAY_IN_MENU: true,
+  // },
   // NEWS: {
   //   ROUTE: `${ROUTE_PREF}/news`,
   //   PATH: `${ROUTE_PREF}/news`,
