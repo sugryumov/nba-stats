@@ -34,4 +34,6 @@ export const FULL_NAME_TEAMS = [
   { teamId: '1610612745', fullName: 'Houston Rockets' },
   { teamId: '1610612758', fullName: 'Sacramento Kings' },
   { teamId: '1610612750', fullName: 'Minnesota Timberwolves' },
+  { teamId: '1610616834', fullName: 'All-star team' },
+  { teamId: '1610616833', fullName: 'All-star team' },
 ] as TFullNameTeams[];

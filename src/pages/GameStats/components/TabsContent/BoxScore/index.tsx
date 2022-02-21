@@ -8,13 +8,15 @@ const BoxScore = () => {
 
   return (
     <>
-      {Object.entries(activePlayers)?.map(([team, players]) => {
-        return (
-          <div key={team} style={{ paddingBottom: 40 }}>
-            <BoxScoreTable data={players} team={team} />
-          </div>
-        );
-      })}
+      {Object.entries(activePlayers)
+        ?.filter(([_, players]) => players)
+        ?.map(([team, players]) => {
+          return (
+            <div key={team} style={{ paddingBottom: 40 }}>
+              <BoxScoreTable data={players} team={team} />
+            </div>
+          );
+        })}
     </>
   );
 };
