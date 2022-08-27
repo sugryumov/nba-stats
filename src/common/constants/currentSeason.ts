@@ -1,1 +1,1 @@
-export const CURRENT_SEASON = "'21 - '22" as string;
+export const CURRENT_SEASON = "'22 - '23" as string;

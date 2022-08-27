@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import { getTimeRemaining } from 'helpers/countdown';
+import { CURRENT_SEASON } from 'common/constants/currentSeason';
 import { useStyles } from './styles';
 
 const Countdown = ({ deadline }) => {
@@ -61,7 +62,7 @@ const Countdown = ({ deadline }) => {
     <>
       <div className={classes.root}>
         <Typography variant="h2" className={classes.title}>
-          NBA Season 21-22 Starts
+          NBA Season {CURRENT_SEASON} Starts
         </Typography>
 
         <div className={classes.time}>{renderTimer()}</div>
