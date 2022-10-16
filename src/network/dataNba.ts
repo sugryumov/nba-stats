@@ -1,5 +1,6 @@
 import { TGetDataRequest } from 'types';
 import Instance, { TAxios } from 'network/Instance';
+import { CURRENT_SEASON_YEAR } from 'common/constants/currentSeason';
 
 class DataNba extends Instance {
   constructor(baseURL: string, timeout = 30000) {
@@ -32,7 +33,7 @@ class DataNba extends Instance {
 
     return this.send(
       'get',
-      `/data/10s/json/cms/2021/game/${gameDate}/${gameId}/playersPerGame.json`,
+      `/data/10s/json/cms/${CURRENT_SEASON_YEAR}/game/${gameDate}/${gameId}/playersPerGame.json`,
       {},
     );
   }
@@ -44,7 +45,11 @@ class DataNba extends Instance {
 
   // Teams schedule
   async getScheduleTeam(params): TAxios {
-    return this.send('get', `/prod/v1/2021/teams/${params}/schedule.json`, {});
+    return this.send(
+      'get',
+      `/prod/v1/${CURRENT_SEASON_YEAR}/teams/${params}/schedule.json`,
+      {},
+    );
   }
 }
 
