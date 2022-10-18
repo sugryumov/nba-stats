@@ -16,6 +16,7 @@ const GameStatus = ({
   const { current, isEndOfPeriod } = period;
 
   const mskTime = dayjs(startTimeUTC).tz('Europe/Moscow').format('DD.MM HH:mm');
+  // const almTime = dayjs(startTimeUTC).tz('Asia/Almaty').format('DD.MM HH:mm');
 
   return (
     <div className={classes.root}>
